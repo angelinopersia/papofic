@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import { createOvermind } from "overmind";
 import { Provider } from "overmind-react";
 import { config } from "./store";
