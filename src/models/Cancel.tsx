@@ -1,118 +1,138 @@
 import React from "react";
 import styled from "styled-components";
+import { Affix } from "antd";
 
 type CancelVType = {
   firstName: string;
 };
 
 export const CancelB = [
-  { title: "Prénom", name: "firstName" },
-  { title: "Nom", name: "lastName" },
-  { title: "Adresse", name: "address" },
+  // SENDER
+  { title: "Prénom", name: "sFirstName" },
+  { title: "Nom", name: "sLastName" },
+  { title: "Adresse", name: "sAddress" },
+  { title: "Code Postal", name: "sPostcode" },
+  { title: "Ville", name: "sCity" },
+  { title: "Numéro de téléphone", name: "sPhone" },
+  { title: "Adresse email", name: "sEmail" },
+  // DESTINATION
+  { title: "Destinataire", name: "dName" },
+  { title: "Adresse du destinataire", name: "dAddress" },
+  { title: "Code postal du destinataire", name: "dPostcode" },
+  { title: "Ville du destinataire", name: "dCity" },
+  // MISC
+  { title: "Faite à (Ville)", name: "mCity" },
+  { title: "Faite le (Date)", name: "mDate" },
+  { title: "Objet", name: "mObjet" },
+  // CONTENT
+  { title: "Nature du contrat/abonnement", name: "cFile" },
+  { title: "Date de début", name: "cStartDate" },
+  { title: "Date de fin", name: "cEndDate" },
+  { title: "Numéro de contrat/abonnement", name: "cFileNumber" },
+  { title: "Raison de la décision", name: "cReason" },
 ];
 
 export const CancelV = ({
-  firstName,
-  lastName,
-  address,
-  postcode,
-  city,
-  phone,
-  email,
+  // SENDER
+  sFirstName,
+  sLastName,
+  sAddress,
+  sPostcode,
+  sCity,
+  sPhone,
+  sEmail,
+  // DESTINATION
+  dName,
+  dAddress,
+  dPostcode,
+  dCity,
+  // MISC
+  mCity,
+  mDate,
+  mObjet,
+  // CONTENT
+  cFile,
+  cStartDate,
+  cEndDate,
+  cFileNumber,
+  cReason,
 }: any) => (
+  // <Affix>
   <Div>
-    <div className="container">
-      <span>
-        {firstName}, {lastName}
-      </span>
-      <span>{address}</span>
-      <span>
-        {postcode} - {city}
-      </span>
-      <span>{phone}</span>
-      <span>{email}</span>
-    </div>
+    <File>
+      <div className="outer-header" />
+      <div className="container">
+        <div className="inner-header" />
+        <div className="sender-info">
+          <span>
+            {sFirstName}, {sLastName}
+          </span>
+          <span>{sAddress}</span>
+          <span>
+            {sPostcode} - {sCity}
+          </span>
+          <span>{sPhone}</span>
+          <span>{sEmail}</span>
+        </div>
+        <div className="destin-info">
+          <span>{dName}</span>
+          <span>{dAddress}</span>
+          <span>
+            {dPostcode} - {dCity}
+          </span>
+        </div>
+        <div className="done-at">
+          <span>
+            Faite à {mCity}, le {mDate}
+          </span>
+        </div>
+        <div className="object-info">
+          <span>Object: {mObjet}</span>
+        </div>
+        <div className="content">
+          <p>Madame, Monsieur,</p>
+          <p>
+            Par la présente, je vous fais part de ma volonté de résilier mon{" "}
+            {cFile} souscrit le {cStartDate} auprès de vos services, sous le
+            numéro {cFileNumber}.
+          </p>
+          <p>Je souhaite résilier pour la raison suivante : {cReason}</p>
+          <p>
+            Aussi, je vous demande de bien vouloir mettre fin à ce contrat/cet
+            abonnement à compter du {cEndDate}.
+          </p>
+          <p>
+            Si le règlement se fait par prélèvement automatique préciser : Ayant
+            opté pour le prélèvement automatique, je vous demande de bien
+            vouloir interrompre les prélèvements dès que la résiliation sera
+            effective.
+          </p>
+          <br />
+          <p>
+            Veuillez agréer, Madame, Monsieur, l'expression de mes salutations
+            distinguées.
+          </p>
+        </div>
+        <div className="signature">
+          <p>Signature</p>
+        </div>
+        <div className="inner-footing" />
+      </div>
+      <div className="outer-footing" />
+    </File>
   </Div>
+  // </Affix>
 );
 
 const Div = styled.div`
-  ${(p: any) => p.theme}
+  background: white;
+  ${(p: any) => p.theme};
 `;
 
-// STYLE
-// const SenderInfo = styled.div`
-// display: flex;
-// flex-direction: column;
-// `;
-
-// const DestinInfo = styled.div`
-// display: flex;
-// flex-direction: column;
-// text-align-last: right;
-// `;
-
-// const ObjectInfo = styled.div`
-// padding: 20px 0 20px 0;
-// font-weight: bold;
-// `;
-
-// const Text = styled.div``;
-
-// const Signature = styled.div`
-// font-style: italic;
-// `;
-
-// const File = styled.div`
-// display: flex;
-// flex-direction: column;
-// margin: 0 50px 0 50px;
-// padding: 25px;
-// width: 794px;
-// height: 1123px;
-// background-color: white;
-// box-shadow: 0px 0px 20px 0px #888888;
-// border: 1px black solid;
-// color: black;
-// `;
-
-/* <div>
-        <span>{props.name}</span>
-        <span>{props.address}</span>
-        <span>
-          {props.postcode} - {props.city}
-        </span>
-        <br />
-        <span>
-          Faite à {props.atCity}, le {props.atDate}
-        </span>
-      </div>
-      <div>
-        <span>Object: {props.object}</span>
-      </div>
-      <div>
-        <p>Madame, Monsieur,</p>
-        <p>
-          Par la présente, je vous fais part de ma volonté de résilier mon
-          {props.file} souscrit le {props.startDate} auprès de vos services,
-          sous le numéro {props.fileNumber}.
-        </p>
-        <p>Je souhaite résilier pour la raison suivante : {props.reason}</p>
-        <p>
-          Aussi, je vous demande de bien vouloir mettre fin à ce propsrat/cet
-          abonnement à compter du {props.endDate}.
-        </p>
-        <p>
-          Si le règlement se fait par prélèvement automatique préciser : Ayant
-          opté pour le prélèvement automatique, je vous demande de bien vouloir
-          interrompre les prélèvements dès que la résiliation sera effective.
-        </p>
-        <br />
-        <p>
-          Veuillez agréer, Madame, Monsieur, l'expression de mes salutations
-          distinguées.
-        </p>
-      </div>
-      <div>
-        <br />
-        <p>Signature</p>
-      </div> */
+const File = styled.div`
+  margin: 50px 50px 0 50px;
+  width: 794px;
+  height: 1123px;
+  box-shadow: 0px 0px 20px 0px #888888;
+  background-color: white;
+`;
