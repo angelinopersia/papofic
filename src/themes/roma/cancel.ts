@@ -2,30 +2,51 @@ const StyledView = {
   ".container": {
     // border: "1px red dashed",
     display: "grid",
-    // gridTemplateColumns: "50% 50%",
-    padding: "25px",
+    gridTemplateColumns: "30% 70%",
+    // padding: "25px",
     width: "794px",
-    // height: "1123px",
+    height: "1123px",
     backgroundColor: "white",
     color: "black",
+    fontFamily: "calibri",
   },
 
   ".outer-header": {
     // border: "1px red dashed",
   },
+
   ".inner-header": {
     // border: "1px red dashed",
+    backgroundColor: "#042a57",
+    fontSize: "24px",
+    gridColumn: "1",
+    gridRow: "2 / 4",
   },
 
   ".inner-footing": {
     // border: "1px red dashed",
+    backgroundColor: "#083974",
+    gridColumn: "1",
+    gridRow: "9 / 30",
   },
   ".outer-footing": {
     // border: "1px red dashed",
   },
 
+  // ".photo": {
+  // border: "1px red dashed",
+  //   backgroundImage:
+  //     "url('https://www.gstatic.com/tv/thumb/persons/514222/514222_v9_bb.jpg')",
+  //   width: "auto",
+  //   height: "50%",
+  // },
+
   ".sender-names": {
     // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
+    fontSize: "25px",
+    color: "white",
+    backgroundColor: "#083974",
     gridColumn: "1",
     gridRow: "1",
   },
@@ -37,79 +58,98 @@ const StyledView = {
   },
   ".sender-address": {
     // border: "1px red dashed",
-    gridColumn: "1",
-    gridRow: "3",
-  },
-  ".sender-postcode": {
-    // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
+    backgroundColor: "#083974",
+    color: "white",
     gridColumn: "1",
     gridRow: "4",
   },
-  ".sender-city": {
+  ".sender-postcode": {
     // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
+    backgroundColor: "#083974",
+    color: "white",
     gridColumn: "1",
     gridRow: "5",
   },
-  ".sender-phone": {
+  ".sender-city": {
     // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
+    backgroundColor: "#083974",
+    color: "white",
     gridColumn: "1",
     gridRow: "6",
   },
+  ".sender-phone": {
+    // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
+    backgroundColor: "#083974",
+    color: "white",
+    gridColumn: "1",
+    gridRow: "7 / 8",
+  },
   ".sender-email": {
     // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
+    backgroundColor: "#083974",
+    color: "white",
     gridColumn: "1",
-    gridRow: "7",
+    gridRow: "8 / 11",
   },
 
   ".destin-name": {
     // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
     gridColumn: "2",
-    gridRow: "8",
-    textAlignLast: "right",
+    gridRow: "4",
   },
   ".destin-address": {
     // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
     gridColumn: "2",
-    gridRow: "9",
-    textAlignLast: "right",
+    gridRow: "5",
   },
   ".destin-postcode": {
     // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
     gridColumn: "2",
-    gridRow: "10",
-    textAlignLast: "right",
+    gridRow: "6",
   },
   ".destin-city": {
     // border: "1px red dashed",
+    padding: "0 10px 0px 10px",
     gridColumn: "2",
-    gridRow: "11",
-    textAlignLast: "right",
+    gridRow: "7",
   },
 
   ".done-at": {
     // border: "1px red dashed",
-    paddingTop: "20px",
-    textAlignLast: "right",
-    gridColumn: "1 / 3",
+    padding: "20px 10px 0px 10px",
+    gridColumn: "2 / 3",
+    gridRow: "1",
   },
 
   ".object-info": {
     // border: "1px red dashed",
-    padding: "20px 0 20px 0",
+    padding: "20px 10px 20px 10px",
     fontWeight: "bold",
-    gridColumn: "1 / 3",
+    gridColumn: "2 / 3",
+    gridRow: "8",
   },
 
   ".content": {
     // border: "1px red dashed",
-    gridColumn: "1 / 3",
+    padding: "0 10px 0px 10px",
+    gridColumn: "2 / 3",
+    gridRow: "9",
   },
 
   ".signature": {
     // border: "1px red dashed",
-    paddingTop: "20px",
+    padding: "20px 10px 0px 10px",
     fontStyle: "italic",
-    gridColumn: "1 / 3",
+    gridColumn: "2 / 3",
+    gridRow: "10",
   },
 };
 

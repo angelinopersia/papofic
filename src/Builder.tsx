@@ -36,11 +36,11 @@ const Builder = () => {
 
 const Container = styled.div`
   position: relative;
-  display: flex;
-  flex-direction: column;
-
+  display: grid;
+  grid-template-columns: 32.5% 32.5% 32.5%;
+  grid-gap: 10px;
   padding: 15px;
-  width: 1000px;
+  width: 900px;
   height: auto;
   border: 1px black solid;
 `;

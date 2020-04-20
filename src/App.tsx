@@ -14,6 +14,8 @@ import DefaultTest from "./themes/default/test";
 import PikachuCancel from "./themes/pikachu/cancel";
 import PikachuTest from "./themes/pikachu/test";
 
+import RomaCancel from "./themes/roma/cancel";
+
 const themes = {
   default: {
     cancel: DefaultCancel,
@@ -22,6 +24,9 @@ const themes = {
   pikachu: {
     cancel: PikachuCancel,
     test: PikachuTest,
+  },
+  roma: {
+    cancel: RomaCancel,
   },
 };
 
@@ -33,10 +38,12 @@ function App() {
   return (
     <Display>
       <Row>
+        {/* BUILDER */}
         <Col>
           <Builder />
         </Col>
 
+        {/* VIEW */}
         <Col>
           <Layout>
             <ThemeProvider theme={theme}>

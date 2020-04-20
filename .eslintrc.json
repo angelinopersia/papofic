@@ -27,6 +27,7 @@
     "no-unused-vars": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/no-unescaped-entities": "off",
+    "react/button-has-type": "off",
     "object-curly-newline": "off"
   }
 }
