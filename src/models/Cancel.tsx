@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import ReactToPrint from "react-to-print";
 import styled from "styled-components";
-import { Affix } from "antd";
 
 type CancelVType = {
   firstName: string;
@@ -59,93 +58,64 @@ export const CancelV = ({
   cReason,
   ref,
 }: any) => (
-  <table ref={ref}>
-    <thead>
-      <th>column 1</th>
-      <th>column 2</th>
-      <th>column 3</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>data 1</td>
-        <td>data 2</td>
-        <td>data 3</td>
-      </tr>
-      <tr>
-        <td>data 1</td>
-        <td>data 2</td>
-        <td>data 3</td>
-      </tr>
-      <tr>
-        <td>data 1</td>
-        <td>data 2</td>
-        <td>data 3</td>
-      </tr>
-    </tbody>
-  </table>
-  // <Affix>
-  // <Div>
-  //   <File>
-  //     <div className="outer-header" />
-  //     <div className="container">
-  //       <div className="inner-header" />
+  <Div>
+    <div className="outer-header" />
+    <div className="container">
+      <div className="inner-header" />
 
-  //       <div className="photo" />
-  //       <div className="sender-names" ref={ref}>
-  //         <span className="sender-first-name">{sFirstName}</span>
-  //         <span> </span>
-  //         <span className="sender-last-name">{sLastName}</span>
-  //       </div>
-  //       <span className="sender-address">{sAddress}</span>
-  //       <span className="sender-postcode">{sPostcode}</span>
-  //       <span className="sender-city">{sCity}</span>
-  //       <span className="sender-phone">{sPhone}</span>
-  //       <span className="sender-email">{sEmail}</span>
+      <div className="photo" />
+      <div className="sender-names" ref={ref}>
+        <span className="sender-first-name">{sFirstName}</span>
+        <span> </span>
+        <span className="sender-last-name">{sLastName}</span>
+      </div>
+      <span className="sender-address">{sAddress}</span>
+      <span className="sender-postcode">{sPostcode}</span>
+      <span className="sender-city">{sCity}</span>
+      <span className="sender-phone">{sPhone}</span>
+      <span className="sender-email">{sEmail}</span>
 
-  //       <span className="destin-name">{dName}</span>
-  //       <span className="destin-address">{dAddress}</span>
-  //       <span className="destin-postcode">{dPostcode}</span>
-  //       <span className="destin-city">{dCity}</span>
+      <span className="destin-name">{dName}</span>
+      <span className="destin-address">{dAddress}</span>
+      <span className="destin-postcode">{dPostcode}</span>
+      <span className="destin-city">{dCity}</span>
 
-  //       <span className="done-at">
-  //         Faite à {mCity}, le {mDate}
-  //       </span>
+      <span className="done-at">
+        Faite à {mCity}, le {mDate}
+      </span>
 
-  //       <span className="object-info">Object: {mObjet}</span>
+      <span className="object-info">Object: {mObjet}</span>
 
-  //       <div className="content">
-  //         <p>Madame, Monsieur,</p>
-  //         <p>
-  //           Par la présente, je vous fais part de ma volonté de résilier mon{" "}
-  //           {cFile} souscrit le {cStartDate} auprès de vos services, sous le
-  //           numéro {cFileNumber}.
-  //         </p>
-  //         <p>Je souhaite résilier pour la raison suivante : {cReason}</p>
-  //         <p>
-  //           Aussi, je vous demande de bien vouloir mettre fin à ce contrat/cet
-  //           abonnement à compter du {cEndDate}.
-  //         </p>
-  //         <p>
-  //           Si le règlement se fait par prélèvement automatique préciser : Ayant
-  //           opté pour le prélèvement automatique, je vous demande de bien
-  //           vouloir interrompre les prélèvements dès que la résiliation sera
-  //           effective.
-  //         </p>
-  //         <br />
-  //         <p>
-  //           Veuillez agréer, Madame, Monsieur, l'expression de mes salutations
-  //           distinguées.
-  //         </p>
-  //       </div>
+      <div className="content">
+        <p>Madame, Monsieur,</p>
+        <p>
+          Par la présente, je vous fais part de ma volonté de résilier mon{" "}
+          {cFile} souscrit le {cStartDate} auprès de vos services, sous le
+          numéro {cFileNumber}.
+        </p>
+        <p>Je souhaite résilier pour la raison suivante : {cReason}</p>
+        <p>
+          Aussi, je vous demande de bien vouloir mettre fin à ce contrat/cet
+          abonnement à compter du {cEndDate}.
+        </p>
+        <p>
+          Si le règlement se fait par prélèvement automatique préciser : Ayant
+          opté pour le prélèvement automatique, je vous demande de bien vouloir
+          interrompre les prélèvements dès que la résiliation sera effective.
+        </p>
+        <br />
+        <p>
+          Veuillez agréer, Madame, Monsieur, l'expression de mes salutations
+          distinguées.
+        </p>
+      </div>
 
-  //       <p className="signature">Signature</p>
+      <p className="signature">Signature</p>
 
-  //       <div className="inner-footing" />
-  //     </div>
-  //     <div className="outer-footing" />
-  //   </File>
-  // </Div>
-  // </Affix>
+      <div className="inner-footing" />
+    </div>
+    <div className="outer-footing" />
+  </Div>
 );
 
 const Example = () => {
@@ -166,13 +136,4 @@ export default Example;
 const Div = styled.div`
   background: white;
   ${(p: any) => p.theme};
-`;
-
-const File = styled.div`
-  position: absolute;
-  margin: 50px;
-  width: 794px;
-  height: 1123px;
-  box-shadow: 0px 0px 20px 0px #888888;
-  background-color: white;
 `;

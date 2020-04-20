@@ -36,13 +36,13 @@ const Builder = () => {
 
 const Container = styled.div`
   position: relative;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 32.5% 32.5% 32.5%;
   grid-gap: 10px;
   padding: 15px;
-  width: 900px;
+  width: 900px; */
+  padding: 15px;
   height: auto;
-  border: 1px black solid;
 `;
 
 export default Builder;

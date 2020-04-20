@@ -2,7 +2,6 @@ import React, { useEffect, Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Row, Col, Layout } from "antd";
 import { useOvermind } from "./store";
-
 import View from "./View";
 import Builder from "./Builder";
 import "./App.css";
@@ -15,6 +14,8 @@ import PikachuCancel from "./themes/pikachu/cancel";
 import PikachuTest from "./themes/pikachu/test";
 
 import RomaCancel from "./themes/roma/cancel";
+
+const { Header, Footer, Sider, Content } = Layout;
 
 const themes = {
   default: {
@@ -36,23 +37,16 @@ function App() {
   const theme = themes[state.theme][state.model];
 
   return (
-    <Display>
-      <Row>
-        {/* BUILDER */}
-        <Col>
-          <Builder />
-        </Col>
-
-        {/* VIEW */}
-        <Col>
-          <Layout>
-            <ThemeProvider theme={theme}>
-              <View />
-            </ThemeProvider>
-          </Layout>
-        </Col>
-      </Row>
-    </Display>
+    <Layout>
+      <Sider theme="light" width={500}>
+        <Builder />
+      </Sider>
+      <Content>
+        <ThemeProvider theme={theme}>
+          <View />
+        </ThemeProvider>
+      </Content>
+    </Layout>
   );
 }
 
