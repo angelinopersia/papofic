@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Card, Input } from "antd";
+import { Tab, Tabs, Card, InputGroup } from "@blueprintjs/core";
 import { useOvermind } from "./store";
 import { CancelB } from "./models/Cancel";
 import { TestB } from "./models/Test";
@@ -13,36 +13,45 @@ const models = {
 const Builder = () => {
   const { state, actions } = useOvermind();
   const genericModel = models[state.model];
-
   return (
-    <Container>
-      {genericModel.map((input) => (
-        <Card title={input.title}>
-          <Input
-            name={input.name}
-            placeholder={input.title}
-            onChange={(e) => {
-              actions.changeValue({
-                key: input.name,
-                value: e.target.value,
-              });
-            }}
+    <Container className="bp3-dark">
+      <Tabs id="TabsExample" key="horizontal" renderActiveTabPanelOnly={false}>
+        {genericModel.map((type, i: number) => (
+          <Tab
+            id={i}
+            title={type.title}
+            panel={
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <Card>
+                {genericModel[i].items.map((input) => (
+                  <Input
+                    name={input.name}
+                    placeholder={input.title}
+                    onChange={(e) => {
+                      actions.changeValue({
+                        key: input.name,
+                        value: e.target.value,
+                      });
+                    }}
+                  />
+                ))}
+              </Card>
+            }
           />
-        </Card>
-      ))}
+        ))}
+      </Tabs>
     </Container>
   );
 };
 
 const Container = styled.div`
   position: relative;
-  /* display: grid;
-  grid-template-columns: 32.5% 32.5% 32.5%;
-  grid-gap: 10px;
-  padding: 15px;
-  width: 900px; */
-  padding: 15px;
   height: auto;
+  padding: 15px;
+`;
+
+const Input = styled(InputGroup)`
+  margin: 15px 0 15px 0;
 `;
 
 export default Builder;

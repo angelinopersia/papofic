@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import ReactToPrint from "react-to-print";
 import styled from "styled-components";
+import { Button, Icon, Intent, Position, Tooltip } from "@blueprintjs/core";
 import { useOvermind } from "./store";
 import { CancelV } from "./models/Cancel";
 import { TestV } from "./models/Test";
@@ -18,7 +19,21 @@ const View = () => {
   return (
     <>
       <ReactToPrint
-        trigger={() => <button>Print this out!</button>}
+        trigger={() => (
+          <div className="bp3-dark">
+            <HoverText content="Imprimer le document" position={Position.TOP}>
+              <Print>
+                <PrintContent>
+                  <Icon
+                    icon="print"
+                    iconSize={Icon.SIZE_LARGE}
+                    intent={Intent.NONE}
+                  />
+                </PrintContent>
+              </Print>
+            </HoverText>
+          </div>
+        )}
         content={() => componentRef.current}
       />
 
@@ -41,6 +56,32 @@ const File = styled.div`
     0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
     0 100px 80px rgba(0, 0, 0, 0.07);
   background-color: white;
+`;
+
+const Print = styled(Button)`
+  position: fixed;
+  bottom: 50px;
+  right: 60px;
+  height: 50px;
+  width: 50px;
+  color: white;
+  background-color: #30404d;
+  border-radius: 50%;
+  outline: none;
+`;
+
+const PrintContent = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+`;
+
+const HoverText = styled(Tooltip)`
+  position: fixed;
+  bottom: 95px;
+  right: 85px;
 `;
 
 export default View;

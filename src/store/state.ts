@@ -5,7 +5,7 @@ export type StateType = {
 
 export const state: any = {
   model: "cancel",
-  theme: "pikachu",
+  theme: "default",
   data: {
     // SENDER
     sFirstName: "Prénom",
