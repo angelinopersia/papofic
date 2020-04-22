@@ -1,91 +1,138 @@
 const StyledView = {
+  ".x": {
+    // border: "1px red dashed",
+  },
+
   ".container": {
     display: "grid",
-    gridTemplateColumns: "auto auto auto",
     padding: "25px",
     width: "794px",
     // height: "1123px",
     backgroundColor: "white",
     color: "black",
-    fontFamily: "calibri",
+    fontFamily: "sans",
   },
 
   ".outer-header": {
-    // width: "auto",
-    height: "50px",
+    //
   },
-
   ".inner-header": {
-    width: "50%",
-    height: "100px",
-    borderBottom: "1px black solid",
-    gridColumnStart: "2",
-    gridColumnEnd: "4",
+    width: "100%",
+    borderBottom: "2px #B50000 solid",
+    gridColumn: "1 / 4",
+    gridRow: "7",
   },
 
   ".inner-footing": {
-    // width: "auto",
-    // height: "auto",
+    gridColumn: "1 / 4",
+    gridRow: "17",
+    width: "100%",
+    height: "330px",
+    borderBottom: "2px #B50000 solid",
   },
-
   ".outer-footing": {
-    // width: "auto",
-    // height: "auto",
+    //
   },
 
-  ".sender-info": {
+  // SENDER
+  ".sender-names": {
     display: "flex",
-    flexDirection: "column",
-    gridColumnStart: "1",
-    gridColumnEnd: "4",
-    gridRow: "1",
-    color: "red",
+    flexDirection: "row",
+    fontSize: "30px",
+    color: "#B50000",
+    gridColumn: "1",
+    gridRow: "1 / 8",
+  },
+  ".sender-first-name": {
+    display: "flex",
+    flexDirection: "column-reverse",
+    paddingRight: "10px",
+  },
+  ".sender-last-name": {
+    display: "flex",
+    flexDirection: "column-reverse",
+  },
+  ".sender-address": {
+    color: "#B50000",
     fontWeight: "bold",
-  },
-
-  ".destin-info": {
-    display: "flex",
-    flexDirection: "column",
-    gridColumnStart: "1",
-    gridColumnEnd: "4",
+    textAlign: "right",
+    gridColumn: "2",
     gridRow: "3",
   },
+  ".sender-postcode": {
+    color: "#B50000",
+    fontWeight: "bold",
+    textAlign: "right",
+    gridColumn: "2",
+    gridRow: "4",
+  },
+  ".sender-city": {
+    color: "#B50000",
+    fontWeight: "bold",
+    textAlign: "right",
+    gridColumn: "2",
+    gridRow: "5",
+  },
+  ".sender-phone": {
+    color: "#B50000",
+    fontWeight: "bold",
+    textAlign: "right",
+    gridColumn: "2",
+    gridRow: "6",
+  },
+  ".sender-email": {
+    color: "#B50000",
+    fontWeight: "bold",
+    textAlign: "right",
+    height: "23px",
+    gridColumn: "2",
+    gridRow: "7",
+  },
 
+  // DESTINATION
+  ".destin-name": {
+    gridColumn: "1",
+    gridRow: "9",
+  },
+  ".destin-address": {
+    gridColumn: "1",
+    gridRow: "10",
+  },
+  ".destin-postcode": {
+    gridColumn: "1",
+    gridRow: "11",
+  },
+  ".destin-city": {
+    gridColumn: "1",
+    gridRow: "12",
+  },
+
+  // MISC
   ".done-at": {
-    paddingTop: "20px",
-    paddingBottom: "20px",
-    display: "flex",
-    flexDirection: "column",
-    gridColumnStart: "1",
-    gridColumnEnd: "4",
-    gridRow: "2",
-    color: "red",
+    padding: "20px 0 20px 0",
+    gridColumn: "1",
+    gridRow: "8",
   },
 
   ".object-info": {
     padding: "20px 0 20px 0",
     fontWeight: "bold",
-    gridColumnStart: "1",
-    gridColumnEnd: "4",
+    gridColumn: "1 / 3",
+    gridRow: "13",
   },
 
+  // CONTENT
   ".content": {
-    gridColumnStart: "1",
-    gridColumnEnd: "4",
+    paddingTop: "50px",
+    gridColumn: "1 / 3",
+    gridRow: "14",
   },
 
   ".signature": {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-end",
     paddingTop: "20px",
     fontStyle: "italic",
-    fontWeight: "800",
-    fontSize: "20px",
-    gridColumnStart: "1",
-    gridColumnEnd: "4",
-    textAlign: "center",
-    color: "red",
+    gridColumn: "1 / 3",
+    gridRow: "15",
   },
 };
 

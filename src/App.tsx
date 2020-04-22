@@ -1,8 +1,6 @@
 import React, { useEffect, Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { Row, Col, Layout } from "antd";
 import { useOvermind } from "./store";
-
 import View from "./View";
 import Builder from "./Builder";
 import "./App.css";
@@ -14,6 +12,8 @@ import DefaultTest from "./themes/default/test";
 import PikachuCancel from "./themes/pikachu/cancel";
 import PikachuTest from "./themes/pikachu/test";
 
+import RomaCancel from "./themes/roma/cancel";
+
 const themes = {
   default: {
     cancel: DefaultCancel,
@@ -22,6 +22,9 @@ const themes = {
   pikachu: {
     cancel: PikachuCancel,
     test: PikachuTest,
+  },
+  roma: {
+    cancel: RomaCancel,
   },
 };
 
@@ -32,23 +35,31 @@ function App() {
 
   return (
     <Display>
-      <Row>
-        <Col>
-          <Builder />
-        </Col>
-
-        <Col>
-          <Layout>
-            <ThemeProvider theme={theme}>
-              <View />
-            </ThemeProvider>
-          </Layout>
-        </Col>
-      </Row>
+      <BuilderSide>
+        <Builder />
+      </BuilderSide>
+      <ViewSide>
+        <ThemeProvider theme={theme}>
+          <View />
+        </ThemeProvider>
+      </ViewSide>
     </Display>
   );
 }
 
-const Display = styled.div``;
+const Display = styled.div`
+  display: grid;
+  grid-template-columns: 500px auto;
+`;
+
+const BuilderSide = styled.div`
+  grid-column: 1 / 2;
+  background-color: #30404d;
+`;
+
+const ViewSide = styled.div`
+  background-color: #efefef;
+  grid-column: 2 / 2;
+`;
 
 export default App;
