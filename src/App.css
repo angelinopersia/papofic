@@ -7,3 +7,8 @@
   font-family: Calibri;
   src: url(assets/fonts/Calibri-Regular.ttf);
 }
+
+@font-face {
+  font-family: Cambria;
+  src: url(assets/fonts/Cambria.ttf);
+}
