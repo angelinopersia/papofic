@@ -11,7 +11,13 @@ const StyledView = {
   },
 
   ".top": {},
-  ".bottom": {},
+  ".bottom": {
+    width: 794,
+    height: 500,
+    background: "#ade4c5",
+    position: "absolute",
+    transform: "skewY(-11deg)",
+  },
   ".left": {},
   ".right": {},
 
@@ -26,7 +32,7 @@ const StyledView = {
 
   ".object-info": {
     padding: "40px 0",
-    fontWeight: 700,
+    fontSize: 18,
   },
 
   ".content": {

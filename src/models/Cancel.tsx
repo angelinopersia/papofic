@@ -145,32 +145,36 @@ export const CancelV = ({
   ref,
 }: any) => (
   <Div>
-    <div className="outer-header" />
+    <div className="top" />
+    <div className="left" />
+    <div className="right" />
+
     <div className="container">
-      <div className="inner-header" />
+      <div className="head">
+        <ul className="sender">
+          <li>
+            {sFirstName} {sLastName}
+          </li>
+          <li>{sAddress}</li>
+          <li>{sPostcode}</li>
+          <li>{sCity}</li>
+          <li>{sPhone}</li>
+          <li>{sEmail}</li>
+        </ul>
 
-      <div className="photo" />
-      <div className="sender-names" ref={ref}>
-        <span className="sender-first-name">{sFirstName}</span>
-        <span> </span>
-        <span className="sender-last-name">{sLastName}</span>
+        <ul className="destin">
+          <li>{dName}</li>
+          <li>{dAddress}</li>
+          <li>{dPostcode}</li>
+          <li>{dCity}</li>
+        </ul>
+
+        <span className="done-at">
+          Fait à {mCity}, le {mDate}
+        </span>
+
+        <span className="object-info">Objet: {mObjet}</span>
       </div>
-      <span className="sender-address">{sAddress}</span>
-      <span className="sender-postcode">{sPostcode}</span>
-      <span className="sender-city">{sCity}</span>
-      <span className="sender-phone">{sPhone}</span>
-      <span className="sender-email">{sEmail}</span>
-
-      <span className="destin-name">{dName}</span>
-      <span className="destin-address">{dAddress}</span>
-      <span className="destin-postcode">{dPostcode}</span>
-      <span className="destin-city">{dCity}</span>
-
-      <span className="done-at">
-        Faite à {mCity}, le {mDate}
-      </span>
-
-      <span className="object-info">Object: {mObjet}</span>
 
       <div className="content">
         <p>Madame, Monsieur,</p>
@@ -197,10 +201,8 @@ export const CancelV = ({
       </div>
 
       <p className="signature">Signature</p>
-
-      <div className="inner-footing" />
     </div>
-    <div className="outer-footing" />
+    <div className="bottom" />
   </Div>
 );
 

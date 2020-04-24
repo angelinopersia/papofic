@@ -6,13 +6,18 @@ const StyledView = {
   },
 
   ".container": {
-    padding: 25,
+    padding: "25px 25px 25px 50px",
     fontFamily: "Calibri",
   },
 
   ".top": {},
   ".bottom": {},
-  ".left": {},
+  ".left": {
+    width: 25,
+    height: 1123,
+    background: "tomato",
+    position: "absolute",
+  },
   ".right": {},
 
   ".head": { display: "grid" },
@@ -26,7 +31,7 @@ const StyledView = {
 
   ".object-info": {
     padding: "40px 0",
-    fontWeight: 700,
+    fontSize: 18,
   },
 
   ".content": {
