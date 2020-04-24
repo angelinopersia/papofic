@@ -49,7 +49,7 @@ function App() {
 
 const Display = styled.div`
   display: grid;
-  grid-template-columns: 500px auto;
+  grid-template-columns: 400px auto;
 `;
 
 const BuilderSide = styled.div`

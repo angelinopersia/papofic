@@ -89,7 +89,7 @@ const StyledView = {
   },
 
   ".object-info": {
-    padding: "20px 0 20px 0",
+    padding: "40px 0 40px 0",
     fontWeight: "bold",
     gridColumn: "1 / 3",
   },
@@ -100,7 +100,7 @@ const StyledView = {
   },
 
   ".signature": {
-    paddingTop: "20px",
+    paddingTop: "100px",
     fontStyle: "italic",
     gridColumn: "1 / 3",
   },
