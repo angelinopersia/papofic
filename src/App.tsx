@@ -9,22 +9,26 @@ import "./App.css";
 import DefaultCancel from "./themes/default/cancel";
 import DefaultTest from "./themes/default/test";
 
-import PikachuCancel from "./themes/pikachu/cancel";
-import PikachuTest from "./themes/pikachu/test";
+import DublinCancel from "./themes/dublin/cancel";
+import DublinTest from "./themes/dublin/test";
 
 import RomaCancel from "./themes/roma/cancel";
+import ChicagoCancel from "./themes/chicago/cancel";
 
 const themes = {
   default: {
     cancel: DefaultCancel,
     test: DefaultTest,
   },
-  pikachu: {
-    cancel: PikachuCancel,
-    test: PikachuTest,
+  dublin: {
+    cancel: DublinCancel,
+    test: DublinTest,
   },
   roma: {
     cancel: RomaCancel,
+  },
+  chicago: {
+    cancel: ChicagoCancel,
   },
 };
 
