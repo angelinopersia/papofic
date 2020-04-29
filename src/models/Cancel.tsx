@@ -1,122 +1,122 @@
 import React from "react";
 import styled from "styled-components";
+import { cpus } from "os";
 
 type CancelVType = {
   firstName: string;
 };
 
-const sender = {
-  title: "Emetteur",
-  id: "sender",
-  items: [
-    { title: "Prénom", name: "sFirstName", icon: "person" },
-    { title: "Nom", name: "sLastName", icon: "person" },
-    { title: "Adresse", name: "sAddress", icon: "home", fullRow: true },
-    {
-      title: "Code Postal",
-      name: "sPostcode",
-      icon: "map-marker",
-    },
-    { title: "Ville", name: "sCity", icon: "map-marker" },
-    {
-      title: "Numéro de téléphone",
-      name: "sPhone",
-      icon: "phone",
-    },
-    { title: "Adresse email", name: "sEmail", icon: "envelope" },
-  ],
-};
-const destination = {
-  title: "Destinataire",
-  id: "destination",
-  items: [
-    { title: "Destinataire", name: "dName", icon: "person", fullRow: true },
-    {
-      title: "Adresse",
-      name: "dAddress",
-      icon: "home",
-      fullRow: true,
-    },
-    {
-      title: "Code postal",
-      name: "dPostcode",
-      icon: "map-marker",
-    },
-    {
-      title: "Ville",
-      name: "dCity",
-      icon: "map-marker",
-    },
-  ],
-};
-const misc = {
-  title: "Divers",
-  id: "misc",
-  items: [
-    {
-      title: "Faite à (Ville)",
-      name: "mCity",
-      icon: "map-marker",
-    },
-    {
-      title: "Faite le (Date)",
-      name: "mDate",
-      icon: "calendar",
-      type: "date",
-    },
-    { title: "Objet", name: "mObjet", icon: "edit", fullRow: true },
-  ],
-};
-const content = {
-  title: "Contenu",
-  id: "content",
-  items: [
-    {
-      title: "Nature du contrat/abonnement",
-      name: "cFile",
-      icon: "edit",
-      fullRow: true,
-    },
-    // {
-    //   title: "Date de début",
-    //   name: "cStartDate",
-    //   icon: "timeline-events",
-    //   fullRow: true,
-    //   type: "textArea",
-    // },
-    {
-      title: "Date de début",
-      name: "cStartDate",
-      icon: "timeline-events",
-    },
-    {
-      title: "Date de fin",
-      name: "cEndDate",
-      icon: "timeline-events",
-    },
-    {
-      title: "Numéro de contrat/abonnement",
-      name: "cFileNumber",
-      icon: "numerical",
-      fullRow: true,
-    },
-    {
-      title: "Raison de la décision",
-      name: "cReason",
-      icon: "comment",
-      fullRow: true,
-      type: "textArea",
-    },
-  ],
-};
+export const CancelB = [
+  {
+    title: "Emetteur",
+    id: "sender",
+    items: [
+      { title: "Prénom", name: "sFirstName", icon: "person" },
+      { title: "Nom", name: "sLastName", icon: "person" },
+      { title: "Adresse", name: "sAddress", icon: "home", fullRow: true },
+      {
+        title: "Code Postal",
+        name: "sPostcode",
+        icon: "map-marker",
+      },
+      { title: "Ville", name: "sCity", icon: "map-marker" },
+      {
+        title: "Numéro de téléphone",
+        name: "sPhone",
+        icon: "phone",
+      },
+      { title: "Adresse email", name: "sEmail", icon: "envelope" },
+    ],
+  },
+  {
+    title: "Destinataire",
+    id: "destination",
+    items: [
+      { title: "Destinataire", name: "dName", icon: "person", fullRow: true },
+      {
+        title: "Adresse",
+        name: "dAddress",
+        icon: "home",
+        fullRow: true,
+      },
+      {
+        title: "Code postal",
+        name: "dPostcode",
+        icon: "map-marker",
+      },
+      {
+        title: "Ville",
+        name: "dCity",
+        icon: "map-marker",
+      },
+    ],
+  },
+  {
+    title: "Divers",
+    id: "misc",
+    items: [
+      {
+        title: "Faite à (Ville)",
+        name: "mCity",
+        icon: "map-marker",
+      },
+      {
+        title: "Faite le (Date)",
+        name: "mDate",
+        icon: "calendar",
+        type: "singleDate",
+      },
+      { title: "Objet", name: "mObjet", icon: "edit", fullRow: true },
+    ],
+  },
+  {
+    title: "Contenu",
+    id: "content",
+    items: [
+      {
+        title: "Nature du contrat/abonnement",
+        name: "cFile",
+        icon: "edit",
+        fullRow: true,
+      },
+      {
+        title: "Date de début et de fin",
+        name: "cDate",
+        icon: "timeline-events",
+        fullRow: true,
+        type: "doubleDate",
+      },
+      {
+        title: "Numéro de contrat/abonnement",
+        name: "cFileNumber",
+        icon: "numerical",
+        fullRow: true,
+      },
+      {
+        title: "Raison de la décision",
+        name: "cReason",
+        icon: "comment",
+        fullRow: true,
+        type: "textArea",
+      },
+    ],
+  },
+];
 
-export const CancelB = [sender, destination, misc, content];
-export const CancelL = {
-  sender: true,
-  destination: true,
-  misc: true,
-  content: true,
-};
+let obj = {};
+// eslint-disable-next-line no-plusplus
+for (let i = 0; i < Object.keys(CancelB).length; i++) {
+  const clonedObj = { ...obj };
+  const cancelId = CancelB[i].id;
+  if (i === 0) {
+    clonedObj[cancelId] = true;
+  } else {
+    clonedObj[cancelId] = false;
+  }
+  obj = clonedObj;
+}
+
+export const CancelL = obj;
 
 export const CancelV = ({
   // SENDER
@@ -138,8 +138,7 @@ export const CancelV = ({
   mObjet = "Résiliation de contrat",
   // CONTENT
   cFile = "(contrat/abonnement)",
-  cStartDate = "(date de début)",
-  cEndDate = "(date de fin)",
+  cDate = ["(date de début)", "(date de fin)"],
   cFileNumber = "(numéro du contrat/abonnement)",
   cReason = "(raison de la décision)",
   ref,
@@ -180,13 +179,13 @@ export const CancelV = ({
         <p>Madame, Monsieur,</p>
         <p>
           Par la présente, je vous fais part de ma volonté de résilier mon{" "}
-          {cFile} souscrit le {cStartDate} auprès de vos services, sous le
-          numéro {cFileNumber}.
+          {cFile} souscrit le {cDate[0]} auprès de vos services, sous le numéro{" "}
+          {cFileNumber}.
         </p>
         <p>Je souhaite résilier pour la raison suivante : {cReason}</p>
         <p>
           Aussi, je vous demande de bien vouloir mettre fin à ce contrat/cet
-          abonnement à compter du {cEndDate}.
+          abonnement à compter du {cDate[1]}.
         </p>
         <p>
           Si le règlement se fait par prélèvement automatique préciser : Ayant

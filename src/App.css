@@ -12,3 +12,7 @@
   font-family: Cambria;
   src: url(assets/fonts/Cambria.ttf);
 }
+
+body {
+  overflow-x: hidden;
+}

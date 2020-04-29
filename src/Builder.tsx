@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-wrap-multilines */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable indent */
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
@@ -5,23 +7,24 @@ import {
   Button,
   Card,
   Collapse,
-  Icon,
   InputGroup,
-  Intent,
   Tab,
   Tabs,
   TextArea,
-  Divider,
-  Position,
 } from "@blueprintjs/core";
-import { DateInput, IDateFormatProps } from "@blueprintjs/datetime";
-import { LocaleUtils } from "react-day-picker";
+import {
+  DateInput,
+  DateRangeInput,
+  IDateFormatProps,
+} from "@blueprintjs/datetime";
 import MomentLocaleUtils from "react-day-picker/moment";
 import "moment/locale/fr";
+import moment from "moment";
 
 import { useOvermind } from "./store";
 import { CancelB, CancelL } from "./models/Cancel";
 import { TestB } from "./models/Test";
+import { themes, colors } from "./themes/themesConfig";
 
 // MODELS
 const models = {
@@ -58,24 +61,61 @@ const Builder = () => {
     setList(newList);
   };
 
-  const returnSmth = (input) => {
+  function getMomentFormatter(format: string): IDateFormatProps {
+    // note that locale argument comes from locale prop and may be undefined
+
+    return {
+      formatDate: (date, locale = "fr") =>
+        moment(date).locale(locale).format("LL"),
+      parseDate: (str, locale = "fr") =>
+        moment(str, "LL").locale(locale).toDate(),
+      placeholder: format,
+    };
+  }
+
+  const returnInput = (input) => {
     if (input.type === "textArea") {
       return <InputArea placeholder={input.title} growVertically />;
       // eslint-disable-next-line no-else-return
-    } else if (input.type === "date") {
+    } else if (input.type === "singleDate") {
       return (
-        <DateInput
+        <DateSingle
           formatDate={(date) => date.toLocaleString()}
           parseDate={(str) => new Date(str)}
           placeholder={input.title}
-          localeUtils={MomentLocaleUtils}
-          locale="fr"
           onChange={(e) => {
             actions.changeValue({
               key: input.name,
-              // value: e.target.value,
+              value: moment(e).locale("fr").format("LL"),
             });
           }}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...getMomentFormatter(input.title)}
+          locale="fr"
+          localeUtils={MomentLocaleUtils}
+        />
+      );
+    } else if (input.type === "doubleDate") {
+      return (
+        <DateDouble
+          formatDate={(date) => date.toLocaleString()}
+          parseDate={(str) => new Date(str)}
+          placeholder={input.title}
+          allowSingleDayRange
+          shortcuts={false}
+          onChange={(e) => {
+            actions.changeValue({
+              key: input.name,
+              value: [
+                moment(e[0]).locale("fr").format("LL"),
+                moment(e[1]).locale("fr").format("LL"),
+              ],
+            });
+          }}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...getMomentFormatter(input.title)}
+          locale="fr"
+          localeUtils={MomentLocaleUtils}
         />
       );
     } else {
@@ -95,52 +135,93 @@ const Builder = () => {
     }
   };
 
+  const getFirstLetter = (prop) => {
+    let letter = prop;
+    letter = letter.split("").splice(0, 1).join().toUpperCase();
+    return letter;
+  };
+
   return (
     <Container className="bp3-dark">
-      {genericModel.map((type, i) => (
-        <CatCard>
-          <div>
-            <Button
-              large
-              alignText="left"
-              fill
-              onClick={() => {
-                handleClick(type.id);
-              }}
-              rightIcon={
-                list[type.id] === true ? "chevron-left" : "chevron-down"
-              }
-            >
-              {type.title}
-            </Button>
-            <Collapse isOpen={list[type.id]} keepChildrenMounted>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "50% 50%",
-                  margin: "5px",
-                }}
-              >
-                <>
-                  {genericModel[i].items.map((input) => (
-                    <div
-                      style={
-                        input.fullRow
-                          ? {
-                              gridColumn: "1 / 3",
-                            }
-                          : {}
-                      }
-                    >
-                      {returnSmth(input)}
-                    </div>
-                  ))}
-                </>
+      <Tabs>
+        <Tab
+          id="1"
+          title="Données"
+          panel={genericModel.map((type, i) => (
+            <CatCard>
+              <div>
+                <Button
+                  large
+                  alignText="left"
+                  fill
+                  onClick={() => {
+                    handleClick(type.id);
+                  }}
+                  rightIcon={
+                    list[type.id] === true ? "chevron-left" : "chevron-down"
+                  }
+                >
+                  {type.title}
+                </Button>
+                <Collapse isOpen={list[type.id]} keepChildrenMounted>
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "50% 50%",
+                      margin: "5px",
+                    }}
+                  >
+                    <>
+                      {genericModel[i].items.map((input) => (
+                        <div
+                          style={
+                            input.fullRow
+                              ? {
+                                  gridColumn: "1 / 3",
+                                }
+                              : {}
+                          }
+                        >
+                          {returnInput(input)}
+                        </div>
+                      ))}
+                    </>
+                  </div>
+                </Collapse>
               </div>
-            </Collapse>
-          </div>
-        </CatCard>
-      ))}
+            </CatCard>
+          ))}
+        />
+        <Tab
+          id="2"
+          title="Thèmes"
+          panel={
+            <Card>
+              <ThemeDisplay>
+                {themes.map(
+                  (input, i) =>
+                    input[state.model] && (
+                      <ThemeContainer>
+                        <ThemeThumbnail
+                          onClick={(e) => {
+                            actions.changeTheme({
+                              value: input.title,
+                            });
+                          }}
+                        >
+                          <ThemeLogo state={state} input={input}>
+                            {getFirstLetter(input.title)}
+                          </ThemeLogo>
+                        </ThemeThumbnail>
+                        <ThemeTitle>Thème {input.title}</ThemeTitle>
+                      </ThemeContainer>
+                    ),
+                )}
+              </ThemeDisplay>
+            </Card>
+          }
+        />
+      </Tabs>
     </Container>
   );
 };
@@ -162,44 +243,54 @@ const InputArea = styled(TextArea)`
   resize: none;
 `;
 
+const DateSingle = styled(DateInput)`
+  width: calc(100% - 10px);
+  margin: 5px;
+`;
+
+const DateDouble = styled(DateRangeInput)`
+  /* width: calc(100% - 10px); */
+  margin: 5px;
+`;
+
 const CatCard = styled(Card)`
   padding: 0 0 1px 0;
   margin: 0 0 20px 0;
 `;
 
-export default Builder;
+const ThemeDisplay = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
+`;
 
-// eslint-disable-next-line no-lone-blocks
-{
-  /* <Tab
-    id={i}
-    title={type.title}
-    panel={
-      // eslint-disable-next-line react/jsx-wrap-multilines
-      <>
-        {genericModel[i].items.map((input) => (
-          <>
-            <Input
-              name={input.name}
-              placeholder={input.title}
-              onChange={(e) => {
-                actions.changeValue({
-                  key: input.name,
-                  value: e.target.value,
-                });
-              }}
-              style={
-                input.position && {
-                  display: "grid",
-                  grid: "auto / 1fr 1fr",
-                  gridGap: "8px",
-                  alignItems: "center",
-                }
-              }
-            />
-          </>
-        ))}
-      </>
-    }
-  /> */
-}
+const ThemeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+`;
+
+const ThemeThumbnail = styled.div`
+  display: flex;
+  justify-content: center;
+  border: #222f37 5px solid;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  align-items: center;
+`;
+
+const ThemeLogo = styled.span`
+  font-size: 70px;
+  font-weight: 700;
+  color: ${(props) => colors[props.state.model][props.input.title]};
+  user-select: none;
+`;
+
+const ThemeTitle = styled.span`
+  margin: 5px;
+`;
+
+export default Builder;
