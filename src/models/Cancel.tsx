@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { cpus } from "os";
 
-type CancelVType = {
+type CancelType = {
   firstName: string;
 };
 
@@ -102,20 +101,6 @@ export const CancelB = [
     ],
   },
 ];
-
-let obj = {};
-for (let i = 0; i < Object.keys(CancelB).length; i++) {
-  const clonedObj = { ...obj };
-  const cancelId = CancelB[i].id;
-  if (i === 0) {
-    clonedObj[cancelId] = true;
-  } else {
-    clonedObj[cancelId] = false;
-  }
-  obj = clonedObj;
-}
-
-export const CancelL = obj;
 
 export const CancelV = ({
   // SENDER

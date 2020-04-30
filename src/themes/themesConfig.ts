@@ -35,8 +35,6 @@ export const themes = [
   },
 ];
 
-const models = ["cancel", "test"];
-
 export const colors = {
   cancel: {
     chicago,
@@ -49,20 +47,3 @@ export const colors = {
     dublin,
   },
 };
-
-let obj = {};
-for (let m = 0; m < models.length; m++) {
-  const clonedObj = { ...obj };
-  const modelTitle = models[m];
-  clonedObj[modelTitle] = {};
-
-  for (let t = 0; t < themes.length; t++) {
-    const themeTitle = themes[t].title;
-
-    if (themes[t][modelTitle]) {
-      clonedObj[modelTitle][themeTitle] = colors[modelTitle][themeTitle];
-    }
-  }
-  // console.log(clonedObj);
-  obj = clonedObj;
-}

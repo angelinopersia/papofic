@@ -6,18 +6,22 @@ import View from "./View";
 import { themes } from "./themes/themesConfig";
 import "./App.css";
 
-let obj = {};
-for (let i = 0; i < themes.length; i++) {
-  const clonedObj = { ...obj };
-  const themeTitle = themes[i].title;
-  clonedObj[themeTitle] = themes[i];
-  obj = clonedObj;
-}
-
-function App() {
+const App = () => {
   const { state } = useOvermind();
 
-  const theme = obj[state.theme][state.model];
+  const getTheme = () => {
+    let obj = {};
+    for (let i = 0; i < themes.length; i++) {
+      const clonedObj = { ...obj };
+      const themeTitle = themes[i].title;
+      clonedObj[themeTitle] = themes[i];
+      obj = clonedObj;
+    }
+
+    return obj[state.theme][state.model];
+  };
+
+  const theme = getTheme();
 
   return (
     <Display>
@@ -31,7 +35,7 @@ function App() {
       </ViewSide>
     </Display>
   );
-}
+};
 
 const Display = styled.div`
   display: grid;
@@ -41,6 +45,7 @@ const Display = styled.div`
 const BuilderSide = styled.div`
   grid-column: 1 / 2;
   background-color: #30404d;
+  overflow: hidden;
 `;
 
 const ViewSide = styled.div`

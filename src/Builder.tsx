@@ -5,6 +5,7 @@ import {
   Card,
   Collapse,
   InputGroup,
+  PanelStack,
   Tab,
   Tabs,
   TextArea,
@@ -19,57 +20,69 @@ import "moment/locale/fr";
 import moment from "moment";
 
 import { useOvermind } from "./store";
-import { CancelB, CancelL } from "./models/Cancel";
+import { CancelB } from "./models/Cancel";
 import { TestB } from "./models/Test";
 import { colors, themes } from "./themes/themesConfig";
 
-// MODELS
 const models = {
   cancel: CancelB,
   test: TestB,
 };
 
-// LISTS
-const lists = {
-  cancel: CancelL,
-  test: CancelL,
+const Builder = () => {
+  return (
+    <Container className="bp3-dark">
+      <PanelStack
+        initialPanel={{
+          component: ModelsPanel,
+          title: "Papofic",
+        }}
+      />
+    </Container>
+  );
 };
 
-const Builder = () => {
-  // OVERMIND
-  const { state, actions } = useOvermind();
+const ModelsPanel = (props: any) => {
+  return (
+    <>
+      <Button
+        onClick={() =>
+          props.openPanel({
+            title: "Create a new repository",
+            component: TabsPanel,
+          })
+        }
+      >
+        Suivant
+      </Button>
+    </>
+  );
+};
 
-  // GENERIC
-  const genericList = lists[state.model];
-  const genericModel = models[state.model];
+const TabsPanel = () => {
+  const { panelZero, panelOne } = usePanel();
 
-  // USESTATE
-  const [list, setList] = useState({});
+  return (
+    <Tabs>
+      <Tab id="0" panel={panelZero} title="Données" />
+      <Tab id="1" panel={panelOne} title="Thèmes" />
+    </Tabs>
+  );
+};
 
-  // USEEFFECT
-  useEffect(() => {
-    setList(genericList);
-  }, []);
-
-  // COLLAPSE FUNCTION
-  const handleClick = (id) => {
-    const newList = { ...list };
-    newList[id] = !newList[id];
-    setList(newList);
-  };
+const useInput = () => {
+  const { actions } = useOvermind();
 
   // DATE FORMATTING FUNCTION
-  function getMomentFormatter(format: string): IDateFormatProps {
-    return {
-      formatDate: (date, locale = "fr") =>
-        moment(date).locale(locale).format("LL"),
-      parseDate: (str, locale = "fr") =>
-        moment(str, "LL").locale(locale).toDate(),
-      placeholder: format,
-    };
-  }
+  const getMomentFormatter = (format: string): IDateFormatProps => ({
+    formatDate: (date, locale = "fr") =>
+      moment(date).locale(locale).format("LL"),
+    parseDate: (str, locale = "fr") =>
+      moment(str, "LL").locale(locale).toDate(),
+    placeholder: format,
+  });
 
-  const returnInput = (input) => {
+  const renderInput = (input) => {
     if (input.type === "textArea") {
       return (
         <InputArea
@@ -83,7 +96,9 @@ const Builder = () => {
           placeholder={input.title}
         />
       );
-    } else if (input.type === "singleDate") {
+    }
+
+    if (input.type === "singleDate") {
       return (
         <DateSingle
           formatDate={(date) => date.toLocaleString()}
@@ -100,7 +115,9 @@ const Builder = () => {
           {...getMomentFormatter(input.title)}
         />
       );
-    } else if (input.type === "doubleDate") {
+    }
+
+    if (input.type === "doubleDate") {
       return (
         <DateDouble
           allowSingleDayRange
@@ -122,120 +139,143 @@ const Builder = () => {
           {...getMomentFormatter(input.title)}
         />
       );
-    } else {
-      return (
-        <Input
-          leftIcon={input.icon}
-          name={input.name}
-          onChange={(e) => {
-            actions.changeValue({
-              key: input.name,
-              value: e.target.value,
-            });
-          }}
-          placeholder={input.title}
-        />
-      );
     }
+
+    return (
+      <Input
+        leftIcon={input.icon}
+        name={input.name}
+        onChange={(e) => {
+          actions.changeValue({
+            key: input.name,
+            value: e.target.value,
+          });
+        }}
+        placeholder={input.title}
+      />
+    );
   };
 
-  const getFirstLetter = (prop) => {
-    let letter = prop;
-    letter = letter.split("").splice(0, 1).join().toUpperCase();
-    return letter;
+  return { renderInput };
+};
+
+const usePanel = () => {
+  const { state, actions } = useOvermind();
+  const [list, setList] = useState({});
+  const { renderInput } = useInput();
+
+  const genericModel = models[state.model];
+  const getFirstLetter = (s) => s.split("").splice(0, 1).join().toUpperCase();
+  const getRightIcon = (id: string) => (id ? "chevron-left" : "chevron-down");
+
+  useEffect(() => {
+    const groups = createCollapseGroup();
+    setList(groups);
+  }, []);
+
+  const createCollapseGroup = () => {
+    const modelB = models[state.model];
+
+    let obj = {};
+    for (let i = 0; i < Object.keys(modelB).length; i++) {
+      const clonedObj = { ...obj };
+      const modelId = modelB[i].id;
+
+      if (i === 0) clonedObj[modelId] = true;
+      else clonedObj[modelId] = false;
+
+      obj = clonedObj;
+    }
+
+    return obj;
   };
 
-  return (
-    <Container className="bp3-dark">
-      <Tabs>
-        <Tab
-          id="0"
-          panel={genericModel.map((type, i) => (
-            <CatCard>
-              <div>
-                <Button
-                  alignText="left"
-                  fill
-                  large
-                  onClick={() => {
-                    handleClick(type.id);
-                  }}
-                  rightIcon={
-                    list[type.id] === true ? "chevron-left" : "chevron-down"
-                  }
-                >
-                  {type.title}
-                </Button>
-                <Collapse isOpen={list[type.id]} keepChildrenMounted>
-                  <div
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "50% 50%",
-                      margin: "5px",
-                    }}
-                  >
-                    <>
-                      {genericModel[i].items.map((input) => (
-                        <div
-                          style={
-                            input.fullRow
-                              ? {
-                                  gridColumn: "1 / 3",
-                                }
-                              : {}
-                          }
-                        >
-                          {returnInput(input)}
-                        </div>
-                      ))}
-                    </>
-                  </div>
-                </Collapse>
-              </div>
-            </CatCard>
+  // COLLAPSE FUNCTION
+  const handleClick = (id) => {
+    const newList = { ...list };
+    newList[id] = !newList[id];
+    setList(newList);
+  };
+
+  const panelZero = genericModel.map((type, i) => (
+    <CatCard>
+      <Button
+        alignText="left"
+        fill
+        large
+        onClick={() => handleClick(type.id)}
+        rightIcon={getRightIcon(list[type.id])}
+      >
+        {type.title}
+      </Button>
+
+      <Collapse isOpen={list[type.id]} keepChildrenMounted>
+        <Grid>
+          {genericModel[i].items.map((j) => (
+            <Row
+              key={j.name}
+              isDate={j.type === "singleDate"}
+              isFullRow={j.fullRow}
+            >
+              {renderInput(j)}
+            </Row>
           ))}
-          title="Données"
-        />
-        <Tab
-          id="1"
-          panel={
-            <Card>
-              <ThemeDisplay>
-                {themes.map(
-                  (input, i) =>
-                    input[state.model] && (
-                      <ThemeContainer>
-                        <ThemeThumbnail
-                          onClick={(e) => {
-                            actions.changeTheme({
-                              value: input.title,
-                            });
-                          }}
-                          theme={state.theme}
-                          title={input.title}
-                        >
-                          <ThemeLogo input={input} state={state}>
-                            {getFirstLetter(input.title)}
-                          </ThemeLogo>
-                        </ThemeThumbnail>
-                        <ThemeTitle>Thème {input.title}</ThemeTitle>
-                      </ThemeContainer>
-                    ),
-                )}
-              </ThemeDisplay>
-            </Card>
-          }
-          title="Thèmes"
-        />
-      </Tabs>
-    </Container>
+        </Grid>
+      </Collapse>
+    </CatCard>
+  ));
+
+  const panelOne = (
+    <Card>
+      <ThemeDisplay>
+        {themes.map(
+          (theme) =>
+            theme[state.model] && (
+              <ThemeContainer>
+                <ThemeThumbnail
+                  onClick={() => {
+                    actions.changeTheme({
+                      value: theme.title,
+                    });
+                  }}
+                  theme={state.theme}
+                  title={theme.title}
+                >
+                  <ThemeLogo input={theme} state={state}>
+                    {getFirstLetter(theme.title)}
+                  </ThemeLogo>
+                </ThemeThumbnail>
+
+                <ThemeTitle>Thème {theme.title}</ThemeTitle>
+              </ThemeContainer>
+            ),
+        )}
+      </ThemeDisplay>
+    </Card>
   );
+
+  return { panelZero, panelOne };
 };
 
 const Container = styled.div`
   position: relative;
   height: auto;
   padding: 15px;
+
+  .bp3-panel-stack {
+    height: 100vh !important;
+    overflow: inherit;
+  }
+
+  .bp3-panel-stack-view {
+    background-color: transparent !important;
+  }
+
+  .bp3-panel-stack-view {
+    margin-right: 0;
+    overflow-y: inherit;
+    border: 0;
+  }
 `;
 
 const Input = styled(InputGroup)`
@@ -255,13 +295,31 @@ const DateSingle = styled(DateInput)`
 `;
 
 const DateDouble = styled(DateRangeInput)`
-  /* width: calc(100% - 10px); */
   margin: 5px;
+
+  .bp3-control-group {
+    display: grid;
+    grid: auto / 1fr 1fr;
+    padding: 5px 10px 5px 0px;
+  }
 `;
 
 const CatCard = styled(Card)`
   padding: 0 0 1px 0;
   margin: 0 0 20px 0;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 5px;
+`;
+
+const Row = styled.div<{ isDate: boolean; isFullRow: boolean }>`
+  grid-column: ${(p) => p.isFullRow && "1 / 3"};
+
+  align-self: center;
+  padding: ${(p) => (p.isDate ? "0 10px 0 0" : 0)};
 `;
 
 const ThemeDisplay = styled.div`
@@ -283,7 +341,7 @@ const ThemeThumbnail = styled.div`
   justify-content: center;
   align-items: center;
   background-color: white;
-  border-radius: 1em;
+  border-radius: 10px;
   cursor: pointer;
   border: ${(p: { title: string; theme: string }) =>
     p.title === p.theme ? "#33b0ec 5px solid" : "#222f37 5px solid"};
