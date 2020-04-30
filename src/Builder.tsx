@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-wrap-multilines */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable indent */
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
@@ -24,7 +21,7 @@ import moment from "moment";
 import { useOvermind } from "./store";
 import { CancelB, CancelL } from "./models/Cancel";
 import { TestB } from "./models/Test";
-import { themes, colors } from "./themes/themesConfig";
+import { colors, themes } from "./themes/themesConfig";
 
 // MODELS
 const models = {
@@ -43,8 +40,8 @@ const Builder = () => {
   const { state, actions } = useOvermind();
 
   // GENERIC
-  const genericModel = models[state.model];
   const genericList = lists[state.model];
+  const genericModel = models[state.model];
 
   // USESTATE
   const [list, setList] = useState({});
@@ -61,9 +58,8 @@ const Builder = () => {
     setList(newList);
   };
 
+  // DATE FORMATTING FUNCTION
   function getMomentFormatter(format: string): IDateFormatProps {
-    // note that locale argument comes from locale prop and may be undefined
-
     return {
       formatDate: (date, locale = "fr") =>
         moment(date).locale(locale).format("LL"),
@@ -75,34 +71,42 @@ const Builder = () => {
 
   const returnInput = (input) => {
     if (input.type === "textArea") {
-      return <InputArea placeholder={input.title} growVertically />;
-      // eslint-disable-next-line no-else-return
+      return (
+        <InputArea
+          growVertically
+          onChange={(e) => {
+            actions.changeValue({
+              key: input.name,
+              value: e.target.value,
+            });
+          }}
+          placeholder={input.title}
+        />
+      );
     } else if (input.type === "singleDate") {
       return (
         <DateSingle
           formatDate={(date) => date.toLocaleString()}
-          parseDate={(str) => new Date(str)}
-          placeholder={input.title}
+          locale="fr"
+          localeUtils={MomentLocaleUtils}
           onChange={(e) => {
             actions.changeValue({
               key: input.name,
               value: moment(e).locale("fr").format("LL"),
             });
           }}
-          // eslint-disable-next-line react/jsx-props-no-spreading
+          parseDate={(str) => new Date(str)}
+          placeholder={input.title}
           {...getMomentFormatter(input.title)}
-          locale="fr"
-          localeUtils={MomentLocaleUtils}
         />
       );
     } else if (input.type === "doubleDate") {
       return (
         <DateDouble
-          formatDate={(date) => date.toLocaleString()}
-          parseDate={(str) => new Date(str)}
-          placeholder={input.title}
           allowSingleDayRange
-          shortcuts={false}
+          formatDate={(date) => date.toLocaleString()}
+          locale="fr"
+          localeUtils={MomentLocaleUtils}
           onChange={(e) => {
             actions.changeValue({
               key: input.name,
@@ -112,24 +116,24 @@ const Builder = () => {
               ],
             });
           }}
-          // eslint-disable-next-line react/jsx-props-no-spreading
+          parseDate={(str) => new Date(str)}
+          placeholder={input.title}
+          shortcuts={false}
           {...getMomentFormatter(input.title)}
-          locale="fr"
-          localeUtils={MomentLocaleUtils}
         />
       );
     } else {
       return (
         <Input
+          leftIcon={input.icon}
           name={input.name}
-          placeholder={input.title}
           onChange={(e) => {
             actions.changeValue({
               key: input.name,
               value: e.target.value,
             });
           }}
-          leftIcon={input.icon}
+          placeholder={input.title}
         />
       );
     }
@@ -145,15 +149,14 @@ const Builder = () => {
     <Container className="bp3-dark">
       <Tabs>
         <Tab
-          id="1"
-          title="Données"
+          id="0"
           panel={genericModel.map((type, i) => (
             <CatCard>
               <div>
                 <Button
-                  large
                   alignText="left"
                   fill
+                  large
                   onClick={() => {
                     handleClick(type.id);
                   }}
@@ -191,10 +194,10 @@ const Builder = () => {
               </div>
             </CatCard>
           ))}
+          title="Données"
         />
         <Tab
-          id="2"
-          title="Thèmes"
+          id="1"
           panel={
             <Card>
               <ThemeDisplay>
@@ -208,8 +211,10 @@ const Builder = () => {
                               value: input.title,
                             });
                           }}
+                          theme={state.theme}
+                          title={input.title}
                         >
-                          <ThemeLogo state={state} input={input}>
+                          <ThemeLogo input={input} state={state}>
                             {getFirstLetter(input.title)}
                           </ThemeLogo>
                         </ThemeThumbnail>
@@ -220,6 +225,7 @@ const Builder = () => {
               </ThemeDisplay>
             </Card>
           }
+          title="Thèmes"
         />
       </Tabs>
     </Container>
@@ -237,8 +243,8 @@ const Input = styled(InputGroup)`
 `;
 
 const InputArea = styled(TextArea)`
-  width: calc(100% - 10px);
   min-height: 40px;
+  width: calc(100% - 10px);
   margin: 5px;
   resize: none;
 `;
@@ -272,14 +278,20 @@ const ThemeContainer = styled.div`
 
 const ThemeThumbnail = styled.div`
   display: flex;
-  justify-content: center;
-  border: #222f37 5px solid;
-  border-radius: 4px;
-  background-color: white;
-  cursor: pointer;
   width: 150px;
   height: 150px;
+  justify-content: center;
   align-items: center;
+  background-color: white;
+  border-radius: 1em;
+  cursor: pointer;
+  border: ${(p: { title: string; theme: string }) =>
+    p.title === p.theme ? "#33b0ec 5px solid" : "#222f37 5px solid"};
+  pointer-events: ${(p: { title: string; theme: string }) =>
+    p.title === p.theme ? "none" : "all"};
+  &:hover {
+    border: 5px #b7e7ff solid;
+  }
 `;
 
 const ThemeLogo = styled.span`
@@ -291,6 +303,12 @@ const ThemeLogo = styled.span`
 
 const ThemeTitle = styled.span`
   margin: 5px;
+  padding-bottom: 4px;
+  border-bottom: ${(p: { title: string; theme: string }) =>
+    p.title === p.theme ? "#33b0ec 3px solid" : "transparent 3px solid"};
+  color: ${(p: { title: string; theme: string }) =>
+    p.title === p.theme ? "#33b0ec" : ""};
+  user-select: none;
 `;
 
 export default Builder;

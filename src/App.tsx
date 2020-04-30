@@ -1,13 +1,12 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { useOvermind } from "./store";
-import View from "./View";
 import Builder from "./Builder";
+import View from "./View";
 import { themes } from "./themes/themesConfig";
 import "./App.css";
 
 let obj = {};
-// eslint-disable-next-line no-plusplus
 for (let i = 0; i < themes.length; i++) {
   const clonedObj = { ...obj };
   const themeTitle = themes[i].title;
@@ -45,8 +44,8 @@ const BuilderSide = styled.div`
 `;
 
 const ViewSide = styled.div`
-  background-color: #bfccd6;
   grid-column: 2 / 2;
+  background-color: #bfccd6;
 `;
 
 export default App;

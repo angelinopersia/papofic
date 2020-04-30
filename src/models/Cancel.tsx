@@ -104,7 +104,6 @@ export const CancelB = [
 ];
 
 let obj = {};
-// eslint-disable-next-line no-plusplus
 for (let i = 0; i < Object.keys(CancelB).length; i++) {
   const clonedObj = { ...obj };
   const cancelId = CancelB[i].id;
@@ -141,7 +140,6 @@ export const CancelV = ({
   cDate = ["(date de début)", "(date de fin)"],
   cFileNumber = "(numéro du contrat/abonnement)",
   cReason = "(raison de la décision)",
-  ref,
 }: any) => (
   <Div>
     <div className="top" />

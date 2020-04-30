@@ -4,7 +4,8 @@ export type StateType = {
 };
 
 export const state: any = {
-  model: "cancel",
-  theme: "default",
   data: {},
+  model: "cancel",
+  theme: "base",
+  themes: {},
 };

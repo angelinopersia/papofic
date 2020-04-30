@@ -1,3 +1,5 @@
+export const primaryColor = "#ade4c5";
+
 const StyledView = {
   ul: {
     margin: 0,
@@ -14,7 +16,7 @@ const StyledView = {
   ".bottom": {
     width: 794,
     height: 500,
-    background: "#ade4c5",
+    background: primaryColor,
     position: "absolute",
     transform: "skewY(-11deg)",
   },

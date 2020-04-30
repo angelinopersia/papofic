@@ -18,16 +18,23 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "quotes": "off",
+    "react/button-has-type": "off",
     "react/jsx-filename-extension": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/no-unescaped-entities": "off",
+    "implicit-arrow-linebreak": "off",
     "import/extensions": "off",
-    "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "indent": "off",
     "no-param-reassign": "off",
     "no-unused-vars": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/no-unescaped-entities": "off",
-    "react/button-has-type": "off",
-    "object-curly-newline": "off"
+    "no-confusing-arrow": "off",
+    "no-else-return": "off",
+    "no-plusplus": "off",
+    "object-curly-newline": "off",
+    "quotes": "off"
   }
 }

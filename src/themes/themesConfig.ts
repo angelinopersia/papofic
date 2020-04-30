@@ -1,24 +1,24 @@
 // Themes
 
-// DEFAULT
-import DefaultCancel from "./default/cancel";
-import DefaultTest from "./default/test";
+// BASE
+import BaseCancel, { primaryColor as base } from "./base/cancel";
+import BaseTest from "./base/test";
 
 // DUBLIN
-import DublinCancel from "./dublin/cancel";
+import DublinCancel, { primaryColor as dublin } from "./dublin/cancel";
 import DublinTest from "./dublin/test";
 
 // ROMA
-import RomaCancel from "./roma/cancel";
+import RomaCancel, { primaryColor as roma } from "./roma/cancel";
 
 // CHICAGO
-import ChicagoCancel from "./chicago/cancel";
+import ChicagoCancel, { primaryColor as chicago } from "./chicago/cancel";
 
 export const themes = [
   {
-    title: "default",
-    cancel: DefaultCancel,
-    test: DefaultTest,
+    title: "base",
+    cancel: BaseCancel,
+    test: BaseTest,
   },
   {
     title: "dublin",
@@ -35,11 +35,34 @@ export const themes = [
   },
 ];
 
+const models = ["cancel", "test"];
+
 export const colors = {
   cancel: {
-    chicago: "tomato",
-    default: "#000000",
-    dublin: "#ade4c5",
-    roma: "#D8E1E8",
+    chicago,
+    base,
+    dublin,
+    roma,
+  },
+  test: {
+    base,
+    dublin,
   },
 };
+
+let obj = {};
+for (let m = 0; m < models.length; m++) {
+  const clonedObj = { ...obj };
+  const modelTitle = models[m];
+  clonedObj[modelTitle] = {};
+
+  for (let t = 0; t < themes.length; t++) {
+    const themeTitle = themes[t].title;
+
+    if (themes[t][modelTitle]) {
+      clonedObj[modelTitle][themeTitle] = colors[modelTitle][themeTitle];
+    }
+  }
+  // console.log(clonedObj);
+  obj = clonedObj;
+}
