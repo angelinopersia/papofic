@@ -1,10 +1,27 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
+import Logo from "./svg/icon";
 import { useOvermind } from "./store";
 import Builder from "./Builder";
 import View from "./View";
 import { themes } from "./themes/themesConfig";
+
+import { CancelB, CancelV, CancelTL } from "./models/Cancel";
+import { TestB, TestV, TestTL } from "./models/Test";
+
 import "./App.css";
+
+export const modelsB = {
+  cancel: CancelB,
+  test: TestB,
+};
+
+export const modelsV = {
+  cancel: CancelV,
+  test: TestV,
+};
+
+export const modelsTL = [CancelTL, TestTL];
 
 const App = () => {
   const { state } = useOvermind();
@@ -29,9 +46,15 @@ const App = () => {
         <Builder />
       </BuilderSide>
       <ViewSide>
-        <ThemeProvider theme={theme}>
-          <View />
-        </ThemeProvider>
+        {state.model !== "" ? (
+          <ThemeProvider theme={theme}>
+            <View />
+          </ThemeProvider>
+        ) : (
+          <div>
+            <Logo />
+          </div>
+        )}
       </ViewSide>
     </Display>
   );

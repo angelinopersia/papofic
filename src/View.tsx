@@ -3,45 +3,46 @@ import ReactToPrint from "react-to-print";
 import styled from "styled-components";
 import { Button, Icon, Intent, Position, Tooltip } from "@blueprintjs/core";
 import { useOvermind } from "./store";
-import { CancelV } from "./models/Cancel";
-import { TestV } from "./models/Test";
-
-const models = {
-  cancel: CancelV,
-  test: TestV,
-};
+import { modelsV } from "./App";
 
 const View = () => {
   const { state } = useOvermind();
   const componentRef: any = useRef();
-  const GenericModel = models[state.model];
+  const GenericModel = modelsV[state.model];
 
   return (
     <>
-      <File>
-        <div ref={componentRef}>
-          <GenericModel {...state.data} />
-        </div>
-      </File>
+      {state.model !== "" && (
+        <>
+          <File>
+            <div ref={componentRef}>
+              <GenericModel {...state.data} />
+            </div>
+          </File>
 
-      <ReactToPrint
-        trigger={() => (
-          <PrintBlock className="bp3-dark">
-            <HoverText content="Imprimer le document" position={Position.TOP}>
-              <Print>
-                <PrintContent>
-                  <Icon
-                    icon="print"
-                    iconSize={Icon.SIZE_LARGE}
-                    intent={Intent.NONE}
-                  />
-                </PrintContent>
-              </Print>
-            </HoverText>
-          </PrintBlock>
-        )}
-        content={() => componentRef.current}
-      />
+          <ReactToPrint
+            trigger={() => (
+              <PrintBlock className="bp3-dark">
+                <HoverText
+                  content="Imprimer le document"
+                  position={Position.TOP}
+                >
+                  <Print>
+                    <PrintContent>
+                      <Icon
+                        icon="print"
+                        iconSize={Icon.SIZE_LARGE}
+                        intent={Intent.NONE}
+                      />
+                    </PrintContent>
+                  </Print>
+                </HoverText>
+              </PrintBlock>
+            )}
+            content={() => componentRef.current}
+          />
+        </>
+      )}
     </>
   );
 };
@@ -59,6 +60,16 @@ const File = styled.div`
     height: 1123px;
     max-height: 1123px;
     overflow: hidden;
+  }
+  animation-duration: 1s;
+  animation-name: start;
+  @keyframes start {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;
 
@@ -86,6 +97,16 @@ const PrintBlock = styled.div`
   bottom: 100px;
   right: 100px;
   z-index: 9000;
+  animation-duration: 1s;
+  animation-name: start;
+  @keyframes start {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const HoverText = styled(Tooltip)`

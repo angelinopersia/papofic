@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { BuilderType } from "../types/index";
 
-type CancelType = {
-  firstName: string;
-};
+export const CancelTL = { title: "cancel", translated: "Lettre d'annulation" };
 
-export const CancelB = [
+export const CancelB: BuilderType[] = [
   {
     title: "Emetteur",
     id: "sender",
@@ -63,7 +62,7 @@ export const CancelB = [
         title: "Faite le (Date)",
         name: "mDate",
         icon: "calendar",
-        type: "singleDate",
+        type: "date",
       },
       { title: "Objet", name: "mObjet", icon: "edit", fullRow: true },
     ],
@@ -83,7 +82,7 @@ export const CancelB = [
         name: "cDate",
         icon: "timeline-events",
         fullRow: true,
-        type: "doubleDate",
+        type: "rangeDate",
       },
       {
         title: "Numéro de contrat/abonnement",

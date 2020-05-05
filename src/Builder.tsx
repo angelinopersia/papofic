@@ -18,24 +18,20 @@ import {
 import MomentLocaleUtils from "react-day-picker/moment";
 import "moment/locale/fr";
 import moment from "moment";
-
+import { backgrounds } from "./backgrounds/index";
 import { useOvermind } from "./store";
-import { CancelB } from "./models/Cancel";
-import { TestB } from "./models/Test";
-import { colors, themes } from "./themes/themesConfig";
-
-const models = {
-  cancel: CancelB,
-  test: TestB,
-};
+import { themes } from "./themes/themesConfig";
+import { modelsB, modelsTL } from "./App";
 
 const Builder = () => {
+  const { actions, state } = useOvermind();
+
   return (
     <Container className="bp3-dark">
       <PanelStack
         initialPanel={{
           component: ModelsPanel,
-          title: "Papofic",
+          title: "Modèles",
         }}
       />
     </Container>
@@ -43,18 +39,35 @@ const Builder = () => {
 };
 
 const ModelsPanel = (props: any) => {
+  const { actions, state } = useOvermind();
+  const [isDisabled, setIsDisabled] = useState("");
+
+  const CheckSameModel = async (modelTitle: string) => {
+    try {
+      actions.clearData(modelTitle);
+      actions.changeModel(modelTitle);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <>
-      <Button
-        onClick={() =>
-          props.openPanel({
-            title: "Create a new repository",
-            component: TabsPanel,
-          })
-        }
-      >
-        Suivant
-      </Button>
+      {modelsTL.map((model, m) => (
+        <Model
+          onClick={() => {
+            props.openPanel({
+              component: TabsPanel,
+              title: "Aspect",
+            });
+            CheckSameModel(model.title);
+            setIsDisabled("none");
+          }}
+          isDisabled={isDisabled}
+        >
+          {model.translated}
+        </Model>
+      ))}
     </>
   );
 };
@@ -63,10 +76,12 @@ const TabsPanel = () => {
   const { panelZero, panelOne } = usePanel();
 
   return (
-    <Tabs>
-      <Tab id="0" panel={panelZero} title="Données" />
-      <Tab id="1" panel={panelOne} title="Thèmes" />
-    </Tabs>
+    <>
+      <Tabs>
+        <Tab id="0" panel={panelZero} title="Données" />
+        <Tab id="1" panel={panelOne} title="Thèmes" />
+      </Tabs>
+    </>
   );
 };
 
@@ -98,9 +113,9 @@ const useInput = () => {
       );
     }
 
-    if (input.type === "singleDate") {
+    if (input.type === "date") {
       return (
-        <DateSingle
+        <Date
           formatDate={(date) => date.toLocaleString()}
           locale="fr"
           localeUtils={MomentLocaleUtils}
@@ -117,9 +132,9 @@ const useInput = () => {
       );
     }
 
-    if (input.type === "doubleDate") {
+    if (input.type === "rangeDate") {
       return (
-        <DateDouble
+        <RangeDate
           allowSingleDayRange
           formatDate={(date) => date.toLocaleString()}
           locale="fr"
@@ -164,7 +179,7 @@ const usePanel = () => {
   const [list, setList] = useState({});
   const { renderInput } = useInput();
 
-  const genericModel = models[state.model];
+  const genericModel = modelsB[state.model];
   const getFirstLetter = (s) => s.split("").splice(0, 1).join().toUpperCase();
   const getRightIcon = (id: string) => (id ? "chevron-left" : "chevron-down");
 
@@ -174,7 +189,7 @@ const usePanel = () => {
   }, []);
 
   const createCollapseGroup = () => {
-    const modelB = models[state.model];
+    const modelB = modelsB[state.model];
 
     let obj = {};
     for (let i = 0; i < Object.keys(modelB).length; i++) {
@@ -198,7 +213,7 @@ const usePanel = () => {
   };
 
   const panelZero = genericModel.map((type, i) => (
-    <CatCard>
+    <CatCard key={type.title}>
       <Button
         alignText="left"
         fill
@@ -211,13 +226,13 @@ const usePanel = () => {
 
       <Collapse isOpen={list[type.id]} keepChildrenMounted>
         <Grid>
-          {genericModel[i].items.map((j) => (
+          {genericModel[i].items.map((item) => (
             <Row
-              key={j.name}
-              isDate={j.type === "singleDate"}
-              isFullRow={j.fullRow}
+              key={item.name}
+              isDate={item.type === "date"}
+              isFullRow={item.fullRow}
             >
-              {renderInput(j)}
+              {renderInput(item)}
             </Row>
           ))}
         </Grid>
@@ -229,10 +244,11 @@ const usePanel = () => {
     <Card>
       <ThemeDisplay>
         {themes.map(
-          (theme) =>
+          (theme, i) =>
             theme[state.model] && (
-              <ThemeContainer>
+              <ThemeContainer key={theme.title}>
                 <ThemeThumbnail
+                  backgrounds={backgrounds}
                   onClick={() => {
                     actions.changeTheme({
                       value: theme.title,
@@ -261,16 +277,13 @@ const Container = styled.div`
   position: relative;
   height: auto;
   padding: 15px;
-
   .bp3-panel-stack {
     height: 100vh !important;
     overflow: inherit;
   }
-
   .bp3-panel-stack-view {
     background-color: transparent !important;
   }
-
   .bp3-panel-stack-view {
     margin-right: 0;
     overflow-y: inherit;
@@ -278,8 +291,17 @@ const Container = styled.div`
   }
 `;
 
+const Model = styled(Button)`
+  margin: 10px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  pointer-events: ${(p: { isDisabled: string }) => p.isDisabled};
+`;
+
 const Input = styled(InputGroup)`
   margin: 5px;
+  transition: 1s;
 `;
 
 const InputArea = styled(TextArea)`
@@ -289,14 +311,13 @@ const InputArea = styled(TextArea)`
   resize: none;
 `;
 
-const DateSingle = styled(DateInput)`
+const Date = styled(DateInput)`
   width: calc(100% - 10px);
   margin: 5px;
 `;
 
-const DateDouble = styled(DateRangeInput)`
+const RangeDate = styled(DateRangeInput)`
   margin: 5px;
-
   .bp3-control-group {
     display: grid;
     grid: auto / 1fr 1fr;
@@ -317,7 +338,6 @@ const Grid = styled.div`
 
 const Row = styled.div<{ isDate: boolean; isFullRow: boolean }>`
   grid-column: ${(p) => p.isFullRow && "1 / 3"};
-
   align-self: center;
   padding: ${(p) => (p.isDate ? "0 10px 0 0" : 0)};
 `;
@@ -340,22 +360,27 @@ const ThemeThumbnail = styled.div`
   height: 150px;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-image: ${(p: { title: string; backgrounds: object }) =>
+    `url(${p.backgrounds[p.title]})`};
+  background-repeat: no-repeat;
   border-radius: 10px;
   cursor: pointer;
   border: ${(p: { title: string; theme: string }) =>
     p.title === p.theme ? "#33b0ec 5px solid" : "#222f37 5px solid"};
   pointer-events: ${(p: { title: string; theme: string }) =>
     p.title === p.theme ? "none" : "all"};
+  opacity: ${(p: { title: string; theme: string }) =>
+    p.title === p.theme ? "1" : "0.8"};
+  transition: 0.3s;
   &:hover {
     border: 5px #b7e7ff solid;
+    opacity: 0.9;
   }
 `;
 
 const ThemeLogo = styled.span`
   font-size: 70px;
   font-weight: 700;
-  color: ${(props) => colors[props.state.model][props.input.title]};
   user-select: none;
 `;
 

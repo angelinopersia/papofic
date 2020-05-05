@@ -5,7 +5,7 @@ export type StateType = {
 
 export const state: any = {
   data: {},
-  model: "cancel",
+  model: "",
   theme: "base",
   themes: {},
 };
