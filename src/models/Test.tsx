@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BuilderType } from "../types/index";
 
-export const TestTL = { title: "test", translated: "Test" };
-
-export const TestB: BuilderType[] = [
+const Builder: BuilderType[] = [
   {
     title: "Test 1",
     id: "test1",
@@ -32,7 +30,11 @@ export const TestB: BuilderType[] = [
   },
 ];
 
-export const TestV = ({ test }: any) => <div>test</div>;
+const View = ({ test }: any) => <div>test</div>;
+
+const Translation = { title: ["test"], translated: ["Test"] };
+
+export const Test = { Builder, View, Translation };
 
 const Div = styled.div`
   ${(p: any) => p.theme}

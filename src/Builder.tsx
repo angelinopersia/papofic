@@ -23,50 +23,95 @@ import { useOvermind } from "./store";
 import { themes } from "./themes/themesConfig";
 import { modelsB, modelsTL } from "./App";
 
-const Builder = () => {
-  const { actions, state } = useOvermind();
-
-  return (
-    <Container className="bp3-dark">
-      <PanelStack
-        initialPanel={{
-          component: ModelsPanel,
-          title: "Modèles",
-        }}
-      />
-    </Container>
-  );
-};
+const Builder = () => (
+  <Container className="bp3-dark">
+    <PanelStack
+      initialPanel={{
+        component: ModelsPanel,
+        title: "Modèles",
+      }}
+    />
+  </Container>
+);
 
 const ModelsPanel = (props: any) => {
-  const { actions, state } = useOvermind();
+  const { actions } = useOvermind();
   const [isDisabled, setIsDisabled] = useState("");
+  const [value, setValue] = useState("");
+  const [modelList, setModelList] = useState<any>([]);
+  const [res, setRes] = useState<any>([]);
 
   const CheckSameModel = async (modelTitle: string) => {
-    try {
-      actions.clearData(modelTitle);
-      actions.changeModel(modelTitle);
-    } catch (error) {
-      console.error(error.message);
-    }
+    // try {
+    actions.clearData(modelTitle);
+    actions.changeModel(modelTitle);
+    // } catch (error) {
+    //   console.error(error.message);
+    // }
+  };
+
+  useEffect(() => {
+    const arr = [...modelList];
+    modelsTL.map((model, m) => {
+      arr.push(model);
+      setModelList(arr);
+      setRes(modelList);
+    });
+  }, []);
+
+  const SearchFunc = (index) => (
+    <Model
+      onClick={() => {
+        // eslint-disable-next-line react/prop-types
+        props.openPanel({
+          component: TabsPanel,
+          title: "Aspect",
+        });
+        CheckSameModel(index[1]);
+        setIsDisabled("none");
+      }}
+      isDisabled={isDisabled}
+    >
+      {index[0]}
+    </Model>
+  );
+
+  useEffect(() => {
+    setRes(modelList);
+    const newList: object[] = [];
+
+    modelList.map(
+      (model: { translated: string[]; title: string }, m: number) => {
+        const result = model.translated.filter((mdl) =>
+          mdl.toLowerCase().includes(value.toLowerCase()),
+        );
+        if (result[0] !== undefined) {
+          newList.push([model.translated, model.title]);
+        }
+        setRes(newList);
+      },
+    );
+  }, [value, modelList]);
+
+  const ValueSetting = (e: { target: { value: string } }) => {
+    setValue(e.target.value);
   };
 
   return (
     <>
-      {modelsTL.map((model, m) => (
-        <Model
-          onClick={() => {
-            props.openPanel({
-              component: TabsPanel,
-              title: "Aspect",
-            });
-            CheckSameModel(model.title);
-            setIsDisabled("none");
-          }}
-          isDisabled={isDisabled}
-        >
-          {model.translated}
-        </Model>
+      <Search className="bp3-input-group bp3-large">
+        <span className="bp3-icon bp3-icon-search" />
+        <input
+          className="bp3-input"
+          type="search"
+          placeholder="Chercher un modèle"
+          dir="auto"
+          onChange={ValueSetting}
+          value={value}
+        />
+      </Search>
+      {res.map((model: object, m: number) => (
+        <>{SearchFunc(model)}</>
       ))}
     </>
   );
@@ -97,7 +142,12 @@ const useInput = () => {
     placeholder: format,
   });
 
-  const renderInput = (input) => {
+  const renderInput = (input: {
+    type: string;
+    name: any;
+    title: string;
+    icon: any;
+  }) => {
     if (input.type === "textArea") {
       return (
         <InputArea
@@ -116,16 +166,28 @@ const useInput = () => {
     if (input.type === "date") {
       return (
         <Date
-          formatDate={(date) => date.toLocaleString()}
+          formatDate={(date: { toLocaleString: () => any }) =>
+            date.toLocaleString()
+          }
           locale="fr"
           localeUtils={MomentLocaleUtils}
-          onChange={(e) => {
+          onChange={(
+            e:
+              | string
+              | number
+              | void
+              | Date
+              | moment.Moment
+              | React.ReactText[]
+              | moment.MomentInputObject
+              | undefined,
+          ) => {
             actions.changeValue({
               key: input.name,
               value: moment(e).locale("fr").format("LL"),
             });
           }}
-          parseDate={(str) => new Date(str)}
+          parseDate={(str: string) => new Date(str)}
           placeholder={input.title}
           {...getMomentFormatter(input.title)}
         />
@@ -136,10 +198,23 @@ const useInput = () => {
       return (
         <RangeDate
           allowSingleDayRange
-          formatDate={(date) => date.toLocaleString()}
+          formatDate={(date: { toLocaleString: () => any }) =>
+            date.toLocaleString()
+          }
           locale="fr"
           localeUtils={MomentLocaleUtils}
-          onChange={(e) => {
+          onChange={(
+            e: (
+              | string
+              | number
+              | void
+              | Date
+              | moment.Moment
+              | React.ReactText[]
+              | moment.MomentInputObject
+              | undefined
+            )[],
+          ) => {
             actions.changeValue({
               key: input.name,
               value: [
@@ -148,7 +223,7 @@ const useInput = () => {
               ],
             });
           }}
-          parseDate={(str) => new Date(str)}
+          parseDate={(str: string) => new Date(str)}
           placeholder={input.title}
           shortcuts={false}
           {...getMomentFormatter(input.title)}
@@ -160,7 +235,7 @@ const useInput = () => {
       <Input
         leftIcon={input.icon}
         name={input.name}
-        onChange={(e) => {
+        onChange={(e: { target: { value: any } }) => {
           actions.changeValue({
             key: input.name,
             value: e.target.value,
@@ -180,7 +255,8 @@ const usePanel = () => {
   const { renderInput } = useInput();
 
   const genericModel = modelsB[state.model];
-  const getFirstLetter = (s) => s.split("").splice(0, 1).join().toUpperCase();
+  const getFirstLetter = (s: string) =>
+    s.split("").splice(0, 1).join().toUpperCase();
   const getRightIcon = (id: string) => (id ? "chevron-left" : "chevron-down");
 
   useEffect(() => {
@@ -206,45 +282,47 @@ const usePanel = () => {
   };
 
   // COLLAPSE FUNCTION
-  const handleClick = (id) => {
+  const handleClick = (id: string) => {
     const newList = { ...list };
     newList[id] = !newList[id];
     setList(newList);
   };
 
-  const panelZero = genericModel.map((type, i) => (
-    <CatCard key={type.title}>
-      <Button
-        alignText="left"
-        fill
-        large
-        onClick={() => handleClick(type.id)}
-        rightIcon={getRightIcon(list[type.id])}
-      >
-        {type.title}
-      </Button>
+  const panelZero = genericModel.map(
+    (type: { title: {} | null | undefined; id: string }, i: number) => (
+      <CatCard key={type.title}>
+        <Button
+          alignText="left"
+          fill
+          large
+          onClick={() => handleClick(type.id)}
+          rightIcon={getRightIcon(list[type.id])}
+        >
+          {type.title}
+        </Button>
 
-      <Collapse isOpen={list[type.id]} keepChildrenMounted>
-        <Grid>
-          {genericModel[i].items.map((item) => (
-            <Row
-              key={item.name}
-              isDate={item.type === "date"}
-              isFullRow={item.fullRow}
-            >
-              {renderInput(item)}
-            </Row>
-          ))}
-        </Grid>
-      </Collapse>
-    </CatCard>
-  ));
+        <Collapse isOpen={list[type.id]} keepChildrenMounted>
+          <Grid>
+            {genericModel[i].items.map((item: any) => (
+              <Row
+                key={item.name}
+                isDate={item.type === "date"}
+                isFullRow={item.fullRow}
+              >
+                {renderInput(item)}
+              </Row>
+            ))}
+          </Grid>
+        </Collapse>
+      </CatCard>
+    ),
+  );
 
   const panelOne = (
     <Card>
       <ThemeDisplay>
         {themes.map(
-          (theme, i) =>
+          (theme) =>
             theme[state.model] && (
               <ThemeContainer key={theme.title}>
                 <ThemeThumbnail
@@ -291,12 +369,46 @@ const Container = styled.div`
   }
 `;
 
-const Model = styled(Button)`
-  margin: 10px;
+const Search = styled.div`
+  margin: 15px 0 0 0;
+`;
+
+const Model = styled.div`
+  margin: 15px 0 0 0;
   padding: 20px;
+  border: 3px #4f5d68 solid;
+  border-radius: 10px;
+  background-color: #34414c;
   font-size: 20px;
-  font-weight: 500;
+  cursor: pointer;
   pointer-events: ${(p: { isDisabled: string }) => p.isDisabled};
+  transition: 0.3s;
+  &:hover {
+    background-color: #384753;
+  }
+  &.removed-item {
+    animation: removed-item-animation 1s;
+    color: red;
+  }
+  animation-duration: 0.35s;
+  animation-name: start;
+  @keyframes start {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes removed-item-animation {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 `;
 
 const Input = styled(InputGroup)`

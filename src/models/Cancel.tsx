@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BuilderType } from "../types/index";
 
-export const CancelTL = { title: "cancel", translated: "Lettre d'annulation" };
-
-export const CancelB: BuilderType[] = [
+const Builder: BuilderType[] = [
   {
     title: "Emetteur",
     id: "sender",
@@ -101,7 +99,7 @@ export const CancelB: BuilderType[] = [
   },
 ];
 
-export const CancelV = ({
+const View = ({
   // SENDER
   sFirstName = "Prénom",
   sLastName = "Nom",
@@ -186,6 +184,13 @@ export const CancelV = ({
     <div className="bottom" />
   </Div>
 );
+
+const Translation = {
+  title: ["cancel"],
+  translated: ["Lettre d'annulation"],
+};
+
+export const Cancel = { Builder, View, Translation };
 
 const Div = styled.div`
   background: white;

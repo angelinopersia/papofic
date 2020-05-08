@@ -19,5 +19,6 @@ export const addTheme: Action<any> = ({ state }, prop) => {
 export const clearData: Action<any> = ({ state }, prop) => {
   if (state.model !== prop) {
     state.data = {};
+    state.theme = "base";
   }
 };
