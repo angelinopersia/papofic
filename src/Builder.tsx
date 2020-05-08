@@ -52,27 +52,27 @@ const ModelsPanel = (props: any) => {
 
   useEffect(() => {
     const arr = [...modelList];
-    modelsTL.map((model, m) => {
+    modelsTL.map((model) => {
       arr.push(model);
       setModelList(arr);
       setRes(modelList);
     });
   }, []);
 
-  const SearchFunc = (index) => (
+  const SearchFunc = (model: string | number | object, m: number) => (
     <Model
       onClick={() => {
-        // eslint-disable-next-line react/prop-types
         props.openPanel({
           component: TabsPanel,
           title: "Aspect",
         });
-        CheckSameModel(index[1]);
+        CheckSameModel(model[1]);
         setIsDisabled("none");
       }}
       isDisabled={isDisabled}
+      key={model[m]}
     >
-      {index[0]}
+      {model[0]}
     </Model>
   );
 
@@ -80,17 +80,15 @@ const ModelsPanel = (props: any) => {
     setRes(modelList);
     const newList: object[] = [];
 
-    modelList.map(
-      (model: { translated: string[]; title: string }, m: number) => {
-        const result = model.translated.filter((mdl) =>
-          mdl.toLowerCase().includes(value.toLowerCase()),
-        );
-        if (result[0] !== undefined) {
-          newList.push([model.translated, model.title]);
-        }
-        setRes(newList);
-      },
-    );
+    modelList.map((model: { translated: string[]; title: string }) => {
+      const result = model.translated.filter((mdl) =>
+        mdl.toLowerCase().includes(value.toLowerCase()),
+      );
+      if (result[0] !== undefined) {
+        newList.push([model.translated, model.title]);
+      }
+      setRes(newList);
+    });
   }, [value, modelList]);
 
   const ValueSetting = (e: { target: { value: string } }) => {
@@ -111,7 +109,7 @@ const ModelsPanel = (props: any) => {
         />
       </Search>
       {res.map((model: object, m: number) => (
-        <>{SearchFunc(model)}</>
+        <>{SearchFunc(model, m)}</>
       ))}
     </>
   );
@@ -289,7 +287,7 @@ const usePanel = () => {
   };
 
   const panelZero = genericModel.map(
-    (type: { title: {} | null | undefined; id: string }, i: number) => (
+    (type: { title: {}; id: string }, i: number) => (
       <CatCard key={type.title}>
         <Button
           alignText="left"

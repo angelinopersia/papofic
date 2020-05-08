@@ -24,6 +24,7 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-wrap-multilines": "off",
+    "react/prop-types": "off",
     "react/no-unescaped-entities": "off",
     "array-callback-return": "off",
     "function-paren-newline": "off",
