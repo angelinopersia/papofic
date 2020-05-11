@@ -423,11 +423,11 @@ const InputArea = styled(TextArea)`
 
 const Date = styled(DateInput)`
   width: calc(100% - 10px);
-  margin: 5px;
+  margin-left: 5px;
 `;
 
 const RangeDate = styled(DateRangeInput)`
-  margin: 5px;
+  margin-left: 5px;
   .bp3-control-group {
     display: grid;
     grid: auto / 1fr 1fr;
