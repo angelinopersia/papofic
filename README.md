@@ -8,17 +8,15 @@
 <a><img src="https://img.shields.io/badge/v1.22.0-yarn-2C8EBB"/></a>
 </p>
 
-### Papofic lets French\* users choose a template of a document among many others available and only have to fill in their information. Smooth and easy.
+### Papofic lets French\* users save time with a variety of document templates of which the general content is already written. Only the necessary variable information must be typed in by the user.
 
 </div>
 
 <br />
 
-**Papofic does the basic job of a word processing software and saves you the time and effort needed into thinking up the document's content. The document is already written, not counting the variable information such as your name and the destination's address.**
-
-**All that you are required to do is choose an existing document and fill in the information fields. You can also choose an existing theme if you wish to decorate your document.**
-
-**Once you're done, you may either save it as a pdf file or print it. Or both.**
+**Papofic acts like a basic word processing software online. The user chooses a nearly-completed template among the available ones and fills the given text fields with their information.**
+**Each template also has its own themes which can be selected to change the model's appearance.**
+**Once the process is complete, the document can be saved as a pdf file and/or printed.**
 
 \* _Papofic only supports French localization as of today. It is not yet (and will likely never be) planned to support other languages in the future._
 
@@ -32,9 +30,9 @@ The package manager `yarn` is required to install the project's dependencies (`y
 
 ## How you can contribute
 
-### Template themes
+### Model themes
 
-There is a number of themes available from the start, but you may create a theme of your own and offer to have it added in the project through a pull request. If the theme is up to standards, it will be merged into the project.
+There are multiple themes already available, but you may create a theme of your own and offer to have it added in the project through a pull request. If the theme is up to certain standards, it will be merged into the project.
 
 #### Your contribution is compatible if:
 
