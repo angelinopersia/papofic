@@ -7,7 +7,8 @@
 </div>
 
 <br />
-_* Papofic only supports French localization as of today. It is not yet (and will likely never be) planned to support other languages in the future._
+
+\* _Papofic only supports French localization as of today. It is not yet (and will likely never be) planned to support other languages in the future._
 
 ## Link to website
 
@@ -17,14 +18,14 @@ _* Papofic only supports French localization as of today. It is not yet (and wil
 
 ### Themed documents
 
-There is a number of themes available from the start, but you may create a theme of your own and offer to have it added in the project. If the theme is up to standards, your theme will be merged into the project.
+There is a number of themes available from the start, but you may create a theme of your own and offer to have it added in the project. If the theme is up to standards, it will be merged into the project.
 
 #### How a theme is compatible:
 
 - The content of the pull request does not change the code in any other way than adding your theme to the code of the variable list and adding the file itself into the theme folder.
-- The names of the variables and file are up to standard according to (readme of file names)
-- No part of your contribution contains offensive content or slurs in any way
-- The css is decent looking and is flexible enough
+- The names of the variables and file are up to standard according to (readme of file names).
+- No part of your contribution contains offensive content or slurs in any way.
+- The CSS is flexible enough, and obviously, isn't painful to look at.
 
 ## Install and launch
 
