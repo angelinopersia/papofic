@@ -1,4 +1,4 @@
-<div style="align-items: center">
+<div style="align-items:center">
 <img src="papofic_logo.png" alt="papofic_logo" width="200px" height="auto" >
 </div>
 
