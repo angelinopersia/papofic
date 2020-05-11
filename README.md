@@ -37,14 +37,14 @@ The package manager **[yarn](https://yarnpkg.com/)** is required to run this pro
 
 ### Template themes
 
-If you're feeling creative, then perhaps you could make a theme of your own and offer to have it added in Papofic through a [pull request](https://github.com/daybrush/selecto/compare). If your addition is up to certain standards, it will be merged with the project!
+Feeling creative? Then perhaps you could make a theme of your own and offer to have it added in Papofic through a [pull request](https://github.com/daybrush/selecto/compare). If your contribution is up to certain standards\*, it will be merged with the project!
 
-#### Your contribution is compatible if:
+#### \* Your contribution is compatible if:
 
 - The content of the pull request does not change the project's code in any other way than adding and associating your theme to the parts of the project which are related to the themes, and adding your theme into the `themes` folder (A detailed explanation on how to add a theme is available in another readme file within the `themes` folder).
 - The names of the variables and file are up to standard according to (other readme).
 - No part of your contribution contains offensive content.
-- The CSS is flexible enough, and obviously, doesn't look too bad!
+- The CSS isn't a disaster.
 
 ### Reporting bugs
 
