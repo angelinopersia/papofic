@@ -2,17 +2,12 @@
 
 # PAPOFIC
 
-### Papofic lets French\* users choose pre-set letters among other types of documents and only have to fill in their information.
+### Papofic lets French\* users choose a template of a document among many others available and only have to fill in their information.
 
 ### Smooth and easy.
 
-<p style="font-size:9px; font-style:italic">Test text</p>
-<p style="font-size:9pt; font-style:italic">Test text</p>
-<p style="font-family: times, serif; font-size:11pt; font-style:italic">
-    Why did we use these specific parameters during the calculation of the fingerprints?
-</p>
-
 </div>
+* Papofic only supports French localization as of today. It is not yet (and likely not) planned to support other languages in the future.
 
 ## Available Scripts
 
