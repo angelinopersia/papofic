@@ -8,6 +8,12 @@
 
 <br />
 
+**Papofic does the basic job of a word processing software and saves you the time and effort needed into thinking up the document's content. The document is already written, not counting the variable information such as your name and the destination's address.**
+
+**All that you are required to do is choose an existing document and fill in the information fields. You can also choose an existing theme if you wish to decorate your document.**
+
+**Once you're done, you may either save it as a `pdf` file or print it.**
+
 \* _Papofic only supports French localization as of today. It is not yet (and will likely never be) planned to support other languages in the future._
 
 ## Link to website
@@ -22,17 +28,17 @@ The package manager `yarn` is required to install the project's dependencies (`y
 
 ### Template themes
 
-There is a number of themes available from the start, but you may create a theme of your own and offer to have it added in the project. If the theme is up to standards, it will be merged into the project.
+There is a number of themes available from the start, but you may create a theme of your own and offer to have it added in the project through a pull request. If the theme is up to standards, it will be merged into the project.
 
-#### How a theme is compatible:
+#### Your contribution is compatible if:
 
-- The content of the pull request does not change the code in any other way than adding your theme to the code of the variable list and adding the file itself into the theme folder.
-- The names of the variables and file are up to standard according to (readme of file names).
+- The content of the pull request does not change the project's code in any other way than adding and associating your theme to the parts of the project which are related to the themes, and adding your theme into the `themes` folder (A detailed explanation on how to add a theme is available in another readme file within the `themes` folder).
+- The names of the variables and file are up to standard according to (other readme).
 - No part of your contribution contains offensive content or slurs in any way.
-- The CSS is flexible enough, and obviously, isn't painful to look at.
+- The CSS is flexible enough, and obviously, doesn't look too bad!
 
-### Report bugs
+### Reporting bugs
 
-If you find a bug, please [report it by opening an issue](https://github.com/angelinopersia/papofic/issues/new) !
+If you find a bug, please [report it by opening an issue](https://github.com/angelinopersia/papofic/issues/new)!
 
-## Learn More
+## License(?)
