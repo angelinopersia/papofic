@@ -31,4 +31,8 @@ There is a number of themes available from the start, but you may create a theme
 - No part of your contribution contains offensive content or slurs in any way.
 - The CSS is flexible enough, and obviously, isn't painful to look at.
 
+### Report bugs
+
+If you find a bug, please [report it by opening an issue](https://github.com/angelinopersia/papofic/issues/new) !
+
 ## Learn More
