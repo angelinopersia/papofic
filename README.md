@@ -14,9 +14,13 @@
 
 [Link](http://localhost:3000/)
 
+## Install and launch
+
+The package manager `yarn` is required to install the project's dependencies (`yarn install`) and run the code (`yarn start`).
+
 ## How you can contribute
 
-### Themed documents
+### Template themes
 
 There is a number of themes available from the start, but you may create a theme of your own and offer to have it added in the project. If the theme is up to standards, it will be merged into the project.
 
@@ -27,12 +31,4 @@ There is a number of themes available from the start, but you may create a theme
 - No part of your contribution contains offensive content or slurs in any way.
 - The CSS is flexible enough, and obviously, isn't painful to look at.
 
-## Install and launch
-
-The package manager `yarn` is required to install the project's dependencies (`yarn install`) and run the code (`yarn start`).
-
 ## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
