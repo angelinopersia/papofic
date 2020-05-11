@@ -1,10 +1,10 @@
 <div align="center"><img src="papofic_logo.png" alt="papofic_logo" width="200px" height="auto">
 
-# TEST
+# PAPOFIC
+
+Papofic helps French users choose pre-set letters among other types of documents and only have tp fill in their information. Smooth and easy.
 
 </div>
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
