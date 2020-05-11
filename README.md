@@ -12,7 +12,7 @@
 
 **All that you are required to do is choose an existing document and fill in the information fields. You can also choose an existing theme if you wish to decorate your document.**
 
-**Once you're done, you may either save it as a `pdf` file or print it.**
+**Once you're done, you may either save it as a pdf file or print it. Or both.**
 
 \* _Papofic only supports French localization as of today. It is not yet (and will likely never be) planned to support other languages in the future._
 
