@@ -1,4 +1,4 @@
-<div align="center"><img src="papofic_logo.png" alt="papofic_logo" width="200px" height="auto"><br/><span fontSize="30px">PAPOFIC</span></div>
+<div align="center"><img src="papofic_logo.png" alt="papofic_logo" width="200px" height="auto"><br/><span style="font-size:50px">PAPOFIC</span></div>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
