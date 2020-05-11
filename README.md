@@ -1,6 +1,6 @@
-<div align="center"><img src="papofic_logo.png" alt="papofic_logo" width="200px" height="auto"><br/><span style="font-size:50px">PAPOFIC</span>
+<div align="center"><img src="papofic_logo.png" alt="papofic_logo" width="200px" height="auto">
 
-## TEST
+# TEST
 
 </div>
 
