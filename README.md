@@ -1,6 +1,6 @@
 <div align="center"><img src="papofic_logo.png" alt="papofic_logo" width="200px" height="auto">
 
-[# PAPOFIC](http://localhost:3000/)
+# PAPOFIC]
 
 ### Papofic lets French\* users choose a template of a document among many others available and only have to fill in their information. Smooth and easy.
 
@@ -11,7 +11,7 @@
 
 ## Link to website
 
-[Link to website (netlify?) here]
+[Link](http://localhost:3000/)
 
 ## Install and launch
 
