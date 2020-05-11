@@ -1,4 +1,4 @@
-<div align="center"><img src="papofic_logo.png" alt="papofic_logo" width="200px" height="auto">
+<div align="center">
 
 # PAPOFIC
 

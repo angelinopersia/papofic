@@ -2,6 +2,12 @@
 
 # PAPOFIC
 
+<p align="middle">
+<a><img src="https://img.shields.io/badge/v16.13.1-react-61DAFB"/></a>
+<a><img src="https://img.shields.io/badge/v3.7.2-typescript-207ABF"/></a>
+<a><img src="https://img.shields.io/badge/v1.22.0-yarn-2C8EBB"/></a>
+</p>
+
 ### Papofic lets French\* users choose a template of a document among many others available and only have to fill in their information. Smooth and easy.
 
 </div>
