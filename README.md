@@ -6,6 +6,8 @@
 
 ### Smooth and easy.
 
+<br />
+
 </div>
 * Papofic only supports French localization as of today. It is not yet (and likely not) planned to support other languages in the future.
 
