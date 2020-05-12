@@ -6,7 +6,7 @@
 <a><img src="https://img.shields.io/badge/v16.13.1-react-61DAFB"/></a>
 <a><img src="https://img.shields.io/badge/v3.7.2-typescript-207ABF"/></a>
 <a><img src="https://img.shields.io/badge/v1.22.0-yarn-2C8EBB"/></a>
-<a href=""><img src="https://img.shields.io/badge/License-MIT-green" alt="MIT license" /></a>
+<a href="https://github.com/angelinopersia/papofic/blob/readMe/LICENSE.txt"><img src="https://img.shields.io/badge/License-MIT-green" alt="MIT license" /></a>
 </p>
 
 ### Papofic lets French\* users save time with a variety of document templates of which the general content is already written. Only the necessary variable information must be typed in by the user.
@@ -38,7 +38,7 @@ The package manager **[yarn](https://yarnpkg.com/)** is required to run this pro
 
 ### Template themes
 
-Feeling creative? Then perhaps you could make a theme of your own and offer to have it added in Papofic through a [pull request](https://github.com/daybrush/selecto/compare). If your contribution is up to certain standards\*, it will be merged with the project!
+Feeling creative? Then perhaps you could make a theme of your own and offer to have it added in Papofic through a [pull request](https://github.com/angelinopersia/papofic/compare/). If your contribution is up to certain standards\*, it will be merged with the project!
 
 #### \* Your contribution is compatible if:
 
