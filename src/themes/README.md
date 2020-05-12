@@ -30,27 +30,29 @@ The object must contain:
 
 e.g., `{ title: "myTheme", model: MyThemeModel, },`
 
-5. Each theme appears in a themes tab with their own thumbnail.
+## Thumbnails
+
+Each theme appears in a themes tab with their own thumbnail.
 
 Papofic's themes thumbnails come from [Quinn Rohlf](https://github.com/qrohlf)'s fantastic [trianglify](https://trianglify.io/).
 
 Thus you must also create a thumbnail from trianglify. Don't worry, it's easy.
 
-The thumbnail must at least:
+1. The thumbnail must at least:
 
 - have its width and height be 150 pixels each.
 - have its colors match the look of the theme (as to not mislead users).
 
 The rest of the details are up to you and your creativity.
 
-When you're done creating your thumbnail, click on **"Export"** and **"Download Low-Res Preview"**.
+2. When you're done creating your thumbnail, click on **"Export"** and **"Download Low-Res Preview"**.
 
-Rename the exported PNG after your theme's name in camelCase, and drop it into `/src/thumbnails`.
+3. Rename the exported PNG after your theme's name in camelCase, and drop it into `/src/thumbnails`.
 
-Import it into `/src/thumbnails/index.ts`.
+4. Import it into `/src/thumbnails/index.ts`.
 
 The import must be named after your theme's name in camelCase.
 
-Include the import in the constant object `thumbnails`.
+5. Include the import in the constant object `thumbnails`.
 
 ### It's done, your theme is now compatible!
