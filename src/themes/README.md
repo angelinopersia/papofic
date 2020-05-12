@@ -2,6 +2,7 @@
 
 # Adding your own theme
 
+</div>
 Each theme has its own **folder**. Such **folders** contain typescript files. Each one of those typescript files represent the css of a template.
 
 To add your own theme:
@@ -26,5 +27,3 @@ The object must contain:
 - the imports related to your theme in keys named after the models present in your theme **folder**.
 
 e.g., `{ title: "myTheme", model: MyThemeModel, },`
-
-</div>
