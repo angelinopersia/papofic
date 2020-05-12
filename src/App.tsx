@@ -6,8 +6,8 @@ import Builder from "./Builder";
 import View from "./View";
 import { themes } from "./themes/themesConfig";
 
-import { Cancel } from "./models/Cancel";
-import { Test } from "./models/Test";
+import { Cancel } from "./models/cancel/Cancel";
+import { Test } from "./models/test/Test";
 
 import "./App.css";
 

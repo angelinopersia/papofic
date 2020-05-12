@@ -1,5 +1,3 @@
-export const primaryColor = "#D8E1E8";
-
 const StyledView = {
   ul: {
     margin: 0,
@@ -18,7 +16,7 @@ const StyledView = {
     position: "absolute",
     width: 794,
     height: 325,
-    background: primaryColor,
+    background: "#D8E1E8",
     zIndex: 1,
   },
   ".bottom": {},

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BuilderType } from "../types/index";
+import { BuilderType } from "../../types/index";
 
 const Builder: BuilderType[] = [
   {

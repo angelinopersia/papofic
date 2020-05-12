@@ -1,18 +1,18 @@
 // Themes
 
 // BASE
-import BaseCancel, { primaryColor as base } from "./base/cancel";
+import BaseCancel from "./base/cancel";
 import BaseTest from "./base/test";
 
 // DUBLIN
-import DublinCancel, { primaryColor as dublin } from "./dublin/cancel";
+import DublinCancel from "./dublin/cancel";
 import DublinTest from "./dublin/test";
 
 // ROMA
-import RomaCancel, { primaryColor as roma } from "./roma/cancel";
+import RomaCancel from "./roma/cancel";
 
 // CHICAGO
-import ChicagoCancel, { primaryColor as chicago } from "./chicago/cancel";
+import ChicagoCancel from "./chicago/cancel";
 
 export const themes = [
   {
@@ -34,16 +34,3 @@ export const themes = [
     cancel: ChicagoCancel,
   },
 ];
-
-export const colors = {
-  cancel: {
-    chicago,
-    base,
-    dublin,
-    roma,
-  },
-  test: {
-    base,
-    dublin,
-  },
-};
