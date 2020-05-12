@@ -30,8 +30,8 @@
 
 The package manager **[yarn](https://yarnpkg.com/)** is required to run this project locally:
 
-- Install the project's dependencies (`yarn install`)
-- Run the app (`yarn start`)
+- Install the project's dependencies with `yarn install`
+- Run the app with `yarn start`
 
 ## How you can contribute
 
@@ -41,8 +41,8 @@ Feeling creative? Then perhaps you could make a theme of your own and offer to h
 
 #### \* Your contribution is compatible if:
 
-- The content of the pull request does not change the project's code in any other way than adding and associating your theme to the parts of the project which are related to the themes, and adding your theme into the `themes` folder (A detailed explanation on how to add a theme is available in another readme file within the `themes` folder).
-- The names of the variables and file are up to standard according to (other readme).
+- The content of the pull request does not change the project's code in any other way than by strictly following the [readme regarding themes](https://github.com/angelinopersia/papofic/tree/readMe/src/themes) .
+- The names of the variables and file are up to standard according to the [aforementioned README](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
 - No part of your contribution contains offensive content.
 - The CSS isn't a disaster.
 
