@@ -3,7 +3,10 @@
 # Adding your own theme
 
 </div>
-Each theme has its own **folder**. Such **folders** contain typescript files. Each one of those typescript files represent the css of a template.
+
+Each theme has its own **folder**. Such **folders** contain typescript files.
+
+Each one of those typescript files represent the css of a template.
 
 To add your own theme:
 
