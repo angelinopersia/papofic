@@ -41,8 +41,7 @@ Feeling creative? Then perhaps you could make a theme of your own and offer to h
 
 #### \* Your contribution is compatible if:
 
-- The content of the pull request does not change the project's code in any other way than by strictly following the [readme regarding themes](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
-- The variable and file names are up to standard according to the [aforementioned README](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
+- The content of the pull request does not change the project's code in any other way than by strictly following the [README file regarding themes](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
 - No part of your contribution contains offensive content.
 - The CSS isn't a disaster.
 
