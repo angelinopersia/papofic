@@ -6,6 +6,7 @@
 <a><img src="https://img.shields.io/badge/v16.13.1-react-61DAFB"/></a>
 <a><img src="https://img.shields.io/badge/v3.7.2-typescript-207ABF"/></a>
 <a><img src="https://img.shields.io/badge/v1.22.0-yarn-2C8EBB"/></a>
+<a href=""><img src="https://img.shields.io/badge/License-MIT-green" alt="MIT license" /></a>
 </p>
 
 ### Papofic lets French\* users save time with a variety of document templates of which the general content is already written. Only the necessary variable information must be typed in by the user.
@@ -52,5 +53,3 @@ If you find a bug, please report it by [opening an issue](https://github.com/ang
 ### Suggestions
 
 If you have any ideas or suggestions to make Papofic better, such as new features or a new template, feel free to let me know!
-
-## License(?)
