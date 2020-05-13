@@ -42,7 +42,7 @@ Feeling creative? Then perhaps you could make a theme of your own and offer to h
 
 #### \* Your contribution is compatible if:
 
-- The content of the pull request does not change the project's code in any other way than by strictly following the [README file regarding themes](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
+- The content of the pull request does not change the project's code in any other way than by strictly following the [README file regarding theme addition](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
 - No part of your contribution contains offensive content.
 - The CSS isn't a disaster.
 
@@ -52,4 +52,4 @@ If you find a bug, please report it by [opening an issue](https://github.com/ang
 
 ### Suggestions
 
-If you have any ideas or suggestions to make Papofic better, such as new features or a new template, feel free to let me know!
+If you have any ideas or suggestions to make Papofic better, such as new features or a new template, I'd be grateful to know!

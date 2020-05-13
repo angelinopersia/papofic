@@ -55,4 +55,4 @@ The import must be named after your theme's name in camelCase.
 
 5. Include the import in the constant object `thumbnails`.
 
-### It's done, your theme is now compatible!
+### Done! Your theme is now compatible!
