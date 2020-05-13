@@ -12,7 +12,7 @@ Depending on the type of document, the motive must be precised as well. It could
 
 **3. Number**
 
-Multiple variants and structures of the same document and motive exist. The number will differentiate them.
+Multiple variants of a model (same type of document and same motive/goal) may exist. The number will differentiate them.
 
 ---
 
@@ -24,6 +24,6 @@ e.g.:
 
 2. Motive/Goal: **Cancellation (C)**
 
-3. Number: (Depending on the amount of existing models of the same kind) **000**
+3. Number: **000** (Depending on the amount of existing models of the same kind)
 
 _Result: LC000_
