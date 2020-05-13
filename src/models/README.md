@@ -26,4 +26,4 @@ e.g.:
 
 3. Number: **000** (Depending on the amount of existing models of the same kind)
 
-_Result: LC000_
+_Result: LC001_
