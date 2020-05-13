@@ -1,18 +1,17 @@
 // Themes
 
 // BASE
-import BaseLC001 from "./base/LC001";
-import BaseTest from "./base/test";
+import BaseLC001 from "./base";
+import BaseTest from "./test";
 
 // CHICAGO
-import ChicagoLC001 from "./chicago/LC001";
+import ChicagoLC001 from "./chicago";
 
 // DUBLIN
-import DublinLC001 from "./dublin/LC001";
-import DublinTest from "./dublin/test";
+import DublinLC001 from "./dublin";
 
 // ROMA
-import RomaLC001 from "./roma/LC001";
+import RomaLC001 from "./roma";
 
 export const themes = [
   {
@@ -23,7 +22,6 @@ export const themes = [
   {
     title: "dublin",
     LC001: DublinLC001,
-    test: DublinTest,
   },
   {
     title: "roma",

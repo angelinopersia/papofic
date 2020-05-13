@@ -9,7 +9,9 @@
 <a href="https://github.com/angelinopersia/papofic/blob/readMe/LICENSE.txt"><img alt="MIT license" src="https://img.shields.io/badge/License-MIT-green"/></a>
 </p>
 
-### Papofic lets French\* users save time with a variety of document templates of which the general content is already written. Only the necessary variable information must be typed in by the user.
+### Papofic lets French\* users save time with a variety of document templates of which the general content is already written.
+
+### Only the necessary variable information must be typed in by the user.
 
 </div>
 
@@ -33,6 +35,10 @@ The package manager **[yarn](https://classic.yarnpkg.com/lang/en/)** is required
 
 - Install the project's dependencies with `yarn install`
 - Run the app with `yarn start`
+
+## API
+
+[Theme addition](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
 
 ## How you can contribute
 
