@@ -80,12 +80,12 @@ const ModelsPanel = (props: any) => {
     setRes(modelList);
     const newList: object[] = [];
 
-    modelList.map((model: { translated: string[]; title: string }) => {
-      const result = model.translated.filter((mdl) =>
+    modelList.map((model: { title: string[]; id: string }) => {
+      const result = model.title.filter((mdl) =>
         mdl.toLowerCase().includes(value.toLowerCase()),
       );
       if (result[0] !== undefined) {
-        newList.push([model.translated, model.title]);
+        newList.push([model.title, model.id]);
       }
       setRes(newList);
     });

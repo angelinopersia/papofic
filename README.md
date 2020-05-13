@@ -3,10 +3,10 @@
 # PAPOFIC
 
 <p align="middle">
-<a><img src="https://img.shields.io/badge/v16.13.1-react-61DAFB"/></a>
-<a><img src="https://img.shields.io/badge/v3.7.2-typescript-207ABF"/></a>
-<a><img src="https://img.shields.io/badge/v1.22.0-yarn-2C8EBB"/></a>
-<a href="https://github.com/angelinopersia/papofic/blob/readMe/LICENSE.txt"><img src="https://img.shields.io/badge/License-MIT-green" alt="MIT license" /></a>
+<a href="https://reactjs.org/"><img alt="react v16.13.1" src="https://img.shields.io/badge/v16.13.1-react-61DAFB"/></a>
+<a href="https://www.typescriptlang.org/"><img alt="typescript v3.7.2" src="https://img.shields.io/badge/v3.7.2-typescript-207ABF"/></a>
+<a href="https://classic.yarnpkg.com/lang/en/"><img alt="yarn v1.22.0" src="https://img.shields.io/badge/v1.22.0-yarn-2C8EBB"/></a>
+<a href="https://github.com/angelinopersia/papofic/blob/readMe/LICENSE.txt"><img alt="MIT license" src="https://img.shields.io/badge/License-MIT-green"/></a>
 </p>
 
 ### Papofic lets French\* users save time with a variety of document templates of which the general content is already written. Only the necessary variable information must be typed in by the user.
@@ -29,7 +29,7 @@
 
 ## Install and launch
 
-The package manager **[yarn](https://yarnpkg.com/)** is required to run this project locally:
+The package manager **[yarn](https://classic.yarnpkg.com/lang/en/)** is required to run this project locally:
 
 - Install the project's dependencies with `yarn install`
 - Run the app with `yarn start`

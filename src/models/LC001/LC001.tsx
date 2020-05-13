@@ -186,11 +186,11 @@ const View = ({
 );
 
 const Translation = {
-  title: ["cancel"],
-  translated: ["Lettre d'annulation"],
+  id: ["LC001"],
+  title: ["Lettre d'annulation"],
 };
 
-export const Cancel = { Builder, View, Translation };
+export const LC001 = { Builder, View, Translation };
 
 const Div = styled.div`
   background: white;

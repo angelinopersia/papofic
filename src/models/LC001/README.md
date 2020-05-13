@@ -1,4 +1,4 @@
-The following code snippet is structured according to the available css of `cancel`.
+The following code snippet is structured according to the available css of `LC001`.
 
 You may copy it and paste it into your own theme typescript file before editing the latter.
 

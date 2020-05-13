@@ -32,7 +32,7 @@ const Builder: BuilderType[] = [
 
 const View = ({ test }: any) => <div>test</div>;
 
-const Translation = { title: ["test"], translated: ["Test"] };
+const Translation = { id: ["test"], title: ["Test"] };
 
 export const Test = { Builder, View, Translation };
 

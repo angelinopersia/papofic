@@ -1,36 +1,36 @@
 // Themes
 
 // BASE
-import BaseCancel from "./base/cancel";
+import BaseLC001 from "./base/LC001";
 import BaseTest from "./base/test";
 
+// CHICAGO
+import ChicagoLC001 from "./chicago/LC001";
+
 // DUBLIN
-import DublinCancel from "./dublin/cancel";
+import DublinLC001 from "./dublin/LC001";
 import DublinTest from "./dublin/test";
 
 // ROMA
-import RomaCancel from "./roma/cancel";
-
-// CHICAGO
-import ChicagoCancel from "./chicago/cancel";
+import RomaLC001 from "./roma/LC001";
 
 export const themes = [
   {
     title: "base",
-    cancel: BaseCancel,
+    LC001: BaseLC001,
     test: BaseTest,
   },
   {
     title: "dublin",
-    cancel: DublinCancel,
+    LC001: DublinLC001,
     test: DublinTest,
   },
   {
     title: "roma",
-    cancel: RomaCancel,
+    LC001: RomaLC001,
   },
   {
     title: "chicago",
-    cancel: ChicagoCancel,
+    LC001: ChicagoLC001,
   },
 ];

@@ -6,22 +6,22 @@ import Builder from "./Builder";
 import View from "./View";
 import { themes } from "./themes/themesConfig";
 
-import { Cancel } from "./models/cancel/Cancel";
+import { LC001 } from "./models/LC001/LC001";
 import { Test } from "./models/test/Test";
 
 import "./App.css";
 
 export const modelsB = {
-  cancel: Cancel.Builder,
+  LC001: LC001.Builder,
   test: Test.Builder,
 };
 
 export const modelsV = {
-  cancel: Cancel.View,
+  LC001: LC001.View,
   test: Test.View,
 };
 
-export const modelsTL = [Cancel.Translation, Test.Translation];
+export const modelsTL = [LC001.Translation, Test.Translation];
 
 const App = () => {
   const { state } = useOvermind();
