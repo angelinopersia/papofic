@@ -1,5 +1,3 @@
-export const primaryColor = "#000000";
-
 const StyledView = {
   ul: {
     margin: 0,

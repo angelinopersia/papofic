@@ -2,49 +2,54 @@
 
 # PAPOFIC
 
-Papofic helps French users choose pre-set letters among other types of documents and only have tp fill in their information. Smooth and easy.
+<p align="middle">
+<a href="https://reactjs.org/"><img alt="react v16.13.1" src="https://img.shields.io/badge/v16.13.1-react-61DAFB"/></a>
+<a href="https://www.typescriptlang.org/"><img alt="typescript v3.7.2" src="https://img.shields.io/badge/v3.7.2-typescript-207ABF"/></a>
+<a href="https://classic.yarnpkg.com/lang/en/"><img alt="yarn v1.22.0" src="https://img.shields.io/badge/v1.22.0-yarn-2C8EBB"/></a>
+<a href="https://github.com/angelinopersia/papofic/blob/readMe/LICENSE.txt"><img alt="MIT license" src="https://img.shields.io/badge/License-MIT-green"/></a>
+</p>
+
+### Papofic lets French\* users save time with a variety of document templates of which the general content is already written. Only the necessary variable information must be typed in by the user.
 
 </div>
 
-## Available Scripts
+<br />
 
-In the project directory, you can run:
+**Papofic acts like a basic word processing software online. The user chooses a nearly-completed template among the available ones and fills the given text fields with information.**
 
-### `yarn start`
+**Each document also has its own themes which can be selected to change the model's appearance.**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Once the process is complete, the document can be saved as a PDF file and/or printed.**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+\* _Papofic only supports French localization as of today. It is not yet (and will likely never be) planned to support other languages in the future._
 
-### `yarn test`
+## Link to website
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Link](http://localhost:3000/)
 
-### `yarn build`
+## Install and launch
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The package manager **[yarn](https://classic.yarnpkg.com/lang/en/)** is required to run this project locally:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Install the project's dependencies with `yarn install`
+- Run the app with `yarn start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How you can contribute
 
-### `yarn eject`
+### Template themes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Feeling creative? Then perhaps you could make a theme of your own and offer to have it added in Papofic through a [pull request](https://github.com/angelinopersia/papofic/compare/). If your contribution is up to certain standards\*, it will be merged with the project!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### \* Your contribution is compatible if:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- The content of the pull request does not change the project's code in any other way than by strictly following the [README file regarding theme addition](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
+- No part of your contribution contains offensive content.
+- The CSS isn't a disaster.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Reporting bugs
 
-## Learn More
+If you find a bug, please report it by [opening an issue](https://github.com/angelinopersia/papofic/issues/new)!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Suggestions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you have any ideas or suggestions to make Papofic better, such as new features or a new template, I'd be grateful to know!

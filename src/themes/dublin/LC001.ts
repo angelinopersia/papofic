@@ -1,5 +1,3 @@
-export const primaryColor = "#D8E1E8";
-
 const StyledView = {
   ul: {
     margin: 0,
@@ -8,38 +6,33 @@ const StyledView = {
   },
 
   ".container": {
-    padding: "25px 25px",
+    padding: 25,
     fontFamily: "Calibri",
-    position: "absolute",
-    zIndex: 2,
   },
 
-  ".top": {
-    position: "absolute",
+  ".top": {},
+  ".bottom": {
     width: 794,
-    height: 325,
-    background: primaryColor,
-    zIndex: 1,
+    height: 500,
+    background: "#ade4c5",
+    position: "absolute",
+    transform: "skewY(-11deg)",
   },
-  ".bottom": {},
   ".left": {},
   ".right": {},
 
-  ".head": { display: "grid", color: "#202B33" },
+  ".head": { display: "grid" },
   ".sender": {},
   ".destin": { textAlign: "right" },
 
   ".done-at": {
     paddingTop: 20,
     textAlign: "right",
-    color: "#202B33",
   },
 
   ".object-info": {
     padding: "40px 0",
-    fontSize: 19,
-    letterSpacing: 1.5,
-    color: "#293742",
+    fontSize: 18,
   },
 
   ".content": {

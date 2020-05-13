@@ -18,7 +18,7 @@ import {
 import MomentLocaleUtils from "react-day-picker/moment";
 import "moment/locale/fr";
 import moment from "moment";
-import { backgrounds } from "./backgrounds/index";
+import { thumbnails } from "./thumbnails/index";
 import { useOvermind } from "./store";
 import { themes } from "./themes/themesConfig";
 import { modelsB, modelsTL } from "./App";
@@ -80,12 +80,12 @@ const ModelsPanel = (props: any) => {
     setRes(modelList);
     const newList: object[] = [];
 
-    modelList.map((model: { translated: string[]; title: string }) => {
-      const result = model.translated.filter((mdl) =>
+    modelList.map((model: { title: string[]; id: string }) => {
+      const result = model.title.filter((mdl) =>
         mdl.toLowerCase().includes(value.toLowerCase()),
       );
       if (result[0] !== undefined) {
-        newList.push([model.translated, model.title]);
+        newList.push([model.title, model.id]);
       }
       setRes(newList);
     });
@@ -324,7 +324,7 @@ const usePanel = () => {
             theme[state.model] && (
               <ThemeContainer key={theme.title}>
                 <ThemeThumbnail
-                  backgrounds={backgrounds}
+                  thumbnails={thumbnails}
                   onClick={() => {
                     actions.changeTheme({
                       value: theme.title,
@@ -470,8 +470,8 @@ const ThemeThumbnail = styled.div`
   height: 150px;
   justify-content: center;
   align-items: center;
-  background-image: ${(p: { title: string; backgrounds: object }) =>
-    `url(${p.backgrounds[p.title]})`};
+  background-image: ${(p: { title: string; thumbnails: object }) =>
+    `url(${p.thumbnails[p.title]})`};
   background-repeat: no-repeat;
   border-radius: 10px;
   cursor: pointer;

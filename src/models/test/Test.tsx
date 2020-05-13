@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BuilderType } from "../types/index";
+import { BuilderType } from "../../types/index";
 
 const Builder: BuilderType[] = [
   {
@@ -32,7 +32,7 @@ const Builder: BuilderType[] = [
 
 const View = ({ test }: any) => <div>test</div>;
 
-const Translation = { title: ["test"], translated: ["Test"] };
+const Translation = { id: ["test"], title: ["Test"] };
 
 export const Test = { Builder, View, Translation };
 
