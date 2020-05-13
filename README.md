@@ -27,7 +27,7 @@
 
 [Link](http://localhost:3000/)
 
-## Install and launch
+## Install and launch locally
 
 The package manager **[yarn](https://classic.yarnpkg.com/lang/en/)** is required to run this project locally:
 
@@ -48,6 +48,8 @@ Feeling creative? Then perhaps you could make a theme of your own and offer to h
 
 ### Templates
 
+WIP
+
 ### Reporting bugs
 
 If you find a bug, please report it by [opening an issue](https://github.com/angelinopersia/papofic/issues/new)!
@@ -56,6 +58,6 @@ If you find a bug, please report it by [opening an issue](https://github.com/ang
 
 If you have any ideas or suggestions to make Papofic better, such as new features or a new template, I'd be grateful to know!
 
-### Star my project ★
+### Star★ my project
 
-If my project helped you and/or if you liked, please star ★ it, I'd appreciate it!
+If my project helped you and/or if you liked, please star★ it, I'd appreciate it!
