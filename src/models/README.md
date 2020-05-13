@@ -1,29 +1,51 @@
 # Model naming process
 
-The name of the model is separated into several parts, namely:
+The name of the model is composed of several parts:
 
-**1. Type of document**
+**1. Document type**
 
 To determine if the document is a letter, a bill, an estimate...
 
-**2. Motive/Goal**
+**2. Reason**
 
-Depending on the type of document, the motive must be precised as well. It could be resignation, cancellation...
+Depending on the document type, the reason must be precised as well. It could be resignation, cancellation...
 
 **3. Number**
 
-Multiple variants of a model (same type of document and same motive/goal) may exist. The number will differentiate them.
+Multiple variants of a model (same Document type and same reason) may exist. The number will differentiate them.
 
 ---
 
-Each one of those parts (excluding the number), have their initials concatenated together in the same order.
+The model name is constituted of:
+
+- The document type's first letter
+- The reason's 3 first letters
+- The number
+
+Those parts are concatenated together in that same order.
 
 e.g.:
 
-1. Type of document: **Letter (L)**
+1. Document type: **Letter (L)**
 
-2. Motive/Goal: **Cancellation (C)**
+2. Reason: **Cancellation (CAN)**
 
 3. Number: **000** (Depending on the amount of existing models of the same kind)
 
-_Result: LC001_
+### Result: LCAN001
+
+---
+
+# API
+
+## Document type initials
+
+| Document Type | Initial |
+| ------------- | ------- |
+| Letter        | L       |
+
+## Reason initials
+
+| Reason       | Initial |
+| ------------ | ------- |
+| Cancellation | CAN     |
