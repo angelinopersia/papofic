@@ -46,6 +46,8 @@ Feeling creative? Then perhaps you could make a theme of your own and offer to h
 - No part of your contribution contains offensive content.
 - The CSS isn't a disaster.
 
+### Templates
+
 ### Reporting bugs
 
 If you find a bug, please report it by [opening an issue](https://github.com/angelinopersia/papofic/issues/new)!
@@ -53,3 +55,7 @@ If you find a bug, please report it by [opening an issue](https://github.com/ang
 ### Suggestions
 
 If you have any ideas or suggestions to make Papofic better, such as new features or a new template, I'd be grateful to know!
+
+### Star my project ★
+
+If my project helped you and/or if you liked, please star ★ it, I'd appreciate it!
