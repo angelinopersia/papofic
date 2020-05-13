@@ -15,20 +15,20 @@ To add your own theme:
 
 The content of your **typescript file** must begin from the code snippet found in the **README** file in `/src/models/(your chosen template)`.
 
-2. In `/src/themes/themesConfig.ts`, import your own theme from your **theme folder**'s **typescript file**.
+2. In `/src/themes/themesConfig.ts`, import your own theme from your **typescript file**.
 
 The import must be named after your theme name, concatenated with the concerned document name, in _CamelCase_.
 
-e.g., `import MyThemeXX000 from "./myTheme/XX000";`
+e.g., `import MyThemeXX000 from "./myTheme";`
 
 3. Still in `/src/themes/themesConfig.ts`, export your theme in the constant array `themes` as an object.
 
 The object must contain:
 
 - the name of your theme as a lowercase string in the key `title`.
-- the import(s) related to your theme in the key(s) named after the model(s) present in your **theme folder**.
+- your imported theme in the keys named after every existing model.
 
-e.g., `{ title: "myTheme", model: MyThemeXX000, },`
+e.g., `{ title: "myTheme", (model): MyThemeXX000, },`
 
 ## Thumbnails
 
