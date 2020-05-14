@@ -26,7 +26,7 @@ The name of the model consists of:
 
 Those parts are concatenated together in that same order.
 
-\**If the first 3 letters of a newly created reason already exist for another reason, include the next letter to differentiate them (*i.e. the first 4 letters, and so on...)\*
+\*_If the first 3 letters of a newly created reason already exist for another reason, include the next letter to differentiate them (i.e. the first 4 letters, and so on...)_
 
 e.g.:
 
