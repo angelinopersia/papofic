@@ -21,12 +21,12 @@ Multiple variants of a model (same document type and same reason) may exist. The
 The name of the model consists of:
 
 - The [**Document type**](#document-type-initials)'s first letter
-- The **Reason**'s first 3 letters\*
+- The [**Reason**](#reason-initials)'s first 3 letters\*
 - The **Number**
 
 Those parts are concatenated together in that same order.
 
-\*_If the first 3 letters of a newly created reason already exist for another reason, include the next letter to differentiate them (i.e. the first 4 letters, and so on...)_
+\* _If the first 3 letters of a newly created reason already exist for another reason, include the next letter to differentiate them (i.e. the first 4 letters, and so on...)_
 
 e.g.:
 

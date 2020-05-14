@@ -46,11 +46,15 @@ The package manager **[yarn](https://classic.yarnpkg.com/lang/en/)** is required
 
 Feeling creative? Then perhaps you could make a theme of your own and offer to have it added in Papofic through a [pull request](https://github.com/angelinopersia/papofic/compare/). If your contribution is up to certain standards\*, it will be merged with the project!
 
+### Creating your own model
+
+You may also create your own variant of an existing template and offer to have it added through a [pull request](https://github.com/angelinopersia/papofic/compare/) as well. Just like with template themes, your model must be up to certain standards\* before it can be compatible with the project.
+
 #### \* Your contribution is compatible if:
 
-- The content of the pull request does not change the project's code in any other way than by strictly following the [README file regarding theme addition](https://github.com/angelinopersia/papofic/tree/master/src/themes).
+- The content of the pull request does not change the project's code in any other way than by strictly following the [API](#api) above.
 - No part of your contribution contains offensive content.
-- The CSS isn't a disaster.
+- Your contribution isn't disaster.
 
 ### Reporting bugs
 
