@@ -65,14 +65,12 @@ blablabla build like this
 
 #### Letter
 
----
-
-| Key         | Type      | Note                                                                                          |
-| ----------- | --------- | --------------------------------------------------------------------------------------------- |
-| **title**   | `string`  | String identifying categories and items alike front-wise fetched by the global state manager. |
-| **id**      | `string`  | Serves as id for the category of information.                                                 |
-| **items**   | `array`   | Contains `objects` of other `keys` to be rendered in the Builder.                             |
-| **icon**    | `string`  | Icon displayed in the input text object.                                                      |
-| **name**    | `string`  | Serves as id for the key to be used by and for the global state manager.                      |
-| **fullRow** | `boolean` | When `true`, the item takes the entire row's space.                                           |
-| **type**    | `string`  | Changes the type of the input text object into the given one.                                 |
+| Key         | Type      | Note                                                                                   |
+| ----------- | --------- | -------------------------------------------------------------------------------------- |
+| **title**   | `string`  | Identifies categories and items alike front-wise, fetched by the global state manager. |
+| **id**      | `string`  | Serves as id for the category of information to be rendered in the Builder.            |
+| **items**   | `array`   | Contains `objects` containing other `keys` to be rendered in the Builder.              |
+| **icon**    | `string`  | Displays an icon in the input text object.                                             |
+| **name**    | `string`  | Serves as id for the key to be used by and for the global state manager.               |
+| **fullRow** | `boolean` | When `true`, the item takes the entire row's space.                                    |
+| **type**    | `string`  | Changes the type of the input text object into the given one.                          |
