@@ -65,14 +65,12 @@ blablabla build like this
 
 ## Letter
 
-| Key   | Type   | Note                                                         |
-| ----- | ------ | ------------------------------------------------------------ |
-| title | string | N/A                                                          |
-| id    | string | N/A                                                          |
-| items | array  | Contains objects of other keys to be rendered in the Builder |
-| name  | string | N/A                                                          |
-| icon  | string | The icon displayed in the text field                         |
-| title | string | N/A                                                          |
-| title | string | N/A                                                          |
-| title | string | N/A                                                          |
-| title | string | N/A                                                          |
+| Key       | Type      | Note                                                            |
+| --------- | --------- | --------------------------------------------------------------- |
+| `title`   | `string`  | N/A                                                             |
+| `id`      | `string`  | Serves as id for the category of information                    |
+| `items`   | `array`   | Contains objects of other keys to be rendered in the Builder    |
+| `icon`    | `string`  | The icon displayed in the input text object                     |
+| `name`    | `string`  | Serves as id for the key to be used by the global state manager |
+| `fullRow` | `boolean` | When `true`, the item takes the entire row's space              |
+| `type`    | `string`  | Changes the type of the input text object into the given one    |
