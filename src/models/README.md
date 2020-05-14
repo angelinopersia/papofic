@@ -61,24 +61,18 @@ blablabla build like this
 
 ## Structure
 
-### Letter Builder Typescript config
+### Builder Typescript config
+
+## Letter
 
 | Key   | Type   | Note                                                         |
 | ----- | ------ | ------------------------------------------------------------ |
 | title | string | N/A                                                          |
-| ----- | ------ | ----                                                         |
 | id    | string | N/A                                                          |
-| ----- | ------ | ----                                                         |
 | items | array  | Contains objects of other keys to be rendered in the Builder |
-| ----- | ------ | ----                                                         |
 | name  | string | N/A                                                          |
-| ----- | ------ | ----                                                         |
 | icon  | string | The icon displayed in the text field                         |
-| ----- | ------ | ----                                                         |
 | title | string | N/A                                                          |
-| ----- | ------ | ----                                                         |
 | title | string | N/A                                                          |
-| ----- | ------ | ----                                                         |
 | title | string | N/A                                                          |
-| ----- | ------ | ----                                                         |
 | title | string | N/A                                                          |
