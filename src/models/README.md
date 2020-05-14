@@ -1,6 +1,8 @@
-# Model naming process
+# Model creation
 
-The name of the model is composed of several parts:
+## Naming process
+
+Several details are necessary for the naming of the model:
 
 **1. Document type**
 
@@ -12,11 +14,11 @@ Depending on the document type, the reason must be precised as well. It could be
 
 **3. Number**
 
-Multiple variants of a model (same Document type and same reason) may exist. The number will differentiate them.
+Multiple variants of a model (same document type and same reason) may exist. The number will differentiate them.
 
 ---
 
-The model name is constituted of:
+The name of the model consists of:
 
 - The document type's first letter
 - The reason's 3 first letters
@@ -26,26 +28,34 @@ Those parts are concatenated together in that same order.
 
 e.g.:
 
-1. Document type: **Letter (L)**
+1. Document type: **Letter -> (L)**
 
-2. Reason: **Cancellation (CAN)**
+2. Reason: **Cancellation -> (CAN)**
 
-3. Number: **000** (Depending on the amount of existing models of the same kind)
+3. Number: Does a version of a cancellation letter already exist? **-> 000\***
 
 ### Result: LCAN001
 
----
+## Structure
+
+blablabla build like this
 
 # API
 
-## Document type initials
+## Naming process
 
-| Document Type | Initial |
-| ------------- | ------- |
-| Letter        | L       |
+### Document type initials
 
-## Reason initials
+| **Document Type** | **Initial** |
+| :---------------- | :---------- |
+| Letter            | `L`         |
 
-| Reason       | Initial |
-| ------------ | ------- |
-| Cancellation | CAN     |
+### Reason initials
+
+| **Reason**   | **Initial** |
+| :----------- | :---------- |
+| Cancellation | `CAN`       |
+
+## Structure
+
+typescript stuff
