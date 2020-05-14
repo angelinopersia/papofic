@@ -20,9 +20,9 @@ Multiple variants of a model (same document type and same reason) may exist. The
 
 The name of the model consists of:
 
-- The document type's first letter
-- The reason's first 3 letters\*
-- The number
+- The [**Document type**](#document-heading)'s first letter
+- The **Reason**'s first 3 letters\*
+- The **Number**
 
 Those parts are concatenated together in that same order.
 
@@ -46,7 +46,7 @@ blablabla build like this
 
 ## Naming process
 
-### Document type initials
+### Document type initials(#document-heading)
 
 | **Document Type** | **Initial** |
 | :---------------- | :---------- |
