@@ -21,7 +21,7 @@ Multiple variants of a model (same document type and same reason) may exist. The
 The name of the model consists of:
 
 - The [**Document type**](#document-type-initials)'s first letter
-- The [**Reason**](#reason-initials)'s first 3 letters\*
+- The [**Reason**](#reason-initials)'s first 3 letters \*
 - The **Number**
 
 Those parts are concatenated together in that same order.
@@ -61,4 +61,9 @@ blablabla build like this
 
 ## Structure
 
-typescript stuff
+### Letter Builder Typescript config
+
+```jsx
+| Key | Type | Default |
+|------|-----|-----|
+```

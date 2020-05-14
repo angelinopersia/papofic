@@ -62,7 +62,7 @@ const App = () => {
 
 const Display = styled.div`
   display: grid;
-  grid-template-columns: 420px auto;
+  grid-template-columns: 400px auto;
 `;
 
 const BuilderSide = styled.div`
