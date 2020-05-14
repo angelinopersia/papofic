@@ -21,10 +21,12 @@ Multiple variants of a model (same document type and same reason) may exist. The
 The name of the model consists of:
 
 - The document type's first letter
-- The reason's 3 first letters
+- The reason's first 3 letters\*
 - The number
 
 Those parts are concatenated together in that same order.
+
+\**If the first 3 letters of a newly created reason already exist for another reason, include the next letter to differentiate them (*i.e. the first 4 letters, and so on...)\*
 
 e.g.:
 
@@ -32,7 +34,7 @@ e.g.:
 
 2. Reason: **Cancellation -> (CAN)**
 
-3. Number: Does a version of a cancellation letter already exist? **-> 000\***
+3. Number **-> 001** (Number is determined by `amount of existing variants + 1`)
 
 ### Result: LCAN001
 
@@ -54,6 +56,7 @@ blablabla build like this
 
 | **Reason**   | **Initial** |
 | :----------- | :---------- |
+| Cancellation | `CAN`       |
 | Cancellation | `CAN`       |
 
 ## Structure
