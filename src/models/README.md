@@ -63,7 +63,9 @@ blablabla build like this
 
 ### Builder Typescript config
 
-## Letter
+#### Letter
+
+---
 
 | Key         | Type      | Note                                                                                          |
 | ----------- | --------- | --------------------------------------------------------------------------------------------- |
