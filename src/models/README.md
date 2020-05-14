@@ -57,7 +57,7 @@ blablabla build like this
 | **Reason**   | **Initial** |
 | :----------- | :---------- |
 | Cancellation | `CAN`       |
-| Cancellation | `CAN`       |
+| Resignation  | `RES`       |
 
 ## Structure
 

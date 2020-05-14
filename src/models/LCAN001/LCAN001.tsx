@@ -186,11 +186,11 @@ const View = ({
 );
 
 const Translation = {
-  id: ["LC001"],
+  id: ["LCAN001"],
   title: ["Lettre d'annulation"],
 };
 
-export const LC001 = { Builder, View, Translation };
+export const LCAN001 = { Builder, View, Translation };
 
 const Div = styled.div`
   background: white;
