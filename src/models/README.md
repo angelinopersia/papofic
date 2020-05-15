@@ -20,8 +20,8 @@ Multiple variants of a model (same document type and same reason) may exist. The
 
 The name of the model consists of:
 
-- The [**Document type**](#document-type-initials)'s first letter
-- The [**Reason**](#reason-initials)'s first 3 letters \*
+- The **Document type**'s first letter
+- The **Reason**'s first 3 letters \*
 - The **Number**
 
 Those parts are concatenated together in that same order.
@@ -36,23 +36,13 @@ e.g.:
 
 3. Number **-> 001** (Number is determined by `amount of existing variants + 1`)
 
-### Result: LCAN001
+#### Result: LCAN001
 
-## Structure
-
-WIP text here
-
-# API
-
-## Naming process
-
-### Document type initials
+### API
 
 | **Document Type** | **Initial** |
 | :---------------- | :---------- |
 | Letter            | `L`         |
-
-### Reason initials
 
 | **Reason**   | **Initial** |
 | :----------- | :---------- |
@@ -61,9 +51,23 @@ WIP text here
 
 ## Structure
 
-### Builder config
+```ts
+{
+	title: "Sender",
+	id: "sender",
+	items: [
+		      { title: "First name", name: "sFirstName", icon: "person" },
+      { title: "Last Name", name: "sLastName", icon: "person" },
+      { title: "Address", name: "sAddress", icon: "home", fullRow: true },
+	],
+  },
+```
 
-#### Upper level
+### API
+
+#### Builder config
+
+##### Upper level
 
 | Key       | Type     | Note                                                                                          | Required |
 | --------- | -------- | --------------------------------------------------------------------------------------------- | -------- |
@@ -73,30 +77,33 @@ WIP text here
 
 ```ts
 {
-	// "title" is for the front end and "id" is for the code's process. See the Lower level section for "items".
-    title: "Content",
-    id: "content",
+// "title" appears on the front end.
+// "id" is for the code's process.
+// See the Lower level section for "items".
+	title: "Content",
+	id: "content",
 	items: [
 		// {...},
 	],
   },
 ```
 
-#### Lower level
+##### Lower level
 
 | Key         | Type      | Note                                                                     | Required |
 | ----------- | --------- | ------------------------------------------------------------------------ | -------- |
-| **title**   | `string`  | Identifies items front-wise.                                             | Yes      |
+| **title**   | `string`  | Identifies the items inside front-wise.                                  | Yes      |
 | **name**    | `string`  | Serves as id for the key to be used by and for the global state manager. | Yes      |
 | **icon**    | `string`  | Displays a chosen icon in the input text object.                         | No       |
 | **fullRow** | `boolean` | When `true`, the item takes the entire row's space.                      | No       |
 | **type**    | `string`  | Changes the type of the input text object into the given one.            | No       |
 
 ```ts
+// {...}
 items: [
-	// The key "name" should always start with the first letter(s) of the parent's "id" key (i.e. "content" -> "c")
-     { title: "First name", name: "cFirstName", icon: "person" },
-	 { title: "Address", name: "cAddress", icon: "home", fullRow: true },
-	 { title: "Reason", name: "cReason", type: "textArea" },
+// The key "name" should always start with the first letter(s) of the parent's "id" key (i.e. "content" -> "c")
+	{ title: "First name", name: "cFirstName", icon: "person" },
+	{ title: "Address", name: "cAddress", icon: "home", fullRow: true },
+	{ title: "Reason", name: "cReason", type: "textArea" },
 ],
 ```
