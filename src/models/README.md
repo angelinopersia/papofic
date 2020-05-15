@@ -1,5 +1,10 @@
 # Model creation
 
+Summary:
+
+- [Naming process](##naming-process)
+- [Naming process](##structure)
+
 ## Naming process
 
 Several details are necessary for the naming of the model:
