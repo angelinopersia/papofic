@@ -9,7 +9,7 @@
 <a href="https://github.com/angelinopersia/papofic/blob/readMe/LICENSE.txt"><img alt="MIT license" src="https://img.shields.io/badge/License-MIT-green"/></a>
 </p>
 
-### Papofic lets French\* users save time with a variety of document templates of which the general content is already written.
+### Papofic lets its users save time with a variety of document templates of which the general content is already written.
 
 ### Only the necessary variable information must be typed in by the user.
 
@@ -22,8 +22,6 @@
 **Each document also has its own themes which can be selected to change the model's appearance.**
 
 **Once the process is complete, the document can be saved as a PDF file and/or printed.**
-
-\* _Papofic only supports French localization as of today. It is not yet (and will likely never be) planned to support other languages in the future._
 
 ## Link to website
 
@@ -38,7 +36,9 @@ The package manager **[yarn](https://classic.yarnpkg.com/lang/en/)** is required
 
 ## API
 
-[Theme addition](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
+- [Theme addition](https://github.com/angelinopersia/papofic/tree/master/src/themes)
+
+- [Template addition](https://github.com/angelinopersia/papofic/tree/master/src/models)
 
 ## How you can contribute
 
@@ -46,15 +46,15 @@ The package manager **[yarn](https://classic.yarnpkg.com/lang/en/)** is required
 
 Feeling creative? Then perhaps you could make a theme of your own and offer to have it added in Papofic through a [pull request](https://github.com/angelinopersia/papofic/compare/). If your contribution is up to certain standards\*, it will be merged with the project!
 
+### Creating your own model
+
+You may also create your own variant of an existing template and offer to have it added through a [pull request](https://github.com/angelinopersia/papofic/compare/) as well. Just like with template themes, your model must be up to certain standards\* before it can be compatible with the project.
+
 #### \* Your contribution is compatible if:
 
-- The content of the pull request does not change the project's code in any other way than by strictly following the [README file regarding theme addition](https://github.com/angelinopersia/papofic/tree/readMe/src/themes).
+- The content of the pull request does not change the project's code in any other way than by strictly following the [API](#api) above.
 - No part of your contribution contains offensive content.
-- The CSS isn't a disaster.
-
-### Templates
-
-WIP
+- Your contribution isn't disaster.
 
 ### Reporting bugs
 

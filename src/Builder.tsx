@@ -16,7 +16,7 @@ import {
   IDateFormatProps,
 } from "@blueprintjs/datetime";
 import MomentLocaleUtils from "react-day-picker/moment";
-import "moment/locale/fr";
+// import "moment/locale/";
 import moment from "moment";
 import { thumbnails } from "./thumbnails/index";
 import { useOvermind } from "./store";
@@ -28,7 +28,7 @@ const Builder = () => (
     <PanelStack
       initialPanel={{
         component: ModelsPanel,
-        title: "Modèles",
+        title: "Models",
       }}
     />
   </Container>
@@ -102,7 +102,7 @@ const ModelsPanel = (props: any) => {
         <input
           className="bp3-input"
           type="search"
-          placeholder="Chercher un modèle"
+          placeholder="Search for a model"
           dir="auto"
           onChange={ValueSetting}
           value={value}
@@ -121,8 +121,8 @@ const TabsPanel = () => {
   return (
     <>
       <Tabs>
-        <Tab id="0" panel={panelZero} title="Données" />
-        <Tab id="1" panel={panelOne} title="Thèmes" />
+        <Tab id="0" panel={panelZero} title="Data structure" />
+        <Tab id="1" panel={panelOne} title="Theme selection" />
       </Tabs>
     </>
   );
@@ -133,9 +133,9 @@ const useInput = () => {
 
   // DATE FORMATTING FUNCTION
   const getMomentFormatter = (format: string): IDateFormatProps => ({
-    formatDate: (date, locale = "fr") =>
+    formatDate: (date, locale = "us") =>
       moment(date).locale(locale).format("LL"),
-    parseDate: (str, locale = "fr") =>
+    parseDate: (str, locale = "us") =>
       moment(str, "LL").locale(locale).toDate(),
     placeholder: format,
   });
@@ -167,7 +167,7 @@ const useInput = () => {
           formatDate={(date: { toLocaleString: () => any }) =>
             date.toLocaleString()
           }
-          locale="fr"
+          locale="us"
           localeUtils={MomentLocaleUtils}
           onChange={(
             e:
@@ -182,7 +182,7 @@ const useInput = () => {
           ) => {
             actions.changeValue({
               key: input.name,
-              value: moment(e).locale("fr").format("LL"),
+              value: moment(e).locale("us").format("LL"),
             });
           }}
           parseDate={(str: string) => new Date(str)}
@@ -199,7 +199,7 @@ const useInput = () => {
           formatDate={(date: { toLocaleString: () => any }) =>
             date.toLocaleString()
           }
-          locale="fr"
+          locale="us"
           localeUtils={MomentLocaleUtils}
           onChange={(
             e: (
@@ -216,8 +216,8 @@ const useInput = () => {
             actions.changeValue({
               key: input.name,
               value: [
-                moment(e[0]).locale("fr").format("LL"),
-                moment(e[1]).locale("fr").format("LL"),
+                moment(e[0]).locale("us").format("LL"),
+                moment(e[1]).locale("us").format("LL"),
               ],
             });
           }}
@@ -338,7 +338,7 @@ const usePanel = () => {
                   </ThemeLogo>
                 </ThemeThumbnail>
 
-                <ThemeTitle>Thème {theme.title}</ThemeTitle>
+                <ThemeTitle>{theme.title} theme</ThemeTitle>
               </ThemeContainer>
             ),
         )}

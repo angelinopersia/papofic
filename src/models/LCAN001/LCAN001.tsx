@@ -4,92 +4,92 @@ import { BuilderType } from "../../types/index";
 
 const Builder: BuilderType[] = [
   {
-    title: "Emetteur",
+    title: "Sender",
     id: "sender",
     items: [
-      { title: "Prénom", name: "sFirstName", icon: "person" },
-      { title: "Nom", name: "sLastName", icon: "person" },
-      { title: "Adresse", name: "sAddress", icon: "home", fullRow: true },
+      { title: "First name", name: "sFirstName", icon: "person" },
+      { title: "Last Name", name: "sLastName", icon: "person" },
+      { title: "Address", name: "sAddress", icon: "home", fullRow: true },
       {
-        title: "Code Postal",
-        name: "sPostcode",
+        title: "Post Code",
+        name: "sPostCode",
         icon: "map-marker",
       },
-      { title: "Ville", name: "sCity", icon: "map-marker" },
+      { title: "City", name: "sCity", icon: "map-marker" },
       {
-        title: "Numéro de téléphone",
+        title: "Phone number",
         name: "sPhone",
         icon: "phone",
       },
-      { title: "Adresse email", name: "sEmail", icon: "envelope" },
+      { title: "Email address", name: "sEmail", icon: "envelope" },
     ],
   },
   {
-    title: "Destinataire",
+    title: "Destination",
     id: "destination",
     items: [
-      { title: "Destinataire", name: "dName", icon: "person", fullRow: true },
+      { title: "Recipient", name: "dName", icon: "person", fullRow: true },
       {
-        title: "Adresse",
+        title: "Address",
         name: "dAddress",
         icon: "home",
         fullRow: true,
       },
       {
-        title: "Code postal",
-        name: "dPostcode",
+        title: "Post Code",
+        name: "dPostCode",
         icon: "map-marker",
       },
       {
-        title: "Ville",
+        title: "City",
         name: "dCity",
         icon: "map-marker",
       },
     ],
   },
   {
-    title: "Divers",
+    title: "Misc",
     id: "misc",
     items: [
       {
-        title: "Faite à (Ville)",
+        title: "Done at (City)",
         name: "mCity",
         icon: "map-marker",
       },
       {
-        title: "Faite le (Date)",
+        title: "Done the (Date)",
         name: "mDate",
         icon: "calendar",
         type: "date",
       },
-      { title: "Objet", name: "mObjet", icon: "edit", fullRow: true },
+      { title: "Object", name: "mObjet", icon: "edit", fullRow: true },
     ],
   },
   {
-    title: "Contenu",
+    title: "Content",
     id: "content",
     items: [
       {
-        title: "Nature du contrat/abonnement",
+        title: "Contract/Subscription",
         name: "cFile",
         icon: "edit",
         fullRow: true,
       },
       {
-        title: "Date de début et de fin",
+        title: "Start date and End date",
         name: "cDate",
         icon: "timeline-events",
         fullRow: true,
         type: "rangeDate",
       },
       {
-        title: "Numéro de contrat/abonnement",
+        title: "Contract/Subscription number",
         name: "cFileNumber",
         icon: "numerical",
         fullRow: true,
       },
       {
-        title: "Raison de la décision",
+        title: "Reason of the decision",
         name: "cReason",
         icon: "comment",
         fullRow: true,
@@ -101,27 +101,27 @@ const Builder: BuilderType[] = [
 
 const View = ({
   // SENDER
-  sFirstName = "Prénom",
-  sLastName = "Nom",
-  sAddress = "Adresse",
-  sPostcode = "Code Postal",
-  sCity = "Ville",
-  sPhone = "Numéro de téléphone",
-  sEmail = "Adresse email",
+  sFirstName = "First name",
+  sLastName = "Last Name",
+  sAddress = "Address",
+  sPostCode = "Post Code",
+  sCity = "City",
+  sPhone = "Phone number",
+  sEmail = "Email address",
   // DESTINATION
-  dName = "Destinataire",
-  dAddress = "Adresse",
-  dPostcode = "Code Postal",
-  dCity = "Ville",
+  dName = "Recipient",
+  dAddress = "Address",
+  dPostCode = "Post Code",
+  dCity = "City",
   // MISC
-  mCity = "(Ville)",
+  mCity = "(City)",
   mDate = "(Date)",
-  mObjet = "Résiliation de contrat",
+  mObjet = "Contract cancellation",
   // CONTENT
-  cFile = "(contrat/abonnement)",
-  cDate = ["(date de début)", "(date de fin)"],
-  cFileNumber = "(numéro du contrat/abonnement)",
-  cReason = "(raison de la décision)",
+  cFile = "(contract/subscription)",
+  cDate = ["(start date)", "(end date)"],
+  cFileNumber = "(contract/subscription number)",
+  cReason = "(reason of the decision)",
 }: any) => (
   <Div>
     <div className="top" />
@@ -135,7 +135,7 @@ const View = ({
             {sFirstName} {sLastName}
           </li>
           <li>{sAddress}</li>
-          <li>{sPostcode}</li>
+          <li>{sPostCode}</li>
           <li>{sCity}</li>
           <li>{sPhone}</li>
           <li>{sEmail}</li>
@@ -144,7 +144,7 @@ const View = ({
         <ul className="destin">
           <li>{dName}</li>
           <li>{dAddress}</li>
-          <li>{dPostcode}</li>
+          <li>{dPostCode}</li>
           <li>{dCity}</li>
         </ul>
 
@@ -185,12 +185,12 @@ const View = ({
   </Div>
 );
 
-const Translation = {
-  id: ["LC001"],
-  title: ["Lettre d'annulation"],
+const Naming = {
+  id: ["LCAN001"],
+  title: ["Cancellation letter"],
 };
 
-export const LC001 = { Builder, View, Translation };
+export const LCAN001 = { Builder, View, Naming };
 
 const Div = styled.div`
   background: white;
