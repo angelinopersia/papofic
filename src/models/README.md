@@ -119,7 +119,7 @@ const Builder: BuilderType[] = [
 // {...}
 items: [
 // The key "name" should always start with the first letter(s)
-// of the parent's "id" key (i.e. "content" -> "c")
+// of the upper level's "id" key (i.e. "content" -> "c")
 	{ title: "First name", name: "cFirstName", icon: "person" },
 	{ title: "Address", name: "cAddress", icon: "home", fullRow: true },
 	{ title: "Reason", name: "cReason", type: "textArea" },
