@@ -32,9 +32,9 @@ const Builder: BuilderType[] = [
 
 const View = ({ test }: any) => <div>test</div>;
 
-const Translation = { id: ["test"], title: ["Test"] };
+const Naming = { id: ["test"], title: ["Test"] };
 
-export const Test = { Builder, View, Translation };
+export const Test = { Builder, View, Naming };
 
 const Div = styled.div`
   ${(p: any) => p.theme}

@@ -75,6 +75,55 @@ const Builder: BuilderType[] = [
 ];
 ```
 
+### Creating the file
+
+Create a `.tsx` file, of which the name is up to standard according to the [naming process](#naming-process).
+
+The file must basely look like the following code:
+
+```jsx
+import React from "react";
+import styled from "styled-components";
+import { BuilderType } from "../../types/index";
+
+const Builder: BuilderType[] = [
+  // YOUR BUILDER CONFIG HERE
+];
+const View = ({}: // Set default strings for typed item names
+// sFirstName = "First name",
+// ... = "...",
+any) => (
+  <Div>
+    <div className="top" />
+    <div className="left" />
+    <div className="right" />
+    <div className="container">
+      <div className="head">
+        <ul className="sender">
+          <li>{/* Sender data list */}</li>
+        </ul>
+        <ul className="destin">
+          <li>{/* Destination data list */}</li>
+        </ul>
+        <span className="done-at">{/* Done at data */}</span>
+        <span className="object-info">{/* Object data */}</span>
+      </div>
+      <div className="content">{/* Document's content */}</div>
+      <p className="signature"></p>
+    </div>
+    <div className="bottom" />
+  </Div>
+);
+
+const Naming = {};
+
+export const LXXX001 = { Builder, View, Naming };
+const Div = styled.div`
+  background: white;
+  ${(p: any) => p.theme};
+`;
+```
+
 ### API
 
 #### Builder config
@@ -115,7 +164,7 @@ const Builder: BuilderType[] = [
 // {...} (Group)
 items: [
 // The key "name" should always start with the first letter(s)
-// of the upper level's "id" key (i.e. "content" -> "c")
+// of the group's "id" key (i.e. "content" -> "c")
 	{ title: "First name", name: "cFirstName", icon: "person" },
 	{ title: "Address", name: "cAddress", icon: "home", fullRow: true },
 	{ title: "Reason", name: "cReason", type: "textArea" },

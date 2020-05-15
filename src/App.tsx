@@ -21,7 +21,7 @@ export const modelsV = {
   test: Test.View,
 };
 
-export const modelsTL = [LCAN001.Translation, Test.Translation];
+export const modelsTL = [LCAN001.Naming, Test.Naming];
 
 const App = () => {
   const { state } = useOvermind();

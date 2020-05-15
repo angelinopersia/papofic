@@ -185,12 +185,12 @@ const View = ({
   </Div>
 );
 
-const Translation = {
+const Naming = {
   id: ["LCAN001"],
-  title: ["Lettre d'annulation"],
+  title: ["Cancellation letter"],
 };
 
-export const LCAN001 = { Builder, View, Translation };
+export const LCAN001 = { Builder, View, Naming };
 
 const Div = styled.div`
   background: white;

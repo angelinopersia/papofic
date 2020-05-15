@@ -167,7 +167,7 @@ const useInput = () => {
           formatDate={(date: { toLocaleString: () => any }) =>
             date.toLocaleString()
           }
-          locale="fr"
+          locale="us"
           localeUtils={MomentLocaleUtils}
           onChange={(
             e:
@@ -182,7 +182,7 @@ const useInput = () => {
           ) => {
             actions.changeValue({
               key: input.name,
-              value: moment(e).locale("fr").format("LL"),
+              value: moment(e).locale("us").format("LL"),
             });
           }}
           parseDate={(str: string) => new Date(str)}
@@ -199,7 +199,7 @@ const useInput = () => {
           formatDate={(date: { toLocaleString: () => any }) =>
             date.toLocaleString()
           }
-          locale="fr"
+          locale="us"
           localeUtils={MomentLocaleUtils}
           onChange={(
             e: (
@@ -216,8 +216,8 @@ const useInput = () => {
             actions.changeValue({
               key: input.name,
               value: [
-                moment(e[0]).locale("fr").format("LL"),
-                moment(e[1]).locale("fr").format("LL"),
+                moment(e[0]).locale("us").format("LL"),
+                moment(e[1]).locale("us").format("LL"),
               ],
             });
           }}
