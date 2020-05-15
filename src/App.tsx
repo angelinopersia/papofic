@@ -6,22 +6,22 @@ import Builder from "./Builder";
 import View from "./View";
 import { themes } from "./themes/themesConfig";
 
-import { LC001 } from "./models/LC001/LC001";
+import { LCAN001 } from "./models/LCAN001/LCAN001";
 import { Test } from "./models/test/Test";
 
 import "./App.css";
 
 export const modelsB = {
-  LC001: LC001.Builder,
+  LCAN001: LCAN001.Builder,
   test: Test.Builder,
 };
 
 export const modelsV = {
-  LC001: LC001.View,
+  LCAN001: LCAN001.View,
   test: Test.View,
 };
 
-export const modelsTL = [LC001.Translation, Test.Translation];
+export const modelsTL = [LCAN001.Naming, Test.Naming];
 
 const App = () => {
   const { state } = useOvermind();
@@ -62,7 +62,7 @@ const App = () => {
 
 const Display = styled.div`
   display: grid;
-  grid-template-columns: 420px auto;
+  grid-template-columns: 400px auto;
 `;
 
 const BuilderSide = styled.div`
