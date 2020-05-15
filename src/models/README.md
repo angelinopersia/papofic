@@ -3,7 +3,7 @@
 Summary:
 
 - [Naming process](##naming-process)
-- [Naming process](##structure)
+- [Structure](##structure)
 
 ## Naming process
 
