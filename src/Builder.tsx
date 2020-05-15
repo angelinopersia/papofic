@@ -28,7 +28,7 @@ const Builder = () => (
     <PanelStack
       initialPanel={{
         component: ModelsPanel,
-        title: "Modèles",
+        title: "Models",
       }}
     />
   </Container>
@@ -102,7 +102,7 @@ const ModelsPanel = (props: any) => {
         <input
           className="bp3-input"
           type="search"
-          placeholder="Chercher un modèle"
+          placeholder="Search for a model"
           dir="auto"
           onChange={ValueSetting}
           value={value}
@@ -121,8 +121,8 @@ const TabsPanel = () => {
   return (
     <>
       <Tabs>
-        <Tab id="0" panel={panelZero} title="Données" />
-        <Tab id="1" panel={panelOne} title="Thèmes" />
+        <Tab id="0" panel={panelZero} title="Data structure" />
+        <Tab id="1" panel={panelOne} title="Theme selection" />
       </Tabs>
     </>
   );
@@ -338,7 +338,7 @@ const usePanel = () => {
                   </ThemeLogo>
                 </ThemeThumbnail>
 
-                <ThemeTitle>Thème {theme.title}</ThemeTitle>
+                <ThemeTitle>{theme.title} theme</ThemeTitle>
               </ThemeContainer>
             ),
         )}
