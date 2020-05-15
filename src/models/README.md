@@ -117,10 +117,10 @@ any) => (
 
 const Naming = {
   id: [
-    // Your model name as a string
+    // Your processed model name as a string
   ],
   title: [
-    // The normal, full name of the model for front end purposes
+    // The normal, full name of the model for front end view
   ],
 };
 
