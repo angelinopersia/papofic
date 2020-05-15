@@ -158,13 +158,13 @@ const Div = styled.div`
 
 ##### Fields
 
-| Key         | Type      | Required | Note                                                                                   |
-| ----------- | --------- | -------- | -------------------------------------------------------------------------------------- |
-| **title**   | `string`  | Yes      | Identifies the items inside front-wise.                                                |
-| **name**    | `string`  | Yes      | Serves as id for the key to be used by and for the global state manager.               |
-| **icon**    | `string`  | No       | Displays a chosen icon in the input text object.                                       |
-| **fullRow** | `boolean` | No       | When `true`, the item takes the entire row's space.                                    |
-| **type**    | `string`  | No       | Changes the type of the input text object. (`type: "textArea" | "date" | "rangeDate"`) |
+| Key         | Type      | Required | Note                                                                                                                                                               |
+| ----------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **title**   | `string`  | Yes      | Identifies the items inside front-wise.                                                                                                                            |
+| **name**    | `string`  | Yes      | Serves as id for the key to be used by and for the global state manager.                                                                                           |
+| **icon**    | `string`  | No       | Displays a chosen icon in the input text object.                                                                                                                   |
+| **fullRow** | `boolean` | No       | When `true`, the item takes the entire row's space.                                                                                                                |
+| **type**    | `string`  | No       | `type: "textArea"` changes the input into a text area.<br/>`type: "date"` adds a date picking feature.<br/>`type: "rangeDate"` adds a double date picking feature. |
 
 ```ts
 // {...} (Group)
