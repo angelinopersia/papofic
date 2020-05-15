@@ -61,16 +61,42 @@ WIP text here
 
 ## Structure
 
-### Builder Typescript config
+### Builder config
 
-#### Letter
+#### Upper level
 
-| Key         | Type      | Note                                                                        |
-| ----------- | --------- | --------------------------------------------------------------------------- |
-| **title**   | `string`  | Identifies categories and items alike front-wise.                           |
-| **id**      | `string`  | Serves as id for the category of information to be rendered in the Builder. |
-| **items**   | `array`   | Contains `objects` containing other `keys` to be rendered in the Builder.   |
-| **icon**    | `string`  | Displays an icon in the input text object.                                  |
-| **name**    | `string`  | Serves as id for the key to be used by and for the global state manager.    |
-| **fullRow** | `boolean` | When `true`, the item takes the entire row's space.                         |
-| **type**    | `string`  | Changes the type of the input text object into the given one.               |
+| Key       | Type     | Note                                                                                          | Required |
+| --------- | -------- | --------------------------------------------------------------------------------------------- | -------- |
+| **title** | `string` | Identifies categories front-wise.                                                             | Yes      |
+| **id**    | `string` | Serves as id for the category of information to be rendered in the Builder.                   | Yes      |
+| **items** | `array`  | Contains `objects` containing [lower level](#lower-level) keys to be rendered in the Builder. | Yes      |
+
+```ts
+{
+	// "title" is for the front end and "id" is for the code's process. See the Lower level section for "items".
+    title: "Content",
+    id: "content",
+	items: [
+		// {...},
+	],
+  },
+```
+
+#### Lower level
+
+| Key         | Type      | Note                                                                     | Required |
+| ----------- | --------- | ------------------------------------------------------------------------ | -------- |
+| **title**   | `string`  | Identifies items front-wise.                                             | Yes      |
+| **name**    | `string`  | Serves as id for the key to be used by and for the global state manager. | Yes      |
+| **icon**    | `string`  | Displays a chosen icon in the input text object.                         | No       |
+| **fullRow** | `boolean` | When `true`, the item takes the entire row's space.                      | No       |
+| **type**    | `string`  | Changes the type of the input text object into the given one.            | No       |
+
+```ts
+items: [
+	// The key "name" should always start with the first letter(s) of the parent's "id" key (i.e. "content" -> "c")
+     { title: "First name", name: "cFirstName", icon: "person" },
+	 { title: "Address", name: "cAddress", icon: "home", fullRow: true },
+	 { title: "Reason", name: "cReason", type: "textArea" },
+],
+```
