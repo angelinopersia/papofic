@@ -29,7 +29,7 @@ The name of the model consists of:
 - The **Reason**'s first 3 letters \*
 - The **Number**
 
-Those parts are concatenated together in that same order.
+Those parts are concatenated together in that same order and in uppercase.
 
 \* _If the first 3 letters of a newly created reason already exist for another reason, include the next letter to differentiate them (i.e. the first 4 letters, and so on...)_
 
