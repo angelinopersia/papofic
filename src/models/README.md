@@ -52,15 +52,27 @@ e.g.:
 ## Structure
 
 ```ts
-{
-	title: "Sender",
-	id: "sender",
-	items: [
-		      { title: "First name", name: "sFirstName", icon: "person" },
+const Builder: BuilderType[] = [
+  {
+    title: "Sender",
+    id: "sender",
+    // Each object in "items" will appear as a text input object
+    // in the builder
+    items: [
+      { title: "First name", name: "sFirstName", icon: "person" },
       { title: "Last Name", name: "sLastName", icon: "person" },
       { title: "Address", name: "sAddress", icon: "home", fullRow: true },
-	],
+    ],
   },
+  {
+    title: "Destination",
+    id: "destination",
+    items: [
+      { title: "Recipient", name: "dName", icon: "person", fullRow: true },
+      { title: "Address", name: "dAddress", icon: "home", fullRow: true },
+    ],
+  },
+];
 ```
 
 ### API
@@ -101,7 +113,8 @@ e.g.:
 ```ts
 // {...}
 items: [
-// The key "name" should always start with the first letter(s) of the parent's "id" key (i.e. "content" -> "c")
+// The key "name" should always start with the first letter(s)
+// of the parent's "id" key (i.e. "content" -> "c")
 	{ title: "First name", name: "cFirstName", icon: "person" },
 	{ title: "Address", name: "cAddress", icon: "home", fullRow: true },
 	{ title: "Reason", name: "cReason", type: "textArea" },
