@@ -2,8 +2,8 @@
 
 Summary:
 
-- [Naming process](##naming-process)
-- [Structure](##structure)
+- [Naming process](#naming-process)
+- [Structure](#structure)
 
 ## Naming process
 
