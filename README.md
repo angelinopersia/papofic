@@ -23,7 +23,7 @@
 
 **Once the process is complete, the document can be saved as a PDF file and/or printed.**
 
-## Link to website
+## Try it online
 
 [Link](http://localhost:3000/)
 
