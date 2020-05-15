@@ -64,12 +64,12 @@ const Builder: BuilderType[] = [
   {
     title: "Sender",
     id: "sender",
-    // Each object in "items" will appear as a text input object
-    // in the builder
     items: [
       { title: "First name", name: "sFirstName", icon: "person" },
       // {...}
     ],
+    // Each object in "items" will appear as a text input object
+    // in the builder
   },
   // {...}
 ];
@@ -89,7 +89,7 @@ import { BuilderType } from "../../types/index";
 const Builder: BuilderType[] = [
   // YOUR BUILDER CONFIG HERE
 ];
-const View = ({}: // Set default strings for typed item names
+const View = ({}: // Default strings for typed item names
 // sFirstName = "First name",
 // ... = "...",
 any) => (
@@ -115,7 +115,14 @@ any) => (
   </Div>
 );
 
-const Naming = {};
+const Naming = {
+  id: [
+    // Your model name as a string
+  ],
+  title: [
+    // The normal, full name of the model for front end purposes
+  ],
+};
 
 export const LXXX001 = { Builder, View, Naming };
 const Div = styled.div`
@@ -141,7 +148,7 @@ const Div = styled.div`
 {
 // "title" appears on the front end.
 // "id" is for the code's process.
-// See the Lower level section for "items".
+// See the "Fields" section for "items".
 	title: "Content",
 	id: "content",
 	items: [
@@ -164,7 +171,7 @@ const Div = styled.div`
 // {...} (Group)
 items: [
 // The key "name" should always start with the first letter(s)
-// of the group's "id" key (i.e. "content" -> "c")
+// of the Group's "id" key (i.e. "content" -> "c")
 	{ title: "First name", name: "cFirstName", icon: "person" },
 	{ title: "Address", name: "cAddress", icon: "home", fullRow: true },
 	{ title: "Reason", name: "cReason", type: "textArea" },
