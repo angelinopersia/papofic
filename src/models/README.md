@@ -56,6 +56,9 @@ e.g.:
 
 ## Structure
 
+The following code snippet is a brief example of how the builder's content is structured.
+You may use it to create your own builder layout.
+
 ```ts
 const Builder: BuilderType[] = [
   {
@@ -65,18 +68,10 @@ const Builder: BuilderType[] = [
     // in the builder
     items: [
       { title: "First name", name: "sFirstName", icon: "person" },
-      { title: "Last Name", name: "sLastName", icon: "person" },
-      { title: "Address", name: "sAddress", icon: "home", fullRow: true },
+      // {...}
     ],
   },
-  {
-    title: "Destination",
-    id: "destination",
-    items: [
-      { title: "Recipient", name: "dName", icon: "person", fullRow: true },
-      { title: "Address", name: "dAddress", icon: "home", fullRow: true },
-    ],
-  },
+  // {...}
 ];
 ```
 
@@ -84,15 +79,16 @@ const Builder: BuilderType[] = [
 
 #### Builder config
 
-##### Upper level
+##### Group
 
-| Key       | Type     | Note                                                                                          | Required |
-| --------- | -------- | --------------------------------------------------------------------------------------------- | -------- |
-| **title** | `string` | Identifies categories front-wise.                                                             | Yes      |
-| **id**    | `string` | Serves as id for the category of information to be rendered in the Builder.                   | Yes      |
-| **items** | `array`  | Contains `objects` containing [lower level](#lower-level) keys to be rendered in the Builder. | Yes      |
+| Key       | Type     | Note                                                                                | Required |
+| --------- | -------- | ----------------------------------------------------------------------------------- | -------- |
+| **title** | `string` | Identifies categories front-wise.                                                   | Yes      |
+| **id**    | `string` | Serves as id for the category of information to be rendered in the Builder.         | Yes      |
+| **items** | `array`  | Contains `objects` containing [fields](#fields) keys to be rendered in the Builder. | Yes      |
 
 ```ts
+
 {
 // "title" appears on the front end.
 // "id" is for the code's process.
@@ -100,12 +96,12 @@ const Builder: BuilderType[] = [
 	title: "Content",
 	id: "content",
 	items: [
-		// {...},
+		// {...} (Fields),
 	],
   },
 ```
 
-##### Lower level
+##### Fields
 
 | Key         | Type      | Note                                                                     | Required |
 | ----------- | --------- | ------------------------------------------------------------------------ | -------- |
@@ -116,7 +112,7 @@ const Builder: BuilderType[] = [
 | **type**    | `string`  | Changes the type of the input text object into the given one.            | No       |
 
 ```ts
-// {...}
+// {...} (Group)
 items: [
 // The key "name" should always start with the first letter(s)
 // of the upper level's "id" key (i.e. "content" -> "c")

@@ -16,7 +16,7 @@ import {
   IDateFormatProps,
 } from "@blueprintjs/datetime";
 import MomentLocaleUtils from "react-day-picker/moment";
-import "moment/locale/fr";
+// import "moment/locale/";
 import moment from "moment";
 import { thumbnails } from "./thumbnails/index";
 import { useOvermind } from "./store";
@@ -133,9 +133,9 @@ const useInput = () => {
 
   // DATE FORMATTING FUNCTION
   const getMomentFormatter = (format: string): IDateFormatProps => ({
-    formatDate: (date, locale = "fr") =>
+    formatDate: (date, locale = "us") =>
       moment(date).locale(locale).format("LL"),
-    parseDate: (str, locale = "fr") =>
+    parseDate: (str, locale = "us") =>
       moment(str, "LL").locale(locale).toDate(),
     placeholder: format,
   });
