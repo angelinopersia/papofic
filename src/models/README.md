@@ -40,7 +40,7 @@ e.g.:
 
 ## Structure
 
-blablabla build like this
+WIP text here
 
 # API
 
