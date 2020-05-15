@@ -137,14 +137,13 @@ const Div = styled.div`
 
 ##### Group
 
-| Key       | Type     | Note                                                                                | Required |
-| --------- | -------- | ----------------------------------------------------------------------------------- | -------- |
-| **title** | `string` | Identifies categories front-wise.                                                   | Yes      |
-| **id**    | `string` | Serves as id for the category of information to be rendered in the Builder.         | Yes      |
-| **items** | `array`  | Contains `objects` containing [fields](#fields) keys to be rendered in the Builder. | Yes      |
+| Key       | Type     | Required | Note                                                                                |
+| --------- | -------- | -------- | ----------------------------------------------------------------------------------- |
+| **title** | `string` | Yes      | Identifies categories front-wise.                                                   |
+| **id**    | `string` | Yes      | Serves as id for the category of information to be rendered in the Builder.         |
+| **items** | `array`  | Yes      | Contains `objects` containing [fields](#fields) keys to be rendered in the Builder. |
 
 ```ts
-
 {
 // "title" appears on the front end.
 // "id" is for the code's process.
@@ -159,13 +158,13 @@ const Div = styled.div`
 
 ##### Fields
 
-| Key         | Type      | Note                                                                     | Required |
-| ----------- | --------- | ------------------------------------------------------------------------ | -------- |
-| **title**   | `string`  | Identifies the items inside front-wise.                                  | Yes      |
-| **name**    | `string`  | Serves as id for the key to be used by and for the global state manager. | Yes      |
-| **icon**    | `string`  | Displays a chosen icon in the input text object.                         | No       |
-| **fullRow** | `boolean` | When `true`, the item takes the entire row's space.                      | No       |
-| **type**    | `string`  | Changes the type of the input text object into the given one.            | No       |
+| Key         | Type      | Required | Note                                                                                   |
+| ----------- | --------- | -------- | -------------------------------------------------------------------------------------- |
+| **title**   | `string`  | Yes      | Identifies the items inside front-wise.                                                |
+| **name**    | `string`  | Yes      | Serves as id for the key to be used by and for the global state manager.               |
+| **icon**    | `string`  | No       | Displays a chosen icon in the input text object.                                       |
+| **fullRow** | `boolean` | No       | When `true`, the item takes the entire row's space.                                    |
+| **type**    | `string`  | No       | Changes the type of the input text object. (`type: "textArea" | "date" | "rangeDate"`) |
 
 ```ts
 // {...} (Group)
