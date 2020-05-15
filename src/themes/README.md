@@ -4,7 +4,7 @@
 
 </div>
 
-The themes folder contain **typescript files**.
+The themes folder contains **typescript files**.
 Each one of those **typescript files** represent the css of a template.
 
 To add your own theme:
