@@ -17,11 +17,11 @@ const StyledView = {
 
   ".head": { display: "grid" },
   ".sender": {},
-  ".destin": { textAlign: "right" },
+
+  ".destin": {},
 
   ".done-at": {
     paddingTop: 20,
-    textAlign: "right",
   },
 
   ".object-info": {

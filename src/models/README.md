@@ -162,7 +162,7 @@ const Div = styled.div`
 | ----------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **title**   | `string`  | Yes      | Identifies the items inside front-wise.                                                                                                                            |
 | **name**    | `string`  | Yes      | Serves as id for the key to be used by and for the global state manager.                                                                                           |
-| **icon**    | `string`  | No       | Displays a chosen icon in the input text object.                                                                                                                   |
+| **icon**    | `string`  | No       | Displays a chosen [icon](https://blueprintjs.com/docs/#icons) in the input text object.                                                                            |
 | **fullRow** | `boolean` | No       | When `true`, the item takes the entire row's space.                                                                                                                |
 | **type**    | `string`  | No       | `type: "textArea"` changes the input into a text area.<br/>`type: "date"` adds a date picking feature.<br/>`type: "rangeDate"` adds a double date picking feature. |
 

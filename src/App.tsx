@@ -7,21 +7,21 @@ import View from "./View";
 import { themes } from "./themes/themesConfig";
 
 import { LCAN001 } from "./models/LCAN001/LCAN001";
-import { Test } from "./models/test/Test";
+import { LCAN002 } from "./models/LCAN002/LCAN002";
 
 import "./App.css";
 
 export const modelsB = {
   LCAN001: LCAN001.Builder,
-  test: Test.Builder,
+  LCAN002: LCAN002.Builder,
 };
 
 export const modelsV = {
   LCAN001: LCAN001.View,
-  test: Test.View,
+  LCAN002: LCAN002.View,
 };
 
-export const modelsTL = [LCAN001.Naming, Test.Naming];
+export const modelsTL = [LCAN001.Naming, LCAN002.Naming];
 
 const App = () => {
   const { state } = useOvermind();

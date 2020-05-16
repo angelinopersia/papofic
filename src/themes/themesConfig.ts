@@ -1,8 +1,7 @@
 // Themes
 
 // BASE
-import BaseLCAN001 from "./base";
-import BaseTest from "./test";
+import Base from "./base";
 
 // CHICAGO
 import ChicagoLCAN001 from "./chicago";
@@ -16,8 +15,8 @@ import RomaLCAN001 from "./roma";
 export const themes = [
   {
     title: "base",
-    LCAN001: BaseLCAN001,
-    test: BaseTest,
+    LCAN001: Base,
+    LCAN002: Base,
   },
   {
     title: "dublin",

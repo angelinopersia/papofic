@@ -182,11 +182,11 @@ const View = ({
 );
 
 const Naming = {
-  id: ["LCAN001"],
-  title: ["Cancellation letter 1"],
+  id: ["LCAN002"],
+  title: ["Cancellation letter 2"],
 };
 
-export const LCAN001 = { Builder, View, Naming };
+export const LCAN002 = { Builder, View, Naming };
 
 const Div = styled.div`
   background: white;
