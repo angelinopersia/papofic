@@ -319,29 +319,26 @@ const usePanel = () => {
   const panelOne = (
     <Card>
       <ThemeDisplay>
-        {themes.map(
-          (theme) =>
-            theme[state.model] && (
-              <ThemeContainer key={theme.title}>
-                <ThemeThumbnail
-                  thumbnails={thumbnails}
-                  onClick={() => {
-                    actions.changeTheme({
-                      value: theme.title,
-                    });
-                  }}
-                  theme={state.theme}
-                  title={theme.title}
-                >
-                  <ThemeLogo input={theme} state={state}>
-                    {getFirstLetter(theme.title)}
-                  </ThemeLogo>
-                </ThemeThumbnail>
+        {themes.map((theme) => (
+          <ThemeContainer key={theme.title}>
+            <ThemeThumbnail
+              thumbnails={thumbnails}
+              onClick={() => {
+                actions.changeTheme({
+                  value: theme.title,
+                });
+              }}
+              theme={state.theme}
+              title={theme.title}
+            >
+              <ThemeLogo input={theme} state={state}>
+                {getFirstLetter(theme.title)}
+              </ThemeLogo>
+            </ThemeThumbnail>
 
-                <ThemeTitle>{theme.title} theme</ThemeTitle>
-              </ThemeContainer>
-            ),
-        )}
+            <ThemeTitle>{theme.title} theme</ThemeTitle>
+          </ThemeContainer>
+        ))}
       </ThemeDisplay>
     </Card>
   );

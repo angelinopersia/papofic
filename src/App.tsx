@@ -34,8 +34,7 @@ const App = () => {
       clonedObj[themeTitle] = themes[i];
       obj = clonedObj;
     }
-
-    return obj[state.theme][state.model];
+    return obj[state.theme][state.theme];
   };
 
   const theme = getTheme();
