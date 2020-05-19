@@ -4,7 +4,6 @@ import {
   Button,
   Card,
   Collapse,
-  Divider,
   Icon,
   InputGroup,
   PanelStack,
@@ -72,7 +71,6 @@ const ModelsPanel = (props: any) => {
         setIsDisabled("none");
       }}
       isDisabled={isDisabled}
-      key={model[m]}
     >
       {model[0]}
     </Model>
@@ -111,7 +109,7 @@ const ModelsPanel = (props: any) => {
         />
       </Search>
       {res.map((model: object, m: number) => (
-        <>{SearchFunc(model, m)}</>
+        <div key={model[0]}>{SearchFunc(model, m)}</div>
       ))}
       <Metadata style={{ paddingTop: "20px" }}>
         <Card>
