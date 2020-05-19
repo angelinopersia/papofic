@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Collapse,
+  Icon,
   InputGroup,
   PanelStack,
   Tab,
@@ -111,6 +112,28 @@ const ModelsPanel = (props: any) => {
       {res.map((model: object, m: number) => (
         <>{SearchFunc(model, m)}</>
       ))}
+      <Metadata style={{ paddingTop: "20px" }}>
+        <Card>
+          <h1>Metadata</h1>
+          <Submeta>
+            <SubmetaIcon icon="error" iconSize={18} />
+            <h3>Disclaimer</h3>
+          </Submeta>
+          <p>
+            We are not responsible for any of the results originating from this
+            free, public service. All user-generated content is not within our
+            responsibility. Any offensive/illegal end met through content
+            created by users remains entirely part of aforementioned users'
+            responsibility.
+          </p>
+          <Submeta>
+            <SubmetaIcon icon="git-repo" iconSize={18} />
+            <h3>Github repository</h3>
+          </Submeta>
+          Papofic is an open-source service and can be found
+          <a href="https://github.com/angelinopersia/papofic"> on github.</a>
+        </Card>
+      </Metadata>
     </>
   );
 };
@@ -124,6 +147,28 @@ const TabsPanel = () => {
         <Tab id="0" panel={panelZero} title="Data structure" />
         <Tab id="1" panel={panelOne} title="Theme selection" />
       </Tabs>
+      <Metadata>
+        <Card>
+          <h1>Metadata</h1>
+          <Submeta>
+            <SubmetaIcon icon="error" iconSize={18} />
+            <h3>Disclaimer</h3>
+          </Submeta>
+          <p>
+            We are not responsible for any of the results originating from this
+            free, public service. All user-generated content is not within our
+            responsibility. Any offensive/illegal end met through content
+            created by users remains entirely part of aforementioned users'
+            responsibility.
+          </p>
+          <Submeta>
+            <SubmetaIcon icon="git-repo" iconSize={18} />
+            <h3>Github repository</h3>
+          </Submeta>
+          Papofic is an open-source service and can be found
+          <a href="https://github.com/angelinopersia/papofic"> on github.</a>
+        </Card>
+      </Metadata>
     </>
   );
 };
@@ -317,7 +362,7 @@ const usePanel = () => {
   );
 
   const panelOne = (
-    <Card>
+    <Card style={{ marginBottom: "20px" }}>
       <ThemeDisplay>
         {themes.map((theme) => (
           <ThemeContainer key={theme.title}>
@@ -404,6 +449,25 @@ const Model = styled.div`
       opacity: 0;
     }
   }
+`;
+
+const Metadata = styled.div`
+  opacity: 0.3;
+  transition: 0.5s;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const Submeta = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 15px;
+`;
+
+const SubmetaIcon = styled(Icon)`
+  padding-right: 10px;
 `;
 
 const Input = styled(InputGroup)`

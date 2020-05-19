@@ -24,7 +24,7 @@ const StyledView = {
     paddingTop: 20,
   },
 
-  ".object-info": {
+  ".subject-info": {
     padding: "40px 0",
     fontWeight: 700,
   },

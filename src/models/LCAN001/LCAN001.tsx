@@ -62,7 +62,7 @@ const Builder: BuilderType[] = [
         icon: "calendar",
         type: "date",
       },
-      { title: "Object", name: "mObjet", icon: "edit", fullRow: true },
+      { title: "Subject", name: "mSubject", icon: "edit", fullRow: true },
     ],
   },
   {
@@ -116,7 +116,7 @@ const View = ({
   // MISC
   mCity = "(City)",
   mDate = "(Date)",
-  mObjet = "Object",
+  mSubject = "Subject",
   // CONTENT
   cFile = "(contract/subscription/...)",
   cDate = ["(start date)", "(end date)"],
@@ -152,11 +152,11 @@ const View = ({
           {mCity}, {mDate}
         </span>
 
-        <span className="object-info">Objet: {mObjet}</span>
+        <span className="subject-info">Subject: {mSubject}</span>
       </div>
 
       <div className="content">
-        <p>Dear Sir or Madam</p>
+        <p>Dear Sir or Madam,</p>
         <p>
           As of {mDate}, I would like to cancel my {cFile} for your service
           which began on {cDate[0]}, under the {cFile} number {cFileNumber}.
@@ -172,7 +172,7 @@ const View = ({
         </p>
         <br />
         <p>Thank you for your attention.</p>
-        <p>Sincerly,</p>
+        <p>Sincerely,</p>
       </div>
 
       <p className="signature">Signature</p>
@@ -183,7 +183,7 @@ const View = ({
 
 const Naming = {
   id: ["LCAN001"],
-  title: ["Cancellation letter 1"],
+  title: ["Generic Cancellation letter 1"],
 };
 
 export const LCAN001 = { Builder, View, Naming };

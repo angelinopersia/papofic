@@ -33,7 +33,7 @@ const StyledView = {
     color: "#202B33",
   },
 
-  ".object-info": {
+  ".subject-info": {
     padding: "40px 0",
     fontSize: 19,
     letterSpacing: 1.5,

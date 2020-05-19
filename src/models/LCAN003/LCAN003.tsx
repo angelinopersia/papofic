@@ -147,31 +147,29 @@ const View = ({
           <li>{dPostCode}</li>
           <li>{dCity}</li>
         </ul>
+        <span>Date: {mDate}</span>
         <br />
+
+        <span className="subject-info">Subject: {mSubject}</span>
       </div>
-      <br />
 
       <div className="content">
-        <p>Dear {dName}</p>
+        <p>Dear Sir or Madam,</p>
         <br />
         <p>
-          Effective {mDate}, I inform you that I no longer require your
-          services.
+          This letter is a request for the cancellation of my membership. The
+          reason why I must unfortunately ask for the cancellation of my
+          membership is because {cReason}
         </p>
         <p>
-          I thank you for your services until now, however I must request that
-          you cancel the {cFile} which began on {cDate[0]}, number {cFileNumber}
-          , because {cReason}
+          My membership began on {cDate[0]}, and must now end by {cDate[1]}. My
+          membership number is {cFileNumber}.
         </p>
         <p>
-          Please proceed to the official cancellation of the {cFile} by{" "}
-          {cDate[1]} and also ensure that any form of payment linked to the{" "}
-          {cFile} are ceased as well. I must also request that you send me an
-          official confirmation of the cancellation by email and/or through a
-          letter.
+          Despite the cancellation, I still thank you for your service during
+          the time that my membership was active.
         </p>
         <br />
-        <p>Thank you for your time.</p>
         <p>Sincerely,</p>
       </div>
 
@@ -182,11 +180,11 @@ const View = ({
 );
 
 const Naming = {
-  id: ["LCAN002"],
-  title: ["Generic Cancellation letter 2"],
+  id: ["LCAN003"],
+  title: ["Gym Membership Cancellation letter"],
 };
 
-export const LCAN002 = { Builder, View, Naming };
+export const LCAN003 = { Builder, View, Naming };
 
 const Div = styled.div`
   background: white;
