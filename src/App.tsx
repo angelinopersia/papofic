@@ -66,6 +66,13 @@ const Display = styled.div`
   display: grid;
   grid-template-columns: 400px auto;
   height: 100%;
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 `;
 
 const BuilderSide = styled.div`
