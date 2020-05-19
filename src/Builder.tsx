@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Collapse,
+  Divider,
   Icon,
   InputGroup,
   PanelStack,
@@ -114,7 +115,11 @@ const ModelsPanel = (props: any) => {
       ))}
       <Metadata style={{ paddingTop: "20px" }}>
         <Card>
-          <h1>Metadata</h1>
+          <Submeta>
+            <SubmetaIcon icon="info-sign" iconSize={25} />
+            <h1>Metadata</h1>
+          </Submeta>
+          <Divider />
           <Submeta>
             <SubmetaIcon icon="error" iconSize={18} />
             <h3>Disclaimer</h3>
@@ -149,7 +154,11 @@ const TabsPanel = () => {
       </Tabs>
       <Metadata>
         <Card>
-          <h1>Metadata</h1>
+          <Submeta>
+            <SubmetaIcon icon="info-sign" iconSize={25} />
+            <h1>Metadata</h1>
+          </Submeta>
+          <Divider />
           <Submeta>
             <SubmetaIcon icon="error" iconSize={18} />
             <h3>Disclaimer</h3>
