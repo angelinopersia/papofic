@@ -121,7 +121,7 @@ const ModelsPanel = (props: any) => {
           </Submeta>
           <Divider />
           <Submeta>
-            <SubmetaIcon icon="error" iconSize={18} />
+            <SubmetaIcon icon="issue" iconSize={18} />
             <h3>Disclaimer</h3>
           </Submeta>
           <p>
@@ -160,7 +160,7 @@ const TabsPanel = () => {
           </Submeta>
           <Divider />
           <Submeta>
-            <SubmetaIcon icon="error" iconSize={18} />
+            <SubmetaIcon icon="issue" iconSize={18} />
             <h3>Disclaimer</h3>
           </Submeta>
           <p>
