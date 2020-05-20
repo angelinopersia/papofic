@@ -6,7 +6,7 @@
 <a href="https://reactjs.org/"><img alt="react v16.13.1" src="https://img.shields.io/badge/v16.13.1-react-61DAFB"/></a>
 <a href="https://www.typescriptlang.org/"><img alt="typescript v3.7.2" src="https://img.shields.io/badge/v3.7.2-typescript-207ABF"/></a>
 <a href="https://classic.yarnpkg.com/lang/en/"><img alt="yarn v1.22.0" src="https://img.shields.io/badge/v1.22.0-yarn-2C8EBB"/></a>
-<a href="https://github.com/angelinopersia/papofic/blob/readMe/LICENSE.txt"><img alt="MIT license" src="https://img.shields.io/badge/License-MIT-green"/></a>
+<a href="https://github.com/angelinopersia/papofic/blob/master/LICENSE.txt"><img alt="MIT license" src="https://img.shields.io/badge/License-MIT-green"/></a>
 </p>
 
 ### Papofic lets its users save time with a variety of document templates of which the general content is already written.
