@@ -42,7 +42,7 @@ The package manager **[yarn](https://classic.yarnpkg.com/lang/en/)** is required
 
 ## How you can contribute
 
-### Template themes
+### Creating your own theme
 
 Feeling creative? Then perhaps you could make a theme of your own and offer to have it added in Papofic through a [pull request](https://github.com/angelinopersia/papofic/compare/). If your contribution is up to certain standards\*, it will be merged with the project!
 
