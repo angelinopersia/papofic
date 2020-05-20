@@ -55,6 +55,7 @@ const Title = styled.span`
   padding-top: 0px;
   font-size: 120px;
   font-weight: 800;
+  user-select: none;
   color: black;
 `;
 

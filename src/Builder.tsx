@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Collapse,
+  Icon,
   InputGroup,
   PanelStack,
   Tab,
@@ -16,7 +17,6 @@ import {
   IDateFormatProps,
 } from "@blueprintjs/datetime";
 import MomentLocaleUtils from "react-day-picker/moment";
-// import "moment/locale/";
 import moment from "moment";
 import { thumbnails } from "./thumbnails/index";
 import { useOvermind } from "./store";
@@ -70,7 +70,6 @@ const ModelsPanel = (props: any) => {
         setIsDisabled("none");
       }}
       isDisabled={isDisabled}
-      key={model[m]}
     >
       {model[0]}
     </Model>
@@ -109,8 +108,29 @@ const ModelsPanel = (props: any) => {
         />
       </Search>
       {res.map((model: object, m: number) => (
-        <>{SearchFunc(model, m)}</>
+        <div key={model[0]}>{SearchFunc(model, m)}</div>
       ))}
+      <Metadata style={{ paddingTop: "20px" }}>
+        <Card>
+          <Submeta>
+            <SubmetaIcon icon="issue" iconSize={18} />
+            <h3>Disclaimer</h3>
+          </Submeta>
+          <p>
+            We are not responsible for any of the results originating from this
+            free, public service. All user-generated content is not within our
+            responsibility. Any offensive/illegal end met through content
+            created by users remains entirely part of aforementioned users'
+            responsibility.
+          </p>
+          <Submeta>
+            <SubmetaIcon icon="git-repo" iconSize={18} />
+            <h3>Github repository</h3>
+          </Submeta>
+          Papofic is an open-source service and can be found
+          <a href="https://github.com/angelinopersia/papofic"> on github.</a>
+        </Card>
+      </Metadata>
     </>
   );
 };
@@ -124,6 +144,27 @@ const TabsPanel = () => {
         <Tab id="0" panel={panelZero} title="Data structure" />
         <Tab id="1" panel={panelOne} title="Theme selection" />
       </Tabs>
+      <Metadata>
+        <Card>
+          <Submeta>
+            <SubmetaIcon icon="issue" iconSize={18} />
+            <h3>Disclaimer</h3>
+          </Submeta>
+          <p>
+            We are not responsible for any of the results originating from this
+            free, public service. All user-generated content is not within our
+            responsibility. Any offensive/illegal end met through content
+            created by users remains entirely part of aforementioned users'
+            responsibility.
+          </p>
+          <Submeta>
+            <SubmetaIcon icon="git-repo" iconSize={18} />
+            <h3>Github repository</h3>
+          </Submeta>
+          Papofic is an open-source service and can be found
+          <a href="https://github.com/angelinopersia/papofic"> on github.</a>
+        </Card>
+      </Metadata>
     </>
   );
 };
@@ -317,31 +358,28 @@ const usePanel = () => {
   );
 
   const panelOne = (
-    <Card>
+    <Card style={{ marginBottom: "20px" }}>
       <ThemeDisplay>
-        {themes.map(
-          (theme) =>
-            theme[state.model] && (
-              <ThemeContainer key={theme.title}>
-                <ThemeThumbnail
-                  thumbnails={thumbnails}
-                  onClick={() => {
-                    actions.changeTheme({
-                      value: theme.title,
-                    });
-                  }}
-                  theme={state.theme}
-                  title={theme.title}
-                >
-                  <ThemeLogo input={theme} state={state}>
-                    {getFirstLetter(theme.title)}
-                  </ThemeLogo>
-                </ThemeThumbnail>
+        {themes.map((theme) => (
+          <ThemeContainer key={theme.title}>
+            <ThemeThumbnail
+              thumbnails={thumbnails}
+              onClick={() => {
+                actions.changeTheme({
+                  value: theme.title,
+                });
+              }}
+              theme={state.theme}
+              title={theme.title}
+            >
+              <ThemeLogo input={theme} state={state}>
+                {getFirstLetter(theme.title)}
+              </ThemeLogo>
+            </ThemeThumbnail>
 
-                <ThemeTitle>{theme.title} theme</ThemeTitle>
-              </ThemeContainer>
-            ),
-        )}
+            <ThemeTitle>{theme.title} theme</ThemeTitle>
+          </ThemeContainer>
+        ))}
       </ThemeDisplay>
     </Card>
   );
@@ -407,6 +445,25 @@ const Model = styled.div`
       opacity: 0;
     }
   }
+`;
+
+const Metadata = styled.div`
+  opacity: 0.3;
+  transition: 0.5s;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const Submeta = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 15px;
+`;
+
+const SubmetaIcon = styled(Icon)`
+  padding-right: 10px;
 `;
 
 const Input = styled(InputGroup)`

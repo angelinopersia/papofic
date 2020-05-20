@@ -30,7 +30,7 @@ const StyledView = {
     textAlign: "right",
   },
 
-  ".object-info": {
+  ".subject-info": {
     padding: "40px 0",
     fontSize: 18,
   },

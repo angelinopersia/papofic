@@ -4,30 +4,29 @@
 import Base from "./base";
 
 // CHICAGO
-import ChicagoLCAN001 from "./chicago";
+import Chicago from "./chicago";
 
 // DUBLIN
-import DublinLCAN001 from "./dublin";
+import Dublin from "./dublin";
 
 // ROMA
-import RomaLCAN001 from "./roma";
+import Roma from "./roma";
 
 export const themes = [
   {
     title: "base",
-    LCAN001: Base,
-    LCAN002: Base,
+    base: Base,
   },
   {
     title: "dublin",
-    LCAN001: DublinLCAN001,
+    dublin: Dublin,
   },
   {
     title: "roma",
-    LCAN001: RomaLCAN001,
+    roma: Roma,
   },
   {
     title: "chicago",
-    LCAN001: ChicagoLCAN001,
+    chicago: Chicago,
   },
 ];
