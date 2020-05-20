@@ -17,7 +17,6 @@ import {
   IDateFormatProps,
 } from "@blueprintjs/datetime";
 import MomentLocaleUtils from "react-day-picker/moment";
-// import "moment/locale/";
 import moment from "moment";
 import { thumbnails } from "./thumbnails/index";
 import { useOvermind } from "./store";
