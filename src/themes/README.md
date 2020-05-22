@@ -17,7 +17,7 @@ The content of your **typescript file** must begin from the code snippet found i
 
 2. In `/src/themes/themesConfig.ts`, import your own theme from your **typescript file**.
 
-The import must be named after your theme name in _CamelCase_.
+The import must be named after your theme name in _UpperCamelCase_.
 
 e.g., `import MyTheme from "./myTheme";`
 
@@ -47,11 +47,11 @@ The rest of the details are up to you and your creativity.
 
 2. When you're done creating your thumbnail, click on **"Export"** and **"Download Low-Res Preview"**.
 
-3. Rename the exported PNG after your theme's name in _camelCase_, and drop it into `/src/thumbnails`.
+3. Rename the exported PNG after your theme's name in _lowerCamelCase_, and drop it into `/src/thumbnails`.
 
 4. Import it into `/src/thumbnails/index.ts`.
 
-The import must be named after your theme's name in _camelCase_.
+The import must be named after your theme's name in _lowerCamelCase_.
 
 5. Include the import in the constant object `thumbnails`.
 
