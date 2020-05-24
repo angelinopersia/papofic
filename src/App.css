@@ -16,3 +16,8 @@
 body {
   overflow-x: hidden;
 }
+
+/* CHEATING */
+.bp3-transition-container {
+  transform: translate3d(8px, 688px, 0px) !important;
+}

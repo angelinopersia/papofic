@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import ReactToPrint from "react-to-print";
 import styled from "styled-components";
-import { Button, Icon, Intent, Position, Tooltip } from "@blueprintjs/core";
+import { Button, Icon, Intent } from "@blueprintjs/core";
 import { useOvermind } from "./store";
-import { modelsV } from "./App";
+import { modelsV } from "./models";
 
 const View = () => {
   const { state } = useOvermind();
@@ -14,29 +14,26 @@ const View = () => {
     <>
       {state.model !== "" && (
         <>
-          <File>
+          <Page>
             <div ref={componentRef}>
-              <GenericModel {...state.data} />
+              <File>
+                <GenericModel {...state.data} />
+              </File>
             </div>
-          </File>
+          </Page>
 
           <ReactToPrint
             trigger={() => (
               <PrintBlock className="bp3-dark">
-                <HoverText
-                  content="Imprimer le document"
-                  position={Position.TOP}
-                >
-                  <Print>
-                    <PrintContent>
-                      <Icon
-                        icon="print"
-                        iconSize={Icon.SIZE_LARGE}
-                        intent={Intent.NONE}
-                      />
-                    </PrintContent>
-                  </Print>
-                </HoverText>
+                <Print>
+                  <PrintContent>
+                    <Icon
+                      icon="print"
+                      iconSize={Icon.SIZE_LARGE}
+                      intent={Intent.NONE}
+                    />
+                  </PrintContent>
+                </Print>
               </PrintBlock>
             )}
             content={() => componentRef.current}
@@ -47,18 +44,21 @@ const View = () => {
   );
 };
 
-const File = styled.div`
+const Page = styled.div`
   margin: 50px;
   width: 794px;
-  background-color: white;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
     0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
     0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
     0 100px 80px rgba(0, 0, 0, 0.07);
-  & > div {
+`;
+
+const File = styled.div`
+  width: 794px;
+  background-color: white;
+ 
     position: relative;
-    height: 1123px;
-    max-height: 1123px;
+    min-height: 1123px;
     overflow: hidden;
   }
   animation-duration: 1s;
@@ -107,11 +107,6 @@ const PrintBlock = styled.div`
       opacity: 1;
     }
   }
-`;
-
-const HoverText = styled(Tooltip)`
-  bottom: 95px;
-  right: 85px;
 `;
 
 export default View;

@@ -19,8 +19,8 @@ import MomentLocaleUtils from "react-day-picker/moment";
 import moment from "moment";
 import { thumbnails } from "./thumbnails/index";
 import { useOvermind } from "./store";
-import { themes } from "./themes/themesConfig";
-import { modelsB, modelsTL } from "./App";
+import { themes } from "./themes";
+import { modelsB, modelsTL } from "./models";
 import Metadata from "./components/Metadata";
 
 const Builder = () => (
@@ -41,13 +41,9 @@ const ModelsPanel = (props: any) => {
   const [modelList, setModelList] = useState<any>([]);
   const [res, setRes] = useState<any>([]);
 
-  const CheckSameModel = async (modelTitle: string) => {
-    // try {
+  const CheckSameModel = (modelTitle: string) => {
     actions.clearData(modelTitle);
     actions.changeModel(modelTitle);
-    // } catch (error) {
-    //   console.error(error.message);
-    // }
   };
 
   useEffect(() => {
@@ -56,8 +52,9 @@ const ModelsPanel = (props: any) => {
       arr.push(model);
       setModelList(arr);
       setRes(modelList);
-      return "";
+      return null;
     });
+    // eslint-disable-next-line
   }, []);
 
   const SearchFunc = (model: string | number | object, m: number) => (
@@ -88,7 +85,7 @@ const ModelsPanel = (props: any) => {
         newList.push([model.title, model.id]);
       }
       setRes(newList);
-      return "";
+      return null;
     });
   }, [value, modelList]);
 
@@ -263,6 +260,7 @@ const usePanel = () => {
   useEffect(() => {
     const groups = createCollapseGroup();
     setList(groups);
+    // eslint-disable-next-line
   }, []);
 
   const createCollapseGroup = () => {
@@ -364,6 +362,9 @@ const Container = styled.div`
     margin-right: 0;
     overflow-y: inherit;
     border: 0;
+  }
+  .bp3-panel-stack-header {
+    margin-bottom: 10px;
   }
 `;
 

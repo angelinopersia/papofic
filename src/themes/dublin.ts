@@ -13,7 +13,7 @@ const StyledView = {
   ".top": {},
   ".bottom": {
     width: 794,
-    height: 500,
+    height: 600,
     background: "#ade4c5",
     position: "absolute",
     transform: "skewY(-11deg)",

@@ -26,6 +26,7 @@ const Metadata = () => (
 );
 
 const MetadataBlock = styled.div`
+  margin-top: 16px;
   opacity: 0.3;
   transition: 0.5s;
   &:hover {
