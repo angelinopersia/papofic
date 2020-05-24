@@ -4,7 +4,6 @@ import {
   Button,
   Card,
   Collapse,
-  Icon,
   InputGroup,
   PanelStack,
   Tab,
