@@ -7,6 +7,9 @@
 <a href="https://www.typescriptlang.org/"><img alt="typescript v3.7.2" src="https://img.shields.io/badge/v3.7.2-typescript-207ABF"/></a>
 <a href="https://classic.yarnpkg.com/lang/en/"><img alt="yarn v1.22.0" src="https://img.shields.io/badge/v1.22.0-yarn-2C8EBB"/></a>
 <a href="https://github.com/angelinopersia/papofic/blob/master/LICENSE.txt"><img alt="MIT license" src="https://img.shields.io/badge/License-MIT-green"/></a>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/88d57212-6e01-4b70-90ae-933c8a2d1286/deploy-status)](https://app.netlify.com/sites/papofic/deploys)
+
 </p>
 
 ### Papofic lets its users save time with a variety of document templates of which the general content is already written.
@@ -25,7 +28,7 @@
 
 ## Try it online
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/88d57212-6e01-4b70-90ae-933c8a2d1286/deploy-status)](https://papofic.netlify.app/)
+[The project is deployed online using netlify.](https://papofic.netlify.app/)
 
 ## Install and launch locally
 
