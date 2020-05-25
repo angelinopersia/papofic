@@ -147,29 +147,31 @@ const View = ({
           <li>{dPostCode}</li>
           <li>{dCity}</li>
         </ul>
-        <span>Date: {mDate}</span>
-        <br />
+
+        <span className="done-at">
+          {mCity}, {mDate}
+        </span>
 
         <span className="subject-info">Subject: {mSubject}</span>
       </div>
 
       <div className="content">
         <p>Dear Sir or Madam,</p>
+        <p>
+          As of {mDate}, I would like to cancel my {cFile} for your service
+          which began on {cDate[0]}, under the {cFile} number {cFileNumber}.
+        </p>
+        <p>I am cancelling the service for the following reason: {cReason}</p>
+        <p>
+          I would like you to please end this {cFile} by {cDate[1]}.
+        </p>
+        <p>
+          Please send me a written confirmation of the cancellation within 30
+          days and ensure that no more payments are applied to my account
+          starting from today.
+        </p>
         <br />
-        <p>
-          This letter is a request for the cancellation of my membership. The
-          reason why I must unfortunately ask for the cancellation of my
-          membership is because {cReason}
-        </p>
-        <p>
-          My membership began on {cDate[0]}, and must now end by {cDate[1]}. My
-          membership number is {cFileNumber}.
-        </p>
-        <p>
-          Despite the cancellation, I still thank you for your service during
-          the time that my membership was active.
-        </p>
-        <br />
+        <p>Thank you for your attention.</p>
         <p>Sincerely,</p>
       </div>
 
@@ -180,11 +182,11 @@ const View = ({
 );
 
 const Naming = {
-  id: ["LCAN003"],
-  title: ["Gym Membership Cancellation letter"],
+  id: ["LGENCAN001"],
+  title: ["Generic Cancellation letter 1"],
 };
 
-export const LCAN003 = { Builder, View, Naming };
+export const LGENCAN001 = { Builder, View, Naming };
 
 const Div = styled.div`
   background: white;

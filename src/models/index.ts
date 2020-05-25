@@ -1,17 +1,21 @@
-import { LCAN001 } from "./LCAN001/LCAN001";
-import { LCAN002 } from "./LCAN002/LCAN002";
-import { LCAN003 } from "./LCAN003/LCAN003";
+import { LGENCAN001 } from "./LGENCAN001/LGENCAN001";
+import { LGENCAN002 } from "./LGENCAN002/LGENCAN002";
+import { LGYMCAN001 } from "./LGYMCAN001/LGYMCAN001";
 
 export const modelsB = {
-  LCAN001: LCAN001.Builder,
-  LCAN002: LCAN002.Builder,
-  LCAN003: LCAN003.Builder,
+  LGENCAN001: LGENCAN001.Builder,
+  LGENCAN002: LGENCAN002.Builder,
+  LGYMCAN001: LGYMCAN001.Builder,
 };
 
 export const modelsV = {
-  LCAN001: LCAN001.View,
-  LCAN002: LCAN002.View,
-  LCAN003: LCAN003.View,
+  LGENCAN001: LGENCAN001.View,
+  LGENCAN002: LGENCAN002.View,
+  LGYMCAN001: LGYMCAN001.View,
 };
 
-export const modelsTL = [LCAN001.Naming, LCAN002.Naming, LCAN003.Naming];
+export const modelsTL = [
+  LGENCAN001.Naming,
+  LGENCAN002.Naming,
+  LGYMCAN001.Naming,
+];

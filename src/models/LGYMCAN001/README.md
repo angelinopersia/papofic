@@ -1,4 +1,4 @@
-The following code snippet is structured according to the available css of `LC001`.
+The following code snippet is structured according to the available css of `LGYMCAN001`.
 
 You may copy it and paste it into your own theme typescript file before editing the latter.
 
@@ -19,9 +19,7 @@ const StyledView = {
   ".sender": {},
   ".destin": {},
 
-  ".done-at": {},
-
-  ".object-info": {},
+  ".subject-info": {},
 
   ".content": {},
 

@@ -52,29 +52,18 @@ const Builder: BuilderType[] = [
     id: "misc",
     items: [
       {
-        title: "Done at (City)",
-        name: "mCity",
-        icon: "map-marker",
-      },
-      {
         title: "Done the (Date)",
         name: "mDate",
         icon: "calendar",
         type: "date",
       },
-      { title: "Subject", name: "mSubject", icon: "edit", fullRow: true },
+      { title: "Subject", name: "mSubject", icon: "edit" },
     ],
   },
   {
     title: "Content",
     id: "content",
     items: [
-      {
-        title: "Contract/Subscription/...",
-        name: "cFile",
-        icon: "edit",
-        fullRow: true,
-      },
       {
         title: "Start date and End date",
         name: "cDate",
@@ -114,11 +103,9 @@ const View = ({
   dPostCode = "Post Code",
   dCity = "City",
   // MISC
-  mCity = "(City)",
   mDate = "(Date)",
   mSubject = "Subject",
   // CONTENT
-  cFile = "(contract/subscription/...)",
   cDate = ["(start date)", "(end date)"],
   cFileNumber = "(contract/subscription/... number)",
   cReason = "(reason of the decision)",
@@ -147,31 +134,29 @@ const View = ({
           <li>{dPostCode}</li>
           <li>{dCity}</li>
         </ul>
-
-        <span className="done-at">
-          {mCity}, {mDate}
-        </span>
+        <span>Date: {mDate}</span>
+        <br />
 
         <span className="subject-info">Subject: {mSubject}</span>
       </div>
 
       <div className="content">
         <p>Dear Sir or Madam,</p>
+        <br />
         <p>
-          As of {mDate}, I would like to cancel my {cFile} for your service
-          which began on {cDate[0]}, under the {cFile} number {cFileNumber}.
-        </p>
-        <p>I am cancelling the service for the following reason: {cReason}</p>
-        <p>
-          I would like you to please end this {cFile} by {cDate[1]}.
+          This letter is a request for the cancellation of my membership. The
+          reason why I must unfortunately ask for the cancellation of my
+          membership is because {cReason}
         </p>
         <p>
-          Please send me a written confirmation of the cancellation within 30
-          days and ensure that no more payments are applied to my account
-          starting from today.
+          My membership began on {cDate[0]}, and must now end by {cDate[1]}. My
+          membership number is {cFileNumber}.
+        </p>
+        <p>
+          Despite the cancellation, I still thank you for your service during
+          the time that my membership was active.
         </p>
         <br />
-        <p>Thank you for your attention.</p>
         <p>Sincerely,</p>
       </div>
 
@@ -182,11 +167,11 @@ const View = ({
 );
 
 const Naming = {
-  id: ["LCAN001"],
-  title: ["Generic Cancellation letter 1"],
+  id: ["LGYMCAN001"],
+  title: ["Gym Membership Cancellation letter"],
 };
 
-export const LCAN001 = { Builder, View, Naming };
+export const LGYMCAN001 = { Builder, View, Naming };
 
 const Div = styled.div`
   background: white;

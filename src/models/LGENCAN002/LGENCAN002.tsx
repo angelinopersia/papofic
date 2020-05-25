@@ -52,17 +52,13 @@ const Builder: BuilderType[] = [
     id: "misc",
     items: [
       {
-        title: "Done at (City)",
-        name: "mCity",
-        icon: "map-marker",
-      },
-      {
         title: "Done the (Date)",
         name: "mDate",
         icon: "calendar",
         type: "date",
+        fullRow: true,
       },
-      { title: "Subject", name: "mSubject", icon: "edit", fullRow: true },
+      // Fullrow date won't take the full row
     ],
   },
   {
@@ -114,9 +110,7 @@ const View = ({
   dPostCode = "Post Code",
   dCity = "City",
   // MISC
-  mCity = "(City)",
   mDate = "(Date)",
-  mSubject = "Subject",
   // CONTENT
   cFile = "(contract/subscription/...)",
   cDate = ["(start date)", "(end date)"],
@@ -182,11 +176,11 @@ const View = ({
 );
 
 const Naming = {
-  id: ["LCAN002"],
+  id: ["LGENCAN002"],
   title: ["Generic Cancellation letter 2"],
 };
 
-export const LCAN002 = { Builder, View, Naming };
+export const LGENCAN002 = { Builder, View, Naming };
 
 const Div = styled.div`
   background: white;
