@@ -25,7 +25,9 @@
 
 ## Try it online
 
-[Link](http://localhost:3000/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/88d57212-6e01-4b70-90ae-933c8a2d1286/deploy-status)](https://app.netlify.com/sites/papofic/deploys)
+
+[Link](https://papofic.netlify.app/)
 
 ## Install and launch locally
 
@@ -54,7 +56,7 @@ You may also create your own variant of an existing template and offer to have i
 
 - The content of the pull request does not change the project's code in any other way than by strictly following the [API](#api) above.
 - No part of your contribution contains offensive content.
-- Your contribution isn't disaster.
+- Your contribution isn't a disaster.
 
 ### Reporting bugs
 
