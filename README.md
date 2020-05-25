@@ -25,9 +25,7 @@
 
 ## Try it online
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/88d57212-6e01-4b70-90ae-933c8a2d1286/deploy-status)](https://app.netlify.com/sites/papofic/deploys)
-
-[Link](https://papofic.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/88d57212-6e01-4b70-90ae-933c8a2d1286/deploy-status)](https://papofic.netlify.app/)
 
 ## Install and launch locally
 
